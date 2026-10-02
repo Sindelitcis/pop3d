@@ -10,7 +10,7 @@ import urllib.parse
 AQUI = os.path.dirname(os.path.abspath(__file__))
 PASTA = os.path.join(AQUI, "originais")
 API = "https://commons.wikimedia.org/w/api.php"
-UA = {"User-Agent": "Pop3D-site/1.0 (https://sindelitcis.github.io/pop3d)"}
+UA = {"User-Agent": "Pop3D-site/1.0 (https://pop3d.quest)"}
 BUSCAS = {
     "bunny": "Big Buck Bunny screenshot",
     "sintel": "Sintel open movie still",

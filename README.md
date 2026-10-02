@@ -6,7 +6,7 @@ O Pop3D usa inteligência artificial para transformar filmes, séries e vídeos 
 
 ### [⬇ Baixar o Pop3D para Windows](https://github.com/Sindelitcis/pop3d/releases/latest)
 
-Site: **https://sindelitcis.github.io/pop3d**
+Site: **https://pop3d.quest**
 
 ## O que ele faz
 
@@ -34,7 +34,7 @@ Site: **https://sindelitcis.github.io/pop3d**
 
 ## Privacidade
 
-Seus filmes nunca saem do seu computador. O app envia apenas estatísticas anônimas de uso (placa de vídeo, desempenho, erros), e isso pode ser desligado nos Ajustes. Detalhes na [Política de Privacidade](https://sindelitcis.github.io/pop3d/privacidade.html).
+Seus filmes nunca saem do seu computador. O app envia apenas estatísticas anônimas de uso (placa de vídeo, desempenho, erros), e isso pode ser desligado nos Ajustes. Detalhes na [Política de Privacidade](https://pop3d.quest/privacidade.html).
 
 ## Achou um problema?
 
@@ -45,5 +45,5 @@ Seus filmes nunca saem do seu computador. O app envia apenas estatísticas anôn
 **Pop3D** is a free Windows app that uses AI to turn 2D movies, shows and videos into real 3D, on the fly, right in your VR headset (Meta Quest or any PC headset). No converting, no setup: the installer detects your graphics card and prepares everything. Your videos never leave your computer; the app only sends anonymous usage statistics, which you can turn off in Settings.
 
 - **Download:** https://github.com/Sindelitcis/pop3d/releases/latest
-- **Website:** https://sindelitcis.github.io/pop3d
+- **Website:** https://pop3d.quest
 - **Requirements:** Windows 10 or 11 (64-bit), NVIDIA GeForce RTX graphics card (20 series or newer), 15 GB of free space, and a Meta Quest 2, 3 or 3S, or any PC headset (SteamVR/OpenXR). The installer is also available in Spanish.
