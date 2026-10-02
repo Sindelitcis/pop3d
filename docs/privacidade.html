@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — Pop3D</title>
+<link rel="icon" href="favicon.ico">
+<style>
+  :root { --fundo: #0b0d12; --painel: #161a24; --borda: rgba(255,255,255,.08); --texto: #eef0f6; --texto2: #a3a9bb; --texto3: #6f7689;
+    --grad: linear-gradient(135deg, #7c5cff 0%, #4f8bff 55%, #00c8ff 100%);
+    --fonte: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--fonte); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .faixa { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--borda); }
+  header .faixa { height: 62px; display: flex; align-items: center; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 700; font-size: 19px; }
+  .marca i { width: 32px; height: 32px; border-radius: 9px; background: var(--grad); display: grid; place-items: center; font-style: normal; font-size: 13px; font-weight: 800; }
+  main { padding: 46px 0 70px; }
+  h1 { font-size: clamp(30px, 5vw, 40px); margin: 0 0 6px; line-height: 1.15; }
+  .data { color: var(--texto3); margin: 0 0 30px; }
+  h2 { font-size: 21px; margin: 36px 0 8px; }
+  p, li { color: var(--texto2); }
+  b { color: var(--texto); }
+  a { color: #9d87ff; }
+  .resumo { background: var(--painel); border: 1px solid var(--borda); border-radius: 16px; padding: 18px 22px; }
+  .resumo p { margin: 0; color: var(--texto); }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  footer { border-top: 1px solid var(--borda); padding: 26px 0 40px; color: var(--texto3); font-size: 14px; }
+  footer a { color: var(--texto2); }
+</style>
+</head>
+<body>
+<header><div class="faixa"><a class="marca" href="./"><i>3D</i>Pop3D</a></div></header>
+<main>
+  <div class="faixa">
+    <h1>Política de Privacidade</h1>
+    <p class="data">Atualizada em 2 de outubro de 2026</p>
+
+    <div class="resumo"><p><b>Resumo:</b> seus filmes e vídeos nunca saem do seu computador. O Pop3D só envia estatísticas anônimas de uso (como o modelo da placa de vídeo e o desempenho) para a gente melhorar o app, e você pode desligar isso a qualquer momento nos Ajustes.</p></div>
+
+    <h2>Quem somos</h2>
+    <p>O Pop3D é um aplicativo gratuito que transforma vídeos 2D em 3D para óculos de realidade virtual. Ele é formado pelo aplicativo do computador (Windows) e pelo aplicativo do óculos (Meta Quest). Esta política vale para os dois.</p>
+
+    <h2>O que nunca coletamos</h2>
+    <ul>
+      <li>Nomes, conteúdos ou imagens dos seus filmes e vídeos, nem o que aparece na tela do seu computador.</li>
+      <li>Nomes de pastas e arquivos do seu computador.</li>
+      <li>Seu nome, e-mail, contas, contatos ou qualquer dado que identifique você.</li>
+      <li>Seu endereço IP: ele não é guardado nem usado para descobrir onde você está.</li>
+      <li>Imagens das câmeras, do ambiente ou dos movimentos do óculos.</li>
+    </ul>
+    <p>Todo o processamento com inteligência artificial acontece no seu próprio computador. O vídeo vai do computador para o óculos pela sua rede local (Wi-Fi ou cabo), sem passar pela internet.</p>
+
+    <h2>O que coletamos (estatísticas anônimas de uso)</h2>
+    <p>Para descobrir problemas e deixar o app mais rápido em mais computadores, o aplicativo do computador envia informações técnicas como:</p>
+    <ul>
+      <li>Um código aleatório criado na instalação, que não tem relação com você (serve só para contar instalações sem duplicar).</li>
+      <li>Versão do Pop3D e do Windows, idioma do sistema.</li>
+      <li>Modelo da placa de vídeo, memória de vídeo, versão do driver, processador e memória RAM.</li>
+      <li>Resultados de desempenho: quadros por segundo, uso da placa de vídeo e a qualidade escolhida.</li>
+      <li>Como o app é usado: tipo de óculos e de conexão (Wi-Fi, cabo, PC VR), modo de vídeo (2D, 3D, tela do PC), tempo de uso.</li>
+      <li>Etapas da instalação e mensagens de erro (sem nomes de arquivos ou pastas).</li>
+    </ul>
+    <p>Esses dados são guardados pelo <b>PostHog</b>, um serviço de estatísticas, em servidores na <b>União Europeia</b>, e só são vistos pela equipe do Pop3D. Não vendemos nem compartilhamos esses dados com mais ninguém, e não os usamos para propaganda.</p>
+
+    <h2>Como desligar</h2>
+    <p>No aplicativo do computador, abra <b>Ajustes</b> e desligue <b>Enviar dados de uso anônimos</b>. A partir daí, nada mais é enviado.</p>
+
+    <h2>Atualizações</h2>
+    <p>Ao abrir, o Pop3D consulta o <b>GitHub</b> (onde as versões são publicadas) para saber se saiu uma versão nova. Como qualquer site, o GitHub recebe o endereço de internet do seu computador nesse momento; a política de privacidade do GitHub vale para essa consulta. Nenhuma informação sua é enviada junto.</p>
+
+    <h2>Aplicativo do óculos (Meta Quest)</h2>
+    <p>O aplicativo Pop3D do óculos não coleta nem envia dados para a internet. Ele só conversa com o seu computador, na sua rede local, para receber o vídeo e mandar os comandos dos controles.</p>
+
+    <h2>Crianças</h2>
+    <p>O Pop3D não coleta dados pessoais de ninguém, inclusive de crianças. Siga as recomendações de idade da fabricante do seu óculos.</p>
+
+    <h2>Seus direitos (LGPD e GDPR)</h2>
+    <p>Como os dados são anônimos, não conseguimos ligar nenhuma estatística a você. Mesmo assim, se quiser que apaguemos as estatísticas do seu computador, desligue o envio nos Ajustes e fale com a gente pelo link abaixo, informando o código de instalação que aparece nos Ajustes.</p>
+
+    <h2>Mudanças nesta política</h2>
+    <p>Se esta política mudar, a nova versão aparece nesta página com a data atualizada.</p>
+
+    <h2>Contato</h2>
+    <p>Dúvidas ou pedidos: <a href="https://github.com/Sindelitcis/pop3d/issues">github.com/Sindelitcis/pop3d/issues</a>.</p>
+  </div>
+</main>
+<footer><div class="faixa">© 2026 Pop3D · <a href="./">Página inicial</a></div></footer>
+</body>
+</html>
