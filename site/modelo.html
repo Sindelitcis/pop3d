@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="{{html_lang}}" data-raiz="{{raiz}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titulo}}</title>
+<meta name="description" content="{{descricao}}">
+<meta property="og:title" content="{{titulo}}">
+<meta property="og:description" content="{{descricao}}">
+<meta property="og:image" content="https://sindelitcis.github.io/pop3d/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" href="{{raiz}}favicon.ico">
+<link rel="alternate" hreflang="pt-BR" href="https://sindelitcis.github.io/pop3d/">
+<link rel="alternate" hreflang="en" href="https://sindelitcis.github.io/pop3d/en/">
+<link rel="alternate" hreflang="es" href="https://sindelitcis.github.io/pop3d/es/">
+<link rel="alternate" hreflang="x-default" href="https://sindelitcis.github.io/pop3d/en/">
+<link rel="stylesheet" href="{{raiz}}css/site.css">
+{{redirecionar}}
+<script>window.POP3D_TEXTOS = {{textos_js}};</script>
+</head>
+<body>
+<header id="topo">
+  <div class="faixa">
+    <a class="marca" href="{{inicio}}"><i>3D</i>Pop3D</a>
+    <nav>
+      <a class="some" href="#magica">{{nav_magica}}</a>
+      <a class="some" href="#onde">{{nav_onde}}</a>
+      <a class="some" href="#duvidas">{{nav_duvidas}}</a>
+      <span class="idiomas">{{idiomas}}</span>
+      <a class="cta-topo" href="#baixar">{{nav_baixar}}</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="heroi" id="baixar">
+    <div class="faixa">
+      <div class="heroi-texto">
+        <div class="selo">{{selo}}</div>
+        <h1>{{h1}}</h1>
+        <p class="lead">{{lead}}</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>{{baixar}}</span>
+          </a>
+          <a class="botao" href="#magica">{{ver_magica}}</a>
+        </div>
+        <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+      </div>
+      <div class="cinema" aria-label="{{alt_heroi}}">
+        <div class="tela-moldura"></div>
+        <canvas id="heroi-3d" data-foto="heroi" role="img" aria-label="{{alt_heroi}}"></canvas>
+        <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>{{anaglifo}}</button>
+        <div class="rotulo">{{rotulo_heroi}}</div>
+      </div>
+      <div class="dica-mexer">{{dica_mexer}}</div>
+    </div>
+  </div>
+
+  <div class="diorama" id="magica" data-foto="baloes">
+    <div class="diorama-fixo faixa">
+      <div>
+        <span class="olho-secao grad">{{magica_olho}}</span>
+        <h2>{{magica_h2}}</h2>
+        <p class="intro">{{magica_intro}}</p>
+        <ol class="passos-camadas">
+          <li><span class="n">1</span><span>{{magica_p1}}</span></li>
+          <li><span class="n">2</span><span>{{magica_p2}}</span></li>
+          <li><span class="n">3</span><span>{{magica_p3}}</span></li>
+        </ol>
+      </div>
+      <div class="diorama-cena"><div class="diorama-palco"></div></div>
+    </div>
+  </div>
+
+  <section id="tudo">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">{{tudo_olho}}</span>
+        <h2>{{tudo_h2}}</h2>
+        <p class="intro">{{tudo_intro}}</p>
+      </div>
+      <div class="mosaico">
+        <div class="cartao-3d g aparece"><canvas data-foto="filme" data-forca=".035" data-foco=".45"></canvas><div class="txt"><h3>{{c_filme}}</h3><p>{{c_filme_p}}</p></div></div>
+        <div class="cartao-3d g aparece"><canvas data-foto="jogo" data-forca=".03" data-foco=".4"></canvas><div class="txt"><h3>{{c_jogo}}</h3><p>{{c_jogo_p}}</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="praia" data-forca=".03"></canvas><div class="txt"><h3>{{c_viagem}}</h3><p>{{c_viagem_p}}</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="festa" data-forca=".03"></canvas><div class="txt"><h3>{{c_familia}}</h3><p>{{c_familia_p}}</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="filhote" data-forca=".03"></canvas><div class="txt"><h3>{{c_fotos}}</h3><p>{{c_fotos_p}}</p></div></div>
+        <div class="cartao-3d l aparece"><canvas data-foto="cidade" data-forca=".025" data-foco=".4"></canvas><div class="txt"><h3>{{c_youtube}}</h3><p>{{c_youtube_p}}</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="lago" data-forca=".03" data-foco=".45"></canvas><div class="txt"><h3>{{c_natureza}}</h3><p>{{c_natureza_p}}</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">{{dif_olho}}</span>
+        <h2>{{dif_h2}}</h2>
+        <p class="intro">{{dif_intro}}</p>
+      </div>
+      <div class="comparar aparece">
+        <canvas id="comparar-3d" data-foto="cachorro" role="img" aria-label="{{dif_alt}}"></canvas>
+        <div class="comparar-linha"></div>
+        <span class="lado esq">{{dif_esq}}</span><span class="lado dir"><span class="grad">{{dif_dir}}</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">{{onde_olho}}</span>
+        <h2>{{onde_h2}}</h2>
+        <p class="intro">{{onde_intro}}</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece">
+          <span class="selo-quest">{{quest_selo}}</span>
+          <h3>{{quest_h3}}</h3>
+          <p>{{quest_p}}</p>
+          <ul><li>{{quest_l1}}</li><li>{{quest_l2}}</li><li>{{quest_l3}}</li><li>{{quest_l4}}</li></ul>
+        </div>
+        <div class="outros aparece">
+          <h3>{{outros_h3}}</h3>
+          <p>{{outros_p}}</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>{{steamvr_p}}</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="faixa">
+      <div class="centro aparece"><h2>{{como_h2}}</h2></div>
+      <div class="passos">
+        <div class="passo aparece"><b>{{passo1}}</b><span>{{passo1_p}}</span></div>
+        <div class="passo aparece"><b>{{passo2}}</b><span>{{passo2_p}}</span></div>
+        <div class="passo aparece"><b>{{passo3}}</b><span>{{passo3_p}}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <div class="faixa">
+      <div class="aparece"><h2>{{req_h2}}</h2><p class="intro">{{req_intro}}</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>{{req_sistema}}</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>{{req_placa}}</small>NVIDIA GeForce RTX</div>
+        <div class="req"><small>{{req_espaco}}</small>15 GB</div>
+        <div class="req"><small>{{req_oculos}}</small>{{req_oculos_v}}</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="faixa">
+      <h2 class="aparece">{{duvidas_h2}}</h2>
+      {{duvidas}}
+    </div>
+  </section>
+
+  <div class="final">
+    <div class="faixa aparece">
+      <h2>{{final_h2}}</h2>
+      <p class="lead">{{final_p}}</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>{{baixar}}</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="faixa">
+    <span>© <span id="ano">2026</span> Pop3D</span>
+    <a href="{{url_privacidade}}">{{privacidade}}</a>
+    <a href="https://github.com/Sindelitcis/pop3d/releases">{{versoes}}</a>
+    <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">{{problema}}</a>
+    <details class="creditos"><summary>{{creditos_tit}}</summary>{{creditos}}</details>
+  </div>
+</footer>
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
+</script>
+<script src="{{raiz}}js/pop3d.js" defer></script>
+</body>
+</html>

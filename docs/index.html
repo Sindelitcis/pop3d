@@ -1,112 +1,40 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-raiz="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pop3D — qualquer filme em 3D no seu óculos VR</title>
-<meta name="description" content="Pop3D transforma filmes e vídeos 2D em 3D de verdade com inteligência artificial, na hora, direto no seu óculos VR. Grátis.">
-<meta property="og:title" content="Pop3D — qualquer filme em 3D no seu óculos VR">
-<meta property="og:description" content="A IA transforma filmes e vídeos 2D em 3D, na hora, no seu Meta Quest. Grátis.">
+<title>Pop3D: tudo o que você vê, agora em 3D no seu óculos VR</title>
+<meta name="description" content="Filmes, séries, viagens, fotos da família, YouTube e jogos: o Pop3D transforma tudo o que passa no seu computador em 3D de verdade no seu óculos VR. Grátis.">
+<meta property="og:title" content="Pop3D: tudo o que você vê, agora em 3D no seu óculos VR">
+<meta property="og:description" content="Filmes, séries, viagens, fotos da família, YouTube e jogos: o Pop3D transforma tudo o que passa no seu computador em 3D de verdade no seu óculos VR. Grátis.">
+<meta property="og:image" content="https://sindelitcis.github.io/pop3d/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07080d">
 <link rel="icon" href="favicon.ico">
-<style>
-  :root {
-    --fundo: #0b0d12; --fundo2: #11141c; --painel: #161a24; --borda: rgba(255,255,255,.08); --borda2: rgba(255,255,255,.14);
-    --texto: #eef0f6; --texto2: #a3a9bb; --texto3: #6f7689; --acento: #7c5cff; --acento2: #00c8ff; --ok: #2ed47a;
-    --grad: linear-gradient(135deg, #7c5cff 0%, #4f8bff 55%, #00c8ff 100%);
-    --fonte: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-    --fonte-tit: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--fonte); font-size: 16px; line-height: 1.55;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  a { color: inherit; }
-  .faixa { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-
-  header { position: sticky; top: 0; z-index: 10; background: rgba(11,13,18,.78); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borda); }
-  header .faixa { display: flex; align-items: center; gap: 12px; height: 62px; }
-  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--fonte-tit); font-weight: 700; font-size: 19px; }
-  .marca i { width: 32px; height: 32px; border-radius: 9px; background: var(--grad); display: grid; place-items: center; font-style: normal; font-size: 13px; font-weight: 800; }
-  header nav { margin-left: auto; display: flex; gap: 22px; font-size: 15px; }
-  header nav a { text-decoration: none; color: var(--texto2); }
-  header nav a:hover { color: var(--texto); }
-  @media (max-width: 640px) { header nav a:not(.sempre) { display: none; } }
-
-  .heroi { position: relative; padding: 84px 0 70px; text-align: center; }
-  .heroi::before { content: ""; position: absolute; inset: -200px 0 0; z-index: -1;
-    background: radial-gradient(900px 520px at 50% 18%, rgba(124,92,255,.32), transparent 70%), radial-gradient(600px 400px at 78% 40%, rgba(0,200,255,.12), transparent 70%); }
-  .selo { display: inline-block; padding: 5px 13px; border-radius: 99px; border: 1px solid var(--borda2); color: var(--texto2); font-size: 13.5px; margin-bottom: 22px; }
-  h1 { font-family: var(--fonte-tit); font-size: clamp(36px, 7vw, 66px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -.02em; }
-  h1 em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .heroi p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--texto2); max-width: 640px; margin: 0 auto 32px; }
-  .botoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .botao { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; font-weight: 650; font-size: 17px; text-decoration: none;
-    border: 1px solid var(--borda2); background: var(--painel); transition: transform .15s, box-shadow .15s; }
-  .botao.principal { background: var(--grad); border: 0; box-shadow: 0 12px 40px rgba(124,92,255,.45); }
-  .botao:hover { transform: translateY(-2px); }
-  .botao.desligado { opacity: .55; pointer-events: none; box-shadow: none; }
-  .botao svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-  .detalhe { color: var(--texto3); font-size: 14px; margin-top: 14px; min-height: 22px; }
-
-  /* "tela" ilustrativa: um quadro 2D que ganha profundidade */
-  .palco { margin: 58px auto 0; max-width: 760px; perspective: 1200px; }
-  .tela { position: relative; aspect-ratio: 16/8; border-radius: 22px; border: 1px solid var(--borda2); overflow: hidden; transform: rotateX(10deg);
-    background: linear-gradient(#141a35, #0d1022); box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(124,92,255,.15); }
-  .tela .camada { position: absolute; inset: 0; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
-  .tela .ceu { background: radial-gradient(240px 160px at 72% 30%, rgba(255,190,120,.55), transparent 70%), linear-gradient(#2a2c6a, #121535 70%); }
-  .tela .montanha { clip-path: polygon(0 78%, 18% 46%, 32% 62%, 50% 30%, 66% 55%, 82% 38%, 100% 64%, 100% 100%, 0 100%); background: linear-gradient(#3c3f8f, #1b1d48); }
-  .tela .frente { clip-path: polygon(0 90%, 22% 70%, 40% 84%, 62% 66%, 84% 82%, 100% 74%, 100% 100%, 0 100%); background: linear-gradient(#7c5cff, #2b1f7a); }
-  .tela .rotulo { position: absolute; left: 18px; top: 16px; padding: 4px 11px; border-radius: 99px; background: rgba(0,0,0,.45); font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-  .palco.em3d .ceu { transform: translateZ(-60px) scale(1.08); }
-  .palco.em3d .montanha { transform: translateZ(10px) translateY(-6px); }
-  .palco.em3d .frente { transform: translateZ(70px) translateY(-10px) scale(1.02); }
-  .tela .camada { transform-style: preserve-3d; }
-  .tela { transform-style: preserve-3d; }
-
-  section { padding: 70px 0; }
-  h2 { font-family: var(--fonte-tit); font-size: clamp(27px, 4vw, 38px); margin: 0 0 10px; letter-spacing: -.01em; }
-  .intro { color: var(--texto2); margin: 0 0 34px; max-width: 640px; }
-  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-  .cartao { background: var(--painel); border: 1px solid var(--borda); border-radius: 18px; padding: 24px; }
-  .cartao .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(124,92,255,.16); color: #b5a3ff; margin-bottom: 14px; }
-  .cartao .ico svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .cartao h3 { margin: 0 0 6px; font-size: 18px; }
-  .cartao p { margin: 0; color: var(--texto2); font-size: 15px; }
-
-  .passos { counter-reset: p; display: grid; gap: 14px; }
-  .passo { display: flex; gap: 18px; align-items: flex-start; background: var(--painel); border: 1px solid var(--borda); border-radius: 18px; padding: 20px 22px; }
-  .passo::before { counter-increment: p; content: counter(p); flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--grad); display: grid; place-items: center; font-weight: 800; }
-  .passo b { display: block; font-size: 17px; margin-bottom: 2px; }
-  .passo span { color: var(--texto2); font-size: 15px; }
-
-  .requisitos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-  .req { border: 1px solid var(--borda); border-radius: 14px; padding: 16px 18px; background: var(--fundo2); }
-  .req small { display: block; color: var(--texto3); font-size: 12.5px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
-
-  details { background: var(--painel); border: 1px solid var(--borda); border-radius: 14px; padding: 0 20px; margin-bottom: 10px; }
-  summary { cursor: pointer; padding: 17px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--texto3); font-size: 22px; line-height: 1; }
-  details[open] summary::after { content: "–"; }
-  details p { margin: 0 0 18px; color: var(--texto2); }
-
-  footer { border-top: 1px solid var(--borda); padding: 34px 0 50px; color: var(--texto3); font-size: 14px; }
-  footer .faixa { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
-  footer a { color: var(--texto2); text-decoration: none; }
-  footer a:hover { color: var(--texto); }
-  footer .dir { margin-left: auto; }
-  @media (prefers-reduced-motion: reduce) { .tela .camada { transition: none; } .botao { transition: none; } }
-</style>
+<link rel="alternate" hreflang="pt-BR" href="https://sindelitcis.github.io/pop3d/">
+<link rel="alternate" hreflang="en" href="https://sindelitcis.github.io/pop3d/en/">
+<link rel="alternate" hreflang="es" href="https://sindelitcis.github.io/pop3d/es/">
+<link rel="alternate" hreflang="x-default" href="https://sindelitcis.github.io/pop3d/en/">
+<link rel="stylesheet" href="css/site.css">
+<script>
+  // 1ª visita de quem não fala português: vai para o idioma dela (a escolha manual fica guardada e vale depois)
+  try {
+    const salvo = localStorage.getItem("pop3d_idioma"), lingua = (navigator.language || "").toLowerCase();
+    if (!salvo && !lingua.startsWith("pt")) location.replace(lingua.startsWith("es") ? "es/" : "en/");
+  } catch (e) {}
+</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "Em breve", "forno": "A primeira versão está saindo do forno.", "versao": "Versão", "no_pc": "Baixe no computador (Windows): o Pop3D roda no PC."};</script>
 </head>
 <body>
-<header>
+<header id="topo">
   <div class="faixa">
-    <a class="marca" href="#"><i>3D</i>Pop3D</a>
+    <a class="marca" href="./"><i>3D</i>Pop3D</a>
     <nav>
-      <a href="#como">Como funciona</a>
-      <a href="#requisitos">Requisitos</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a class="sempre" href="#baixar">Baixar</a>
+      <a class="some" href="#magica">A mágica</a>
+      <a class="some" href="#onde">Onde funciona</a>
+      <a class="some" href="#duvidas">Dúvidas</a>
+      <span class="idiomas"><a href="./" data-idioma="pt" class="ativo" hreflang="pt">PT</a><a href="en/" data-idioma="en" hreflang="en">EN</a><a href="es/" data-idioma="es" hreflang="es">ES</a></span>
+      <a class="cta-topo" href="#baixar">Baixar grátis</a>
     </nav>
   </div>
 </header>
@@ -114,53 +42,101 @@
 <main>
   <div class="heroi" id="baixar">
     <div class="faixa">
-      <div class="selo">Grátis · Para Meta Quest e óculos de PC</div>
-      <h1>Qualquer filme<br>em <em>3D de verdade</em>.</h1>
-      <p class="lead">O Pop3D usa inteligência artificial para transformar filmes, séries e vídeos 2D em 3D, na hora, direto no seu óculos VR. Sem converter nada, sem configurar nada.</p>
-      <div class="botoes">
-        <a class="botao principal desligado" id="baixar-botao" href="https://github.com/Sindelitcis/pop3d/releases/latest">
-          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
-          <span id="baixar-texto">Baixar para Windows</span>
-        </a>
-        <a class="botao" href="#como">Como funciona</a>
-      </div>
-      <div class="detalhe" id="baixar-detalhe">&nbsp;</div>
-
-      <div class="palco" id="palco" aria-hidden="true">
-        <div class="tela">
-          <div class="camada ceu"></div>
-          <div class="camada montanha"></div>
-          <div class="camada frente"></div>
-          <div class="rotulo" id="rotulo">2D</div>
+      <div class="heroi-texto">
+        <div class="selo"><b>Grátis</b> · Meta Quest e óculos de PC</div>
+        <h1>Tudo o que você vê,<br><span class="grad">agora em 3D.</span></h1>
+        <p class="lead">Filmes, séries, a viagem do ano passado, o aniversário da família, o YouTube, seus jogos. O Pop3D transforma tudo o que passa no seu computador em 3D de verdade, direto no seu óculos VR. Na hora, sem converter nada.</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Baixar grátis para Windows</span>
+          </a>
+          <a class="botao" href="#magica">Ver a mágica</a>
         </div>
+        <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
       </div>
+      <div class="cinema" aria-label="Cena do filme Big Buck Bunny com profundidade: a flecha sai da tela">
+        <div class="tela-moldura"></div>
+        <canvas id="heroi-3d" data-foto="heroi" role="img" aria-label="Cena do filme Big Buck Bunny com profundidade: a flecha sai da tela"></canvas>
+        <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>Tem óculos 3D vermelho e azul?</button>
+        <div class="rotulo">Big Buck Bunny · profundidade criada pelo Pop3D</div>
+      </div>
+      <div class="dica-mexer">Mexa o mouse ou incline o celular: a profundidade é de verdade.</div>
     </div>
   </div>
 
-  <section>
+  <div class="diorama" id="magica" data-foto="baloes">
+    <div class="diorama-fixo faixa">
+      <div>
+        <span class="olho-secao grad">A mágica por dentro</span>
+        <h2>Cada imagem vira um diorama.</h2>
+        <p class="intro">O Pop3D enxerga a profundidade de cada cena: o que está perto, o que está longe e tudo o que tem no meio. Depois remonta a imagem para cada um dos seus olhos, quadro a quadro, na velocidade do filme. Tudo acontece no seu computador, enquanto você assiste.</p>
+        <ol class="passos-camadas">
+          <li><span class="n">1</span><span><b>Enxerga</b> a distância de cada ponto da imagem, como os seus olhos fazem.</span></li>
+          <li><span class="n">2</span><span><b>Separa</b> a cena em camadas, da montanha lá atrás ao balão bem na sua frente.</span></li>
+          <li><span class="n">3</span><span><b>Remonta</b> uma imagem para cada olho. O seu cérebro faz o resto.</span></li>
+        </ol>
+      </div>
+      <div class="diorama-cena"><div class="diorama-palco"></div></div>
+    </div>
+  </div>
+
+  <section id="tudo">
     <div class="faixa">
-      <h2>Feito pra ser fácil</h2>
-      <p class="intro">Instalou, abriu, assistiu. O Pop3D cuida do resto sozinho.</p>
-      <div class="grade">
-        <div class="cartao">
-          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6l-5 3.6 1.9-5.8L4 8.8h6.1z"/></svg></div>
-          <h3>100% automático</h3>
-          <p>Ele descobre sua placa de vídeo, escolhe a melhor qualidade e encontra seu óculos. Você não precisa entender nada de VR.</p>
+      <div class="centro aparece">
+        <span class="olho-secao grad">Não é só filme</span>
+        <h2>Passou no seu PC? Vira 3D.</h2>
+        <p class="intro">Filmes são só o começo. Viagens, momentos em família, fotos, vídeos do YouTube e até o seu jogo favorito ganham profundidade.</p>
+      </div>
+      <div class="mosaico">
+        <div class="cartao-3d g aparece"><canvas data-foto="filme" data-forca=".035" data-foco=".45"></canvas><div class="txt"><h3>Filmes e séries</h3><p>Sua coleção inteira em 3D, numa tela de cinema só sua.</p></div></div>
+        <div class="cartao-3d g aparece"><canvas data-foto="jogo" data-forca=".03" data-foco=".4"></canvas><div class="txt"><h3>Jogos</h3><p>Seus jogos de PC em 3D no óculos, sem instalar mod nenhum.</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="praia" data-forca=".03"></canvas><div class="txt"><h3>Viagens</h3><p>Volte para aquela praia. Desta vez, com profundidade.</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="festa" data-forca=".03"></canvas><div class="txt"><h3>Família</h3><p>Aniversários, formaturas, o primeiro passo do bebê.</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="filhote" data-forca=".03"></canvas><div class="txt"><h3>Fotos</h3><p>Abra uma foto no PC e entre nela.</p></div></div>
+        <div class="cartao-3d l aparece"><canvas data-foto="cidade" data-forca=".025" data-foco=".4"></canvas><div class="txt"><h3>YouTube e navegador</h3><p>Vlogs, documentários, clipes: o que estiver na tela do computador.</p></div></div>
+        <div class="cartao-3d m aparece"><canvas data-foto="lago" data-forca=".03" data-foco=".45"></canvas><div class="txt"><h3>Natureza</h3><p>Paisagens com a profundidade que elas têm de verdade.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Veja a diferença</span>
+        <h2>A mesma imagem. Outra dimensão.</h2>
+        <p class="intro">Arraste a linha. De um lado, a tela plana de sempre. Do outro, a mesma cena com o Pop3D. No óculos é ainda mais impressionante: cada olho recebe a sua própria imagem.</p>
+      </div>
+      <div class="comparar aparece">
+        <canvas id="comparar-3d" data-foto="cachorro" role="img" aria-label="Comparação entre a imagem plana e a imagem com profundidade"></canvas>
+        <div class="comparar-linha"></div>
+        <span class="lado esq">Tela comum</span><span class="lado dir"><span class="grad">Com Pop3D</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">Funciona com o que você já tem</span>
+        <h2>Do seu jeito, no seu óculos.</h2>
+        <p class="intro">Use o nosso app para o Quest, o jeito mais fácil, ou o programa de PC VR que você já usa.</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece">
+          <span class="selo-quest">Recomendado</span>
+          <h3>App Pop3D para Meta Quest</h3>
+          <p>Abra o app no óculos e ele encontra o seu computador sozinho, pelo Wi-Fi de casa. Sem cabo e sem configurar nada. Chegando à loja da Meta.</p>
+          <ul><li>Sem fio, pelo Wi-Fi</li><li>Encontra o PC sozinho</li><li>Menus feitos para o óculos</li><li>Grátis</li></ul>
         </div>
-        <div class="cartao">
-          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
-          <h3>Seus filmes, em 3D</h3>
-          <p>Filmes e séries 2D viram 3D enquanto você assiste. Filmes que já são 3D também tocam direto.</p>
-        </div>
-        <div class="cartao">
-          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-          <h3>A tela do PC em 3D</h3>
-          <p>YouTube, streaming, jogos: o que estiver na tela do computador aparece em 3D no óculos.</p>
-        </div>
-        <div class="cartao">
-          <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01M2 9a14.5 14.5 0 0 1 20 0"/></svg></div>
-          <h3>Sem fio no Quest</h3>
-          <p>Com o app Pop3D no Meta Quest, o filme chega pelo Wi-Fi. Também funciona com cabo e com outros óculos de PC.</p>
+        <div class="outros aparece">
+          <h3>Também funciona com</h3>
+          <p>Prefere o que já usa? O Pop3D conversa com os principais jeitos de ligar o óculos ao PC.</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico e outros</small></div>
+          </div>
         </div>
       </div>
     </div>
@@ -168,40 +144,53 @@
 
   <section id="como">
     <div class="faixa">
-      <h2>Como funciona</h2>
-      <p class="intro">O computador faz o trabalho pesado com a IA e manda o filme pronto, em 3D, para o óculos.</p>
+      <div class="centro aparece"><h2>Três passos. Zero complicação.</h2></div>
       <div class="passos">
-        <div class="passo"><div><b>Instale no PC</b><span>Baixe o instalador e clique em Avançar. Ele baixa tudo o que precisa e prepara a IA para a sua placa de vídeo.</span></div></div>
-        <div class="passo"><div><b>Abra o Pop3D no óculos</b><span>No Meta Quest, abra o app Pop3D. Ele encontra o computador sozinho, no mesmo Wi-Fi.</span></div></div>
-        <div class="passo"><div><b>Escolha o filme e aproveite</b><span>Seus filmes aparecem numa sala de cinema virtual, já em 3D. Pipoca por sua conta.</span></div></div>
+        <div class="passo aparece"><b>Instale no PC</b><span>Baixe, clique em Avançar e pronto. Ele se prepara sozinho para a sua placa de vídeo.</span></div>
+        <div class="passo aparece"><b>Abra no óculos</b><span>Abra o app Pop3D no Quest (ou o seu app de PC VR). Ele encontra o computador sozinho.</span></div>
+        <div class="passo aparece"><b>Escolha e aproveite</b><span>Seus vídeos aparecem numa sala de cinema virtual, já em 3D. Pipoca por sua conta.</span></div>
       </div>
     </div>
   </section>
 
   <section id="requisitos">
     <div class="faixa">
-      <h2>O que você precisa</h2>
-      <p class="intro">A IA roda no seu computador, por isso ele precisa de uma placa de vídeo NVIDIA RTX.</p>
-      <div class="requisitos">
-        <div class="req"><small>Sistema</small>Windows 10 ou 11 (64 bits)</div>
-        <div class="req"><small>Placa de vídeo</small>NVIDIA GeForce RTX (série 20 ou mais nova)</div>
+      <div class="aparece"><h2>O que você precisa</h2><p class="intro">Um computador com placa de vídeo NVIDIA RTX e um óculos VR. Só isso.</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>Sistema</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>Placa de vídeo</small>NVIDIA GeForce RTX</div>
         <div class="req"><small>Espaço livre</small>15 GB</div>
-        <div class="req"><small>Óculos</small>Meta Quest 2, 3 ou 3S, ou qualquer óculos de PC (SteamVR/OpenXR)</div>
+        <div class="req"><small>Óculos</small>Meta Quest 2, 3, 3S ou Pro, ou óculos de PC (SteamVR)</div>
       </div>
     </div>
   </section>
 
   <section id="duvidas">
     <div class="faixa">
-      <h2>Dúvidas</h2>
-      <details><summary>É grátis mesmo?</summary><p>Sim. Sem propaganda, sem assinatura, sem pegadinha.</p></details>
-      <details><summary>Precisa converter o filme antes?</summary><p>Não. A IA transforma cada quadro em 3D enquanto você assiste. Abriu, tocou.</p></details>
-      <details><summary>Funciona sem placa NVIDIA?</summary><p>Ainda não. A IA precisa de uma placa NVIDIA RTX. Se o seu PC não tiver, o instalador avisa logo no começo, antes de baixar qualquer coisa.</p></details>
-      <details><summary>Por que a instalação demora?</summary><p>Na primeira vez ele baixa uns 4 GB (a IA e os componentes dela) e prepara tudo para a sua placa de vídeo. É só uma vez: depois o app abre em segundos e se atualiza sozinho.</p></details>
-      <details><summary>O Windows mostrou "O Windows protegeu o seu computador". E agora?</summary><p>Isso aparece com programas novos que ainda não são conhecidos pela Microsoft. Clique em <b>Mais informações</b> e depois em <b>Executar assim mesmo</b>.</p></details>
-      <details><summary>O Pop3D olha os meus filmes?</summary><p>Não. Os filmes ficam no seu computador e nunca são enviados para lugar nenhum. O app só manda estatísticas anônimas de uso (placa de vídeo, desempenho, erros) para ficar melhor, e isso pode ser desligado nos Ajustes. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p></details>
+      <h2 class="aparece">Dúvidas</h2>
+      <details class="aparece"><summary>É grátis mesmo?</summary><p>Sim. Sem propaganda, sem assinatura e sem pegadinha.</p></details>
+<details class="aparece"><summary>Preciso converter os vídeos antes?</summary><p>Não. É só dar play: o 3D acontece enquanto você assiste.</p></details>
+<details class="aparece"><summary>A instalação é rápida?</summary><p>Na primeira vez, o Pop3D baixa cerca de 4 GB: é a inteligência artificial que faz a mágica acontecer, e ela já fica pronta para a sua placa de vídeo. O tempo depende da sua internet. Depois disso, o app abre em segundos e se atualiza sozinho.</p></details>
+<details class="aparece"><summary>Funciona com streaming?</summary><p>Funciona com o que aparece na tela do seu computador, como o YouTube e a maioria dos sites. Alguns serviços pagos protegem o vídeo contra cópia e não deixam nenhum programa capturar a imagem. Vídeos do seu computador funcionam direto.</p></details>
+<details class="aparece"><summary>Funciona sem placa NVIDIA?</summary><p>Por enquanto, a mágica precisa de uma placa de vídeo NVIDIA RTX. Se o seu PC não tiver, o instalador avisa logo no começo, antes de baixar qualquer coisa.</p></details>
+<details class="aparece"><summary>Meus vídeos saem do meu computador?</summary><p>Nunca. Tudo acontece no seu computador e o vídeo vai direto para o óculos pela sua rede de casa. O Pop3D envia só estatísticas anônimas de uso para ficar cada vez melhor, e dá para desligar nos Ajustes. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p></details>
+<details class="aparece"><summary>O Windows mostrou “O Windows protegeu o seu computador”. E agora?</summary><p>É o aviso padrão do Windows para programas novos, que a Microsoft ainda não conhece. Clique em <b>Mais informações</b> e depois em <b>Executar assim mesmo</b>.</p></details>
+<details class="aparece"><summary>Tive uma ideia para o Pop3D!</summary><p>Que ótimo! Dentro do app, em <b>Ideias e sugestões</b>, você manda direto para a gente. O Pop3D é novinho e cresce junto com quem usa.</p></details>
     </div>
   </section>
+
+  <div class="final">
+    <div class="faixa aparece">
+      <h2>Pronto para ver tudo em <span class="grad">3D</span>?</h2>
+      <p class="lead">Grátis. Se instala sozinho. Funciona no seu óculos.</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Baixar grátis para Windows</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -210,35 +199,14 @@
     <a href="privacidade.html">Política de Privacidade</a>
     <a href="https://github.com/Sindelitcis/pop3d/releases">Todas as versões</a>
     <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">Achou um problema? Conta pra gente</a>
+    <details class="creditos"><summary>Créditos das imagens</summary><p>Fotos do Wikimedia Commons. Os mapas de profundidade foram feitos pelo Pop3D.</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Creative_Commons_Birthday_Cake_and_Candles_(4825652728).jpg">Creative Commons Birthday Cake and Candles (4825652728)</a> · Pink Sherbet Photography from USA · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Bunny.png">Big.Buck.Bunny.-.Frank.Bunny</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tokyo_Tower,_Minato_City.jpg">Tokyo Tower, Minato City</a> · David Kernan · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tulip_field_in_Holland4.jpg">Tulip field in Holland4</a> · rboed* · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p></details>
   </div>
 </footer>
-
 <script>
   document.getElementById("ano").textContent = new Date().getFullYear();
-
-  // a "tela" ganha profundidade sozinha, de tempos em tempos
-  const palco = document.getElementById("palco"), rotulo = document.getElementById("rotulo");
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    setInterval(() => { const em3d = palco.classList.toggle("em3d"); rotulo.textContent = em3d ? "3D" : "2D"; }, 2600);
-  }
-
-  // botão de download: aponta para o instalador da versão mais nova publicada no GitHub
-  (async () => {
-    const botao = document.getElementById("baixar-botao"), texto = document.getElementById("baixar-texto"), detalhe = document.getElementById("baixar-detalhe");
-    const celular = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
-    try {
-      const r = await fetch("https://api.github.com/repos/Sindelitcis/pop3d/releases/latest");
-      if (r.status === 404) { texto.textContent = "Em breve"; detalhe.textContent = "A primeira versão está saindo do forno."; return; }
-      const d = await r.json();
-      const exe = (d.assets || []).find(a => /\.exe$/i.test(a.name));
-      botao.href = exe ? exe.browser_download_url : d.html_url;
-      botao.classList.remove("desligado");
-      const mb = exe ? ` · ${Math.round(exe.size / 1e6)} MB` : "";
-      detalhe.textContent = celular ? "Baixe no computador (Windows): o Pop3D roda no PC." : `Versão ${d.tag_name.replace(/^v/i, "")}${mb} · Windows 10 e 11`;
-    } catch (e) {
-      botao.classList.remove("desligado");   // sem a API: o link para a página de versões continua funcionando
-    }
-  })();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
 </script>
+<script src="js/pop3d.js" defer></script>
 </body>
 </html>
