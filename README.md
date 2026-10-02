@@ -39,3 +39,11 @@ Seus filmes nunca saem do seu computador. O app envia apenas estatísticas anôn
 ## Achou um problema?
 
 [Conta pra gente](https://github.com/Sindelitcis/pop3d/issues): o que aconteceu, o modelo da sua placa de vídeo e do seu óculos.
+
+## English
+
+**Pop3D** is a free Windows app that uses AI to turn 2D movies, shows and videos into real 3D, on the fly, right in your VR headset (Meta Quest or any PC headset). No converting, no setup: the installer detects your graphics card and prepares everything. Your videos never leave your computer; the app only sends anonymous usage statistics, which you can turn off in Settings.
+
+- **Download:** https://github.com/Sindelitcis/pop3d/releases/latest
+- **Website:** https://sindelitcis.github.io/pop3d
+- **Requirements:** Windows 10 or 11 (64-bit), NVIDIA GeForce RTX graphics card (20 series or newer), 15 GB of free space, and a Meta Quest 2, 3 or 3S, or any PC headset (SteamVR/OpenXR). The installer is also available in Spanish.
