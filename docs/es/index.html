@@ -9,17 +9,43 @@
 <meta property="og:description" content="Películas, series, viajes, fotos de la familia, YouTube y juegos: Pop3D convierte todo lo que pasa en tu computadora en 3D de verdad en tu visor VR. Gratis.">
 <meta property="og:image" content="https://pop3d.quest/img/og.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#07080d">
+<meta name="theme-color" content="#06070c">
 <link rel="icon" href="../favicon.ico">
 <link rel="alternate" hreflang="pt-BR" href="https://pop3d.quest/">
 <link rel="alternate" hreflang="en" href="https://pop3d.quest/en/">
 <link rel="alternate" hreflang="es" href="https://pop3d.quest/es/">
 <link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
-<link rel="stylesheet" href="../css/site.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
+<link rel="preload" as="image" href="../cenas/heroi/c0_p.webp">
+<link rel="stylesheet" href="../css/site.css?v=65248819">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "es", alvos = {"pt": "../", "en": "../en/", "es": "../es/"};
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var l = String(langs[i]).toLowerCase();
+        if (l.indexOf("pt") === 0) quer = "pt"; else if (l.indexOf("es") === 0) quer = "es"; else if (l.indexOf("en") === 0) quer = "en";
+      }
+      if (!quer || quer === "en") { if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es"; }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>
 <script>window.POP3D_TEXTOS = {"em_breve": "Muy pronto", "forno": "La primera versión está por salir del horno.", "versao": "Versión", "no_pc": "Descárgalo en la computadora (Windows): Pop3D funciona en la PC."};</script>
 </head>
 <body>
+<canvas id="estrelas" aria-hidden="true"></canvas>
+<div class="grao" aria-hidden="true"></div>
+
 <header id="topo">
   <div class="faixa">
     <a class="marca" href="./"><i>3D</i>Pop3D</a>
@@ -34,8 +60,9 @@
 </header>
 
 <main>
-  <div class="heroi" id="baixar">
-    <div class="faixa">
+  <section class="heroi" id="baixar">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="faixa heroi-grade">
       <div class="heroi-texto">
         <div class="selo"><b>Gratis</b> · Meta Quest y visores de PC</div>
         <h1>Todo lo que ves,<br><span class="grad">ahora en 3D.</span></h1>
@@ -48,31 +75,45 @@
         </div>
         <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
       </div>
-      <div class="cinema" aria-label="Escena de Big Buck Bunny con profundidad: la flecha sale de la pantalla">
-        <div class="tela-moldura"></div>
-        <canvas id="heroi-3d" data-foto="heroi" role="img" aria-label="Escena de Big Buck Bunny con profundidad: la flecha sale de la pantalla"></canvas>
-        <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>¿Tienes lentes 3D rojo y azul?</button>
-        <div class="rotulo">Big Buck Bunny · profundidad creada por Pop3D</div>
+      <div class="cinema">
+        <div class="palco-heroi" data-cena="heroi" data-forca=".62" data-foco=".5" data-margem="1" data-raio="22" data-amp="1.25" data-particulas="poeira">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true">
+          <div class="janela" data-janela><img class="plana" src="../cenas/heroi/c0_p.webp" alt="Escena de Big Buck Bunny con profundidad: la flecha sale de la pantalla"></div>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+        <div class="cinema-rodape">
+          <span class="rotulo">Big Buck Bunny · Blender Foundation</span>
+          <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>¿Tienes lentes 3D rojo y azul?</button>
+        </div>
+        <div class="dica-mexer">Mueve el mouse o inclina el celular: la profundidad es real.</div>
       </div>
-      <div class="dica-mexer">Mueve el mouse o inclina el celular: la profundidad es real.</div>
     </div>
+  </section>
+
+  <div class="letreiro" aria-hidden="true">
+    <div class="trilho"><span>Películas</span><span class="estrela">✦</span><span class="cheio">Series</span><span class="estrela">✦</span><span>YouTube</span><span class="estrela">✦</span><span>Juegos</span><span class="estrela">✦</span><span class="cheio">Viajes</span><span class="estrela">✦</span><span>Familia</span><span class="estrela">✦</span><span>Fotos</span><span class="estrela">✦</span><span class="cheio">Animes</span><span class="estrela">✦</span><span>Conciertos</span><span class="estrela">✦</span><span>Documentales</span><span class="estrela">✦</span><span class="cheio">Dibujos</span><span class="estrela">✦</span><span>Videoclips</span><span class="estrela">✦</span><span>Películas</span><span class="estrela">✦</span><span class="cheio">Series</span><span class="estrela">✦</span><span>YouTube</span><span class="estrela">✦</span><span>Juegos</span><span class="estrela">✦</span><span class="cheio">Viajes</span><span class="estrela">✦</span><span>Familia</span><span class="estrela">✦</span><span>Fotos</span><span class="estrela">✦</span><span class="cheio">Animes</span><span class="estrela">✦</span><span>Conciertos</span><span class="estrela">✦</span><span>Documentales</span><span class="estrela">✦</span><span class="cheio">Dibujos</span><span class="estrela">✦</span><span>Videoclips</span><span class="estrela">✦</span></div>
+    <div class="trilho volta"><span>Fotos</span><span class="estrela">✦</span><span class="cheio">Familia</span><span class="estrela">✦</span><span>Viajes</span><span class="estrela">✦</span><span>Juegos</span><span class="estrela">✦</span><span class="cheio">YouTube</span><span class="estrela">✦</span><span>Series</span><span class="estrela">✦</span><span>Películas</span><span class="estrela">✦</span><span class="cheio">Videoclips</span><span class="estrela">✦</span><span>Dibujos</span><span class="estrela">✦</span><span>Documentales</span><span class="estrela">✦</span><span class="cheio">Conciertos</span><span class="estrela">✦</span><span>Animes</span><span class="estrela">✦</span><span>Fotos</span><span class="estrela">✦</span><span class="cheio">Familia</span><span class="estrela">✦</span><span>Viajes</span><span class="estrela">✦</span><span>Juegos</span><span class="estrela">✦</span><span class="cheio">YouTube</span><span class="estrela">✦</span><span>Series</span><span class="estrela">✦</span><span>Películas</span><span class="estrela">✦</span><span class="cheio">Videoclips</span><span class="estrela">✦</span><span>Dibujos</span><span class="estrela">✦</span><span>Documentales</span><span class="estrela">✦</span><span class="cheio">Conciertos</span><span class="estrela">✦</span><span>Animes</span><span class="estrela">✦</span></div>
   </div>
 
-  <div class="diorama" id="magica" data-foto="baloes">
-    <div class="diorama-fixo faixa">
-      <div>
+  <section class="historia" id="magica">
+    <div class="historia-fixa" data-cena="turma" data-modo="historia" data-forca=".5" data-foco=".72" data-margem="1" data-raio="24" data-amp=".9" data-particulas="vagalume">
+      <div class="historia-palco">
+        <div class="janela" data-janela><img class="plana" src="../cenas/turma/c0_p.webp" alt="Escena de Big Buck Bunny separada en capas de profundidad" loading="lazy"></div>
+      </div>
+      <canvas aria-hidden="true"></canvas>
+      <div class="historia-texto">
         <span class="olho-secao grad">La magia por dentro</span>
-        <h2>Cada imagen se vuelve un diorama.</h2>
-        <p class="intro">Pop3D ve la profundidad de cada escena: lo que está cerca, lo que está lejos y todo lo que hay en medio. Después rearma la imagen para cada uno de tus ojos, cuadro por cuadro, a la velocidad de la película. Todo pasa en tu computadora, mientras miras.</p>
-        <ol class="passos-camadas">
-          <li><span class="n">1</span><span><b>Ve</b> la distancia de cada punto de la imagen, como lo hacen tus ojos.</span></li>
-          <li><span class="n">2</span><span><b>Separa</b> la escena en capas, desde la montaña al fondo hasta el globo justo frente a ti.</span></li>
-          <li><span class="n">3</span><span><b>Rearma</b> una imagen para cada ojo. Tu cerebro hace el resto.</span></li>
+        <h2>Cada imagen se vuelve un mundo en capas.</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span><b>Una imagen común.</b> Plana, como cualquier video en tu pantalla.</span></li>
+          <li data-passo><span class="n">2</span><span><b>Pop3D ve la distancia</b> de cada punto, desde el hocico del personaje hasta el último árbol.</span></li>
+          <li data-passo><span class="n">3</span><span><b>Separa la escena en capas</b> e imagina lo que estaba escondido detrás de cada una.</span></li>
+          <li data-passo><span class="n">4</span><span><b>Rearma todo en 3D</b>, una imagen para cada ojo. Tu cerebro hace el resto.</span></li>
         </ol>
       </div>
-      <div class="diorama-cena"><div class="diorama-palco"></div></div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
     </div>
-  </div>
+  </section>
 
   <section id="tudo">
     <div class="faixa">
@@ -81,14 +122,28 @@
         <h2>¿Pasa en tu PC? Se vuelve 3D.</h2>
         <p class="intro">Las películas son solo el comienzo. Viajes, momentos en familia, fotos, videos de YouTube y hasta tu juego favorito ganan profundidad.</p>
       </div>
-      <div class="mosaico">
-        <div class="cartao-3d g aparece"><canvas data-foto="filme" data-forca=".035" data-foco=".45"></canvas><div class="txt"><h3>Películas y series</h3><p>Toda tu colección en 3D, en una pantalla de cine solo para ti.</p></div></div>
-        <div class="cartao-3d g aparece"><canvas data-foto="jogo" data-forca=".03" data-foco=".4"></canvas><div class="txt"><h3>Juegos</h3><p>Tus juegos de PC en 3D en el visor, sin instalar ningún mod.</p></div></div>
-        <div class="cartao-3d m aparece"><canvas data-foto="praia" data-forca=".03"></canvas><div class="txt"><h3>Viajes</h3><p>Vuelve a esa playa. Esta vez, con profundidad.</p></div></div>
-        <div class="cartao-3d m aparece"><canvas data-foto="festa" data-forca=".03"></canvas><div class="txt"><h3>Familia</h3><p>Cumpleaños, graduaciones, los primeros pasos del bebé.</p></div></div>
-        <div class="cartao-3d m aparece"><canvas data-foto="filhote" data-forca=".03"></canvas><div class="txt"><h3>Fotos</h3><p>Abre una foto en la PC y entra en ella.</p></div></div>
-        <div class="cartao-3d l aparece"><canvas data-foto="cidade" data-forca=".025" data-foco=".4"></canvas><div class="txt"><h3>YouTube y navegador</h3><p>Vlogs, documentales, videoclips: lo que esté en la pantalla de la computadora.</p></div></div>
-        <div class="cartao-3d m aparece"><canvas data-foto="lago" data-forca=".03" data-foco=".45"></canvas><div class="txt"><h3>Naturaleza</h3><p>Paisajes con la profundidad que tienen de verdad.</p></div></div>
+      <div class="bento">
+        <article class="cartao c-filme aparece" data-cena="spring" data-forca=".42" data-foco=".95" data-particulas="poeira">
+          <div class="janela" data-janela><img class="plana" src="../cenas/spring/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Películas y series</h3><p>Toda tu colección en 3D, en una pantalla de cine solo para ti.</p></div></article>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-forca=".42" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/jogo/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Juegos</h3><p>Tus juegos de PC en 3D en el visor, sin instalar ningún mod.</p></div></article>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-forca=".4" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/coqueiros/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Viajes</h3><p>Vuelve a esa playa. Esta vez, con profundidad.</p></div></article>
+        <article class="cartao c-familia aparece" data-cena="festa" data-forca=".4" data-foco="1" data-particulas="brilho">
+          <div class="janela" data-janela><img class="plana" src="../cenas/festa/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Familia</h3><p>Cumpleaños, graduaciones, los primeros pasos del bebé.</p></div></article>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-forca=".4" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/filhote/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Fotos</h3><p>Abre una foto en la PC y entra en ella.</p></div></article>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-forca=".38" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/lago/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>YouTube y navegador</h3><p>Vlogs, documentales, videoclips: lo que esté en la pantalla de la computadora.</p></div></article>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-forca=".4" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/cascata/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="txt"><h3>Naturaleza</h3><p>Paisajes con la profundidad que tienen de verdad.</p></div></article>
       </div>
     </div>
   </section>
@@ -100,11 +155,20 @@
         <h2>La misma imagen. Otra dimensión.</h2>
         <p class="intro">Arrastra la línea. De un lado, la pantalla plana de siempre. Del otro, la misma escena con Pop3D. En el visor es todavía más impresionante: cada ojo recibe su propia imagen.</p>
       </div>
-      <div class="comparar aparece">
-        <canvas id="comparar-3d" data-foto="cachorro" role="img" aria-label="Comparación entre la imagen plana y la imagen con profundidad"></canvas>
-        <div class="comparar-linha"></div>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-forca=".45" data-foco="1" role="img" aria-label="Comparación entre la imagen plana y la imagen con profundidad">
+        <div class="janela" data-janela><img class="plana" src="../cenas/cachorro/c0_p.webp" alt="" loading="lazy"></div>
+        <canvas aria-hidden="true"></canvas>
+        <div class="comparar-linha"><i></i></div>
         <span class="lado esq">Pantalla común</span><span class="lado dir"><span class="grad">Con Pop3D</span></span>
       </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="faixa numeros">
+      <div class="numero aparece"><b class="grad">Gratis</b><span>Sin anuncios, sin suscripción y sin trampas.</span></div>
+      <div class="numero aparece"><b class="grad">Al instante</b><span>Le das play y ya está en 3D. Nada de convertir videos.</span></div>
+      <div class="numero aparece"><b class="grad">Solo tuyo</b><span>Tus videos nunca salen de tu computadora.</span></div>
     </div>
   </section>
 
@@ -116,11 +180,14 @@
         <p class="intro">Usa nuestra app para Quest, la forma más fácil, o la app de PC VR que ya usas.</p>
       </div>
       <div class="conexoes">
-        <div class="destaque-quest aparece">
-          <span class="selo-quest">Recomendado</span>
-          <h3>App Pop3D para Meta Quest</h3>
-          <p>Abre la app en el visor y encuentra tu computadora sola, por el Wi-Fi de tu casa. Sin cables y sin configurar nada. Muy pronto en la tienda de Meta.</p>
-          <ul><li>Inalámbrico, por Wi-Fi</li><li>Encuentra la PC sola</li><li>Menús hechos para VR</li><li>Gratis</li></ul>
+        <div class="destaque-quest aparece" data-cena="praia" data-forca=".35" data-foco="1">
+          <div class="janela" data-janela><img class="plana" src="../cenas/praia/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+          <div class="quest-txt">
+            <span class="selo-quest">Recomendado</span>
+            <h3>App Pop3D para Meta Quest</h3>
+            <p>Abre la app en el visor y encuentra tu computadora sola, por el Wi-Fi de tu casa. Sin cables y sin configurar nada. Muy pronto en la tienda de Meta.</p>
+            <ul><li>Inalámbrico, por Wi-Fi</li><li>Encuentra la PC sola</li><li>Menús hechos para VR</li><li>Gratis</li></ul>
+          </div>
         </div>
         <div class="outros aparece">
           <h3>También funciona con</h3>
@@ -140,9 +207,9 @@
     <div class="faixa">
       <div class="centro aparece"><h2>Tres pasos. Cero complicaciones.</h2></div>
       <div class="passos">
-        <div class="passo aparece"><b>Instala en la PC</b><span>Descarga, haz clic en Siguiente y listo. Se prepara solo para tu tarjeta gráfica.</span></div>
-        <div class="passo aparece"><b>Ábrelo en el visor</b><span>Abre la app Pop3D en el Quest (o tu app de PC VR). Encuentra la computadora sola.</span></div>
-        <div class="passo aparece"><b>Elige y disfruta</b><span>Tus videos aparecen en una sala de cine virtual, ya en 3D. Las palomitas corren por tu cuenta.</span></div>
+        <div class="passo aparece"><span class="passo-n grad">01</span><b>Instala en la PC</b><span>Descarga, haz clic en Siguiente y listo. Se prepara solo para tu tarjeta gráfica.</span></div>
+        <div class="passo aparece"><span class="passo-n grad">02</span><b>Ábrelo en el visor</b><span>Abre la app Pop3D en el Quest (o tu app de PC VR). Encuentra la computadora sola.</span></div>
+        <div class="passo aparece"><span class="passo-n grad">03</span><b>Elige y disfruta</b><span>Tus videos aparecen en una sala de cine virtual, ya en 3D. Las palomitas corren por tu cuenta.</span></div>
       </div>
     </div>
   </section>
@@ -173,8 +240,10 @@
     </div>
   </section>
 
-  <div class="final">
-    <div class="faixa aparece">
+  <div class="final" data-cena="baloes" data-forca=".34" data-foco="1" data-particulas="brilho">
+    <div class="janela" data-janela><img class="plana" src="../cenas/baloes/c0_p.webp" alt="" loading="lazy"></div>
+    <canvas aria-hidden="true"></canvas>
+    <div class="faixa final-txt aparece">
       <h2>¿Listo para ver todo en <span class="grad">3D</span>?</h2>
       <p class="lead">Gratis. Se instala solo. Funciona en tu visor.</p>
       <div class="botoes">
@@ -193,7 +262,7 @@
     <a href="privacidad.html">Política de Privacidad</a>
     <a href="https://github.com/Sindelitcis/pop3d/releases">Todas las versiones</a>
     <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">¿Encontraste un problema? Cuéntanos</a>
-    <details class="creditos"><summary>Créditos de las imágenes</summary><p>Fotos de Wikimedia Commons. Los mapas de profundidad fueron hechos por Pop3D.</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Creative_Commons_Birthday_Cake_and_Candles_(4825652728).jpg">Creative Commons Birthday Cake and Candles (4825652728)</a> · Pink Sherbet Photography from USA · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Bunny.png">Big.Buck.Bunny.-.Frank.Bunny</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tokyo_Tower,_Minato_City.jpg">Tokyo Tower, Minato City</a> · David Kernan · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tulip_field_in_Holland4.jpg">Tulip field in Holland4</a> · rboed* · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p></details>
+    <details class="creditos"><summary>Créditos de las imágenes</summary><p>Fotos de Wikimedia Commons. Efectos 3D hechos con inteligencia artificial (profundidad: Depth Pro, de Apple; fondos reconstruidos: LaMa).</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tim_Tams_and_Nuts_on_a_Birthday_Cake_With_Candles.jpg">Tim Tams and Nuts on a Birthday Cake With Candles</a> · Brassluff · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Reclining_tropical_palm_trees,_Philippines.jpg">Malapascua (island), Reclining tropical palm trees, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Blender_Open_Movie_-_Spring_(2019).png">Blender Open Movie - Spring (2019)</a> · Alexandru.rosu · CC0</p></details>
   </div>
 </footer>
 <script>
@@ -201,6 +270,6 @@
   const topo = document.getElementById("topo");
   addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
 </script>
-<script src="../js/pop3d.js" defer></script>
+<script src="../js/pop3d.js?v=65248819" defer></script>
 </body>
 </html>
