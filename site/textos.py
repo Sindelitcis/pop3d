@@ -60,7 +60,7 @@ PT = {
     "steamvr_p": "Valve Index, HTC Vive, Pico e outros",
     "req_h2": "O que você precisa",
     "req_intro": "Um computador com placa de vídeo NVIDIA RTX e um óculos VR. Só isso.",
-    "req_sistema": "Sistema", "req_placa": "Placa de vídeo", "req_espaco": "Espaço livre", "req_oculos": "Óculos",
+    "req_sistema": "Sistema", "req_placa": "Placa de vídeo", "req_espaco": "Espaço livre", "req_espaco_nota": "O app ocupa uns 9 GB; o resto é folga para instalar.", "req_oculos": "Óculos",
     "req_oculos_v": "Meta Quest 2, 3, 3S ou Pro, ou óculos de PC (SteamVR)",
     "duvidas_h2": "Dúvidas",
     "faq": [
@@ -142,7 +142,7 @@ EN = {
     "steamvr_p": "Valve Index, HTC Vive, Pico and more",
     "req_h2": "What you need",
     "req_intro": "A computer with an NVIDIA RTX graphics card and a VR headset. That's it.",
-    "req_sistema": "System", "req_placa": "Graphics card", "req_espaco": "Free space", "req_oculos": "Headset",
+    "req_sistema": "System", "req_placa": "Graphics card", "req_espaco": "Free space", "req_espaco_nota": "The app takes about 9 GB; the rest is room to install.", "req_oculos": "Headset",
     "req_oculos_v": "Meta Quest 2, 3, 3S or Pro, or a PC VR headset (SteamVR)",
     "duvidas_h2": "FAQ",
     "faq": [
@@ -224,7 +224,7 @@ ES = {
     "steamvr_p": "Valve Index, HTC Vive, Pico y más",
     "req_h2": "Lo que necesitas",
     "req_intro": "Una computadora con tarjeta gráfica NVIDIA RTX y un visor VR. Nada más.",
-    "req_sistema": "Sistema", "req_placa": "Tarjeta gráfica", "req_espaco": "Espacio libre", "req_oculos": "Visor",
+    "req_sistema": "Sistema", "req_placa": "Tarjeta gráfica", "req_espaco": "Espacio libre", "req_espaco_nota": "La app ocupa unos 9 GB; el resto es margen para instalar.", "req_oculos": "Visor",
     "req_oculos_v": "Meta Quest 2, 3, 3S o Pro, o un visor de PC (SteamVR)",
     "duvidas_h2": "Preguntas",
     "faq": [

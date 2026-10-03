@@ -308,3 +308,4 @@ footer .dir { margin-left: auto; }
 .aviso-baixar b { color: var(--texto); }
 .aviso-baixar button { flex: none; background: none; border: 0; color: var(--texto3); font-size: 22px; line-height: 1; cursor: pointer; padding: 0 2px; }
 section[id] { scroll-margin-top: 40px; }
+.req-nota { display: block; color: var(--texto3); font-size: 12.5px; margin-top: 4px; line-height: 1.4; }
