@@ -122,17 +122,16 @@ h3 { font-family: var(--fonte-tit); letter-spacing: -.02em; }
 .bento .aparece:nth-child(6) { transition-delay: .24s; } .bento .aparece:nth-child(7) { transition-delay: .3s; }
 
 /* ---------- onde funciona (logo depois do topo: o app do Quest é o caminho recomendado) ---------- */
-#quest { padding-top: 70px; }
 .conexoes { display: grid; grid-template-columns: 1.35fr 1fr; gap: 18px; align-items: stretch; }
-.destaque-quest { border-radius: 26px; min-height: 460px; overflow: hidden; border: 1px solid rgba(124,92,255,.4); isolation: isolate;
+.destaque-quest { border-radius: 26px; min-height: 360px; overflow: hidden; border: 1px solid rgba(124,92,255,.4); isolation: isolate;
   box-shadow: 0 30px 90px rgba(0,0,0,.5); }
 .destaque-quest .janela::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
   background: linear-gradient(95deg, rgba(6,7,12,.94) 0%, rgba(6,7,12,.8) 42%, rgba(6,7,12,.1) 78%), linear-gradient(0deg, rgba(6,7,12,.55), transparent 40%); }
-.quest-txt { position: relative; z-index: 4; padding: 36px; max-width: 480px; }
-.selo-quest { display: inline-block; padding: 5px 12px; border-radius: 99px; background: var(--grad); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
-.destaque-quest h3 { font-size: clamp(25px, 2.8vw, 34px); margin: 0 0 10px; }
-.destaque-quest p { color: var(--texto2); margin: 0 0 20px; }
-.destaque-quest ul { margin: 0 0 26px; padding: 0; list-style: none; display: grid; gap: 9px; }
+.quest-txt { position: relative; z-index: 4; padding: 30px 32px; max-width: 460px; }
+.selo-quest { display: inline-block; padding: 4px 11px; border-radius: 99px; background: var(--grad); font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
+.destaque-quest h3 { font-size: clamp(22px, 2.1vw, 27px); margin: 0 0 8px; }
+.destaque-quest p { color: var(--texto2); margin: 0 0 16px; font-size: 15px; }
+.destaque-quest ul { margin: 0 0 20px; padding: 0; list-style: none; display: grid; grid-template-columns: auto auto; justify-content: start; gap: 7px 22px; font-size: 15px; }
 .destaque-quest li::before { content: "✓"; color: #2ed47a; font-weight: 800; margin-right: 10px; }
 .quest-status { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .quest-status a { font-weight: 700; font-size: 15px; color: #b9c6ff; text-decoration: none; }
@@ -147,7 +146,7 @@ h3 { font-family: var(--fonte-tit); letter-spacing: -.02em; }
 .chip small { display: block; color: var(--texto3); font-weight: 500; font-size: 12.5px; }
 @media (max-width: 900px) { .conexoes { grid-template-columns: 1fr; }
   .destaque-quest .janela::after { background: linear-gradient(0deg, rgba(6,7,12,.96) 40%, rgba(6,7,12,.5) 72%, rgba(6,7,12,.15)); }
-  .destaque-quest { min-height: 600px; display: flex; align-items: flex-end; } .quest-txt { padding: 26px; } }
+  .destaque-quest { min-height: 480px; display: flex; align-items: flex-end; } .quest-txt { padding: 24px; } .destaque-quest ul { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .chips { grid-template-columns: 1fr; } }
 
 /* ---------- a mágica por dentro (história contada pela rolagem) ---------- */
