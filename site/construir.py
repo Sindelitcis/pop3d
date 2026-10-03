@@ -15,6 +15,8 @@ DOCS = os.path.join(AQUI, "..", "docs")
 PASTA = {"pt": "", "en": "en/", "es": "es/"}
 PRIV = {"pt": "privacidade.html", "en": "privacy.html", "es": "privacidad.html"}
 NOME = {"pt": "PT", "en": "EN", "es": "ES"}
+INDICE = json.load(open(os.path.join(DOCS, "cenas", "cenas.json"), encoding="utf-8"))
+BAIXAR = "https://github.com/Sindelitcis/pop3d/releases/latest/download/"
 
 def redirecionar(lingua):
     """1ª visita: vai para o idioma de quem chegou. Vale o idioma do navegador; o país (pelo fuso horário do
@@ -93,13 +95,32 @@ def seletor(lingua, pagina):
     return "".join(partes)
 
 
-def letreiro(palavras, giro=0):
-    """Duas voltas da lista (a animação anda metade e recomeça sem emenda), alternando contorno e cheio."""
-    p = palavras[giro:] + palavras[:giro]
-    pecas = []
-    for k, w in enumerate(p * 2):
-        pecas.append(f'<span{" class=\"cheio\"" if k % 3 == 1 else ""}>{html.escape(w)}</span><span class="estrela">✦</span>')
-    return "".join(pecas)
+def pilha(nome, tamanhos, extra, raiz):
+    """As camadas de uma cena (fundo, meio, frente), uma imagem por cima da outra. Paradas, já formam a foto
+    original; o pop3d.js só as desloca. O navegador escolhe sozinho a resolução certa (srcset)."""
+    c = INDICE[nome]
+    k = c["camadas"]
+    limites = [0.0] + c["cortes"] + [1.0]
+    z = ",".join(f"{(limites[i] + limites[i + 1]) / 2:.3f}" for i in range(k))
+    ja = "ja" in extra
+    imgs = []
+    for i in range(k):
+        base = f"{raiz}cenas/{nome}/c{i}"
+        if c["pequena"]:
+            fontes = f'src="{base}_p.webp" srcset="{base}_p.webp 960w, {base}.webp {c["w"]}w" sizes="{tamanhos}"'
+        else:
+            fontes = f'src="{base}.webp"'
+        carga = (' fetchpriority="high"' if i == 0 else "") if ja else ' loading="lazy"'
+        imgs.append(f'<img class="cam" {fontes} width="{c["w"]}" height="{c["h"]}" alt="" decoding="async"{carga}>')
+    if "mapa" in extra:
+        imgs.append(f'<img class="mapa" src="{raiz}cenas/{nome}/d.webp" alt="" decoding="async" loading="lazy">'
+                    '<i class="varredura"></i>')
+    return f'<div class="pilha" data-z="{z}" aria-hidden="true">' + "".join(imgs) + "</div>"
+
+
+def pilhas(texto, raiz):
+    return re.sub(r"\{\{pilha:([a-z0-9]+)\|([^|}]*)\|?([a-z,]*)\}\}",
+                  lambda m: pilha(m.group(1), m.group(2), m.group(3).split(","), raiz), texto)
 
 
 def faq(itens):
@@ -148,14 +169,14 @@ def main():
             redirecionar=redirecionar(lingua),
             idiomas=seletor(lingua, "inicio"),
             duvidas=faq(t["faq"]),
-            letreiro=letreiro(t["letreiro"]),
             versao=versao(),
-            letreiro2=letreiro(t["letreiro"][::-1], 5),
+            url_instalador=BAIXAR + "Pop3D_Instalador.exe",
+            url_apk=BAIXAR + "Pop3D-Quest.apk",
             creditos=creditos(lingua),
             url_privacidade=PRIV[lingua],
-            textos_js=json.dumps(t["js"], ensure_ascii=False),
+            textos_js=json.dumps(dict(t["js"], obrigado=t["obrigado"]), ensure_ascii=False),
         )
-        saida = preencher(modelo, valores)
+        saida = pilhas(preencher(modelo, valores), valores["raiz"])
         assert "{{" not in saida, [l for l in saida.splitlines() if "{{" in l][:3]
         open(os.path.join(pasta, "index.html"), "w", encoding="utf-8", newline="\n").write(saida)
         open(os.path.join(pasta, PRIV[lingua]), "w", encoding="utf-8", newline="\n").write(pagina_privacidade(lingua, t))
