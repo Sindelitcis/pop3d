@@ -4,7 +4,9 @@ import html
 import json
 import os
 
-import gerar_profundidade
+import re
+
+import gerar_cenas
 import privacidade
 import textos
 
@@ -14,13 +16,41 @@ PASTA = {"pt": "", "en": "en/", "es": "es/"}
 PRIV = {"pt": "privacidade.html", "en": "privacy.html", "es": "privacidad.html"}
 NOME = {"pt": "PT", "en": "EN", "es": "ES"}
 
-REDIRECIONAR = """<script>
-  // 1ª visita de quem não fala português: vai para o idioma dela (a escolha manual fica guardada e vale depois)
-  try {
-    const salvo = localStorage.getItem("pop3d_idioma"), lingua = (navigator.language || "").toLowerCase();
-    if (!salvo && !lingua.startsWith("pt")) location.replace(lingua.startsWith("es") ? "es/" : "en/");
-  } catch (e) {}
-</script>"""
+def redirecionar(lingua):
+    """1ª visita: vai para o idioma de quem chegou. Vale o idioma do navegador; o país (pelo fuso horário do
+    aparelho, sem consultar servidor nenhum) decide quando o navegador está no inglês padrão. Quem escolhe à
+    mão no PT · EN · ES fica com a escolha guardada."""
+    subir = "../" if PASTA[lingua] else ""
+    alvos = {o: (subir + PASTA[o]) or "./" for o in ("pt", "en", "es")}
+    return r"""<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "%s", alvos = %s;
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var l = String(langs[i]).toLowerCase();
+        if (l.indexOf("pt") === 0) quer = "pt"; else if (l.indexOf("es") === 0) quer = "es"; else if (l.indexOf("en") === 0) quer = "en";
+      }
+      if (!quer || quer === "en") { if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es"; }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>""" % (lingua, json.dumps(alvos))
+
+
+def versao():
+    """Muda quando o CSS ou o JS mudam: o navegador não fica com a versão velha guardada."""
+    import hashlib
+    h = hashlib.sha1()
+    for arq in ("css/site.css", "js/pop3d.js", "cenas/cenas.json"):
+        h.update(open(os.path.join(DOCS, arq), "rb").read())
+    return h.hexdigest()[:8]
 
 
 def preencher(modelo, valores):
@@ -33,7 +63,9 @@ def preencher(modelo, valores):
 def creditos(lingua):
     dados = json.load(open(os.path.join(AQUI, "creditos.json"), encoding="utf-8"))
     linhas = []
-    usados = sorted({arq for arq, _ in gerar_profundidade.ESCOLHIDAS.values()})
+    modelo = open(os.path.join(AQUI, "modelo.html"), encoding="utf-8").read()
+    cenas = sorted(set(re.findall(r'data-cena="([^"]+)"', modelo)))
+    usados = sorted({gerar_cenas.CENAS[c]["arq"] for c in cenas})
     for arq in usados:
         c = dados.get(arq)
         if not c:
@@ -41,10 +73,11 @@ def creditos(lingua):
         titulo = html.escape(c["titulo"].replace("File:", "").rsplit(".", 1)[0])
         autor = html.escape(c["autor"] or "?")
         linhas.append(f'<p><a href="{html.escape(c["pagina"])}">{titulo}</a> · {autor} · {html.escape(c["licenca"])}</p>')
-    nota = {"pt": "Fotos do Wikimedia Commons. Os mapas de profundidade foram feitos pelo Pop3D.",
-            "en": "Photos from Wikimedia Commons. Depth maps made by Pop3D.",
-            "es": "Fotos de Wikimedia Commons. Los mapas de profundidad fueron hechos por Pop3D."}[lingua]
-    bunny = "<p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p>"
+    nota = {"pt": "Fotos do Wikimedia Commons. Efeitos 3D feitos com inteligência artificial (profundidade: Depth Pro, da Apple; fundos reconstruídos: LaMa).",
+            "en": "Photos from Wikimedia Commons. 3D effects made with artificial intelligence (depth: Apple's Depth Pro; rebuilt backgrounds: LaMa).",
+            "es": "Fotos de Wikimedia Commons. Efectos 3D hechos con inteligencia artificial (profundidad: Depth Pro, de Apple; fondos reconstruidos: LaMa)."}[lingua]
+    bunny = ("<p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p>"
+             "<p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p>")
     return f"<p>{nota}</p>{bunny}" + "".join(linhas)
 
 
@@ -58,6 +91,15 @@ def seletor(lingua, pagina):
         ativo = ' class="ativo"' if outra == lingua else ""
         partes.append(f'<a href="{destino}" data-idioma="{outra}"{ativo} hreflang="{outra}">{NOME[outra]}</a>')
     return "".join(partes)
+
+
+def letreiro(palavras, giro=0):
+    """Duas voltas da lista (a animação anda metade e recomeça sem emenda), alternando contorno e cheio."""
+    p = palavras[giro:] + palavras[:giro]
+    pecas = []
+    for k, w in enumerate(p * 2):
+        pecas.append(f'<span{" class=\"cheio\"" if k % 3 == 1 else ""}>{html.escape(w)}</span><span class="estrela">✦</span>')
+    return "".join(pecas)
 
 
 def faq(itens):
@@ -75,7 +117,7 @@ def pagina_privacidade(lingua, t):
 <title>{p['titulo']} · Pop3D</title>
 <meta name="theme-color" content="#07080d">
 <link rel="icon" href="{raiz}favicon.ico">
-<link rel="stylesheet" href="{raiz}css/site.css">
+<link rel="stylesheet" href="{raiz}css/site.css?v={versao()}">
 </head>
 <body>
 <header class="rolou"><div class="faixa">
@@ -88,7 +130,7 @@ def pagina_privacidade(lingua, t):
   {p['corpo']}
 </main>
 <footer><div class="faixa"><span>© 2026 Pop3D</span><a href="./">{p['inicio']}</a></div></footer>
-<script src="{raiz}js/pop3d.js" defer></script>
+<script src="{raiz}js/pop3d.js?v={versao()}" defer></script>
 </body>
 </html>
 """
@@ -103,9 +145,12 @@ def main():
         valores.update(
             raiz="../" if PASTA[lingua] else "",
             inicio="./",
-            redirecionar=REDIRECIONAR if lingua == "pt" else "",
+            redirecionar=redirecionar(lingua),
             idiomas=seletor(lingua, "inicio"),
             duvidas=faq(t["faq"]),
+            letreiro=letreiro(t["letreiro"]),
+            versao=versao(),
+            letreiro2=letreiro(t["letreiro"][::-1], 5),
             creditos=creditos(lingua),
             url_privacidade=PRIV[lingua],
             textos_js=json.dumps(t["js"], ensure_ascii=False),

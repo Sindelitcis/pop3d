@@ -1,0 +1,122 @@
+{
+ "baloes": {
+  "w": 1920,
+  "h": 1440,
+  "camadas": 3,
+  "cortes": [
+   0.2266,
+   0.5938
+  ],
+  "pequena": true
+ },
+ "cachorro": {
+  "w": 1600,
+  "h": 1055,
+  "camadas": 3,
+  "cortes": [
+   0.2969,
+   0.6953
+  ],
+  "pequena": true
+ },
+ "cascata": {
+  "w": 1600,
+  "h": 900,
+  "camadas": 3,
+  "cortes": [
+   0.2891,
+   0.6406
+  ],
+  "pequena": true
+ },
+ "coqueiros": {
+  "w": 1600,
+  "h": 1200,
+  "camadas": 3,
+  "cortes": [
+   0.1797,
+   0.5312
+  ],
+  "pequena": true
+ },
+ "festa": {
+  "w": 1600,
+  "h": 1200,
+  "camadas": 3,
+  "cortes": [
+   0.3828,
+   0.7344
+  ],
+  "pequena": true
+ },
+ "filhote": {
+  "w": 1600,
+  "h": 1200,
+  "camadas": 3,
+  "cortes": [
+   0.3359,
+   0.6719
+  ],
+  "pequena": true
+ },
+ "heroi": {
+  "w": 1920,
+  "h": 1000,
+  "camadas": 3,
+  "cortes": [
+   0.2031,
+   0.5234
+  ],
+  "pequena": true
+ },
+ "jogo": {
+  "w": 1600,
+  "h": 859,
+  "camadas": 3,
+  "cortes": [
+   0.2812,
+   0.6484
+  ],
+  "pequena": true
+ },
+ "lago": {
+  "w": 1600,
+  "h": 1200,
+  "camadas": 3,
+  "cortes": [
+   0.2656,
+   0.5781
+  ],
+  "pequena": true
+ },
+ "praia": {
+  "w": 1600,
+  "h": 1067,
+  "camadas": 3,
+  "cortes": [
+   0.3594,
+   0.6953
+  ],
+  "pequena": true
+ },
+ "spring": {
+  "w": 1600,
+  "h": 562,
+  "camadas": 3,
+  "cortes": [
+   0.1797,
+   0.6016
+  ],
+  "pequena": true
+ },
+ "turma": {
+  "w": 1600,
+  "h": 833,
+  "camadas": 3,
+  "cortes": [
+   0.3438,
+   0.7266
+  ],
+  "pequena": true
+ }
+}
