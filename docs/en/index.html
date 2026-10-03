@@ -18,8 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
-<link rel="preload" as="image" href="../cenas/heroi/c0_p.webp">
-<link rel="stylesheet" href="../css/site.css?v=65248819">
+<link rel="stylesheet" href="../css/site.css?v=045ca6d3">
 <script>
   (function () {
     try {
@@ -40,18 +39,17 @@
     } catch (e) {}
   })();
 </script>
-<script>window.POP3D_TEXTOS = {"em_breve": "Coming soon", "forno": "The first version is almost out of the oven.", "versao": "Version", "no_pc": "Download it on your computer (Windows): Pop3D runs on your PC."};</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "Coming soon", "forno": "The first version is almost out of the oven.", "versao": "Version", "no_pc": "Download it on your computer (Windows): Pop3D runs on your PC.", "obrigado": "<b>Your download has started.</b> Open <b>Pop3D_Instalador.exe</b>. If Windows says “Windows protected your PC”, click <b>More info</b>, then <b>Run anyway</b>."};</script>
 </head>
 <body>
-<canvas id="estrelas" aria-hidden="true"></canvas>
-<div class="grao" aria-hidden="true"></div>
+<div class="ceu" aria-hidden="true"></div>
 
 <header id="topo">
   <div class="faixa">
     <a class="marca" href="./"><i>3D</i>Pop3D</a>
     <nav>
+      <a class="some" href="#quest">Where it works</a>
       <a class="some" href="#magica">The magic</a>
-      <a class="some" href="#onde">Where it works</a>
       <a class="some" href="#duvidas">FAQ</a>
       <span class="idiomas"><a href="../" data-idioma="pt" hreflang="pt">PT</a><a href="../en/" data-idioma="en" class="ativo" hreflang="en">EN</a><a href="../es/" data-idioma="es" hreflang="es">ES</a></span>
       <a class="cta-topo" href="#baixar">Free download</a>
@@ -60,47 +58,70 @@
 </header>
 
 <main>
-  <section class="heroi" id="baixar">
-    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <section class="heroi">
     <div class="faixa heroi-grade">
       <div class="heroi-texto">
         <div class="selo"><b>Free</b> · Meta Quest and PC VR headsets</div>
         <h1>Everything you watch,<br><span class="grad">now in 3D.</span></h1>
         <p class="lead">Movies, shows, last year's trip, the family birthday, YouTube, your games. Pop3D turns everything on your computer into real 3D, right on your VR headset. Instantly, with nothing to convert.</p>
         <div class="botoes">
-          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
             <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Free download for Windows</span>
           </a>
-          <a class="botao" href="#magica">See the magic</a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>Meta Quest app</span></a>
         </div>
-        <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+        <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Free</div>
       </div>
       <div class="cinema">
-        <div class="palco-heroi" data-cena="heroi" data-forca=".62" data-foco=".5" data-margem="1" data-raio="22" data-amp="1.25" data-particulas="poeira">
-          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true">
-          <div class="janela" data-janela><img class="plana" src="../cenas/heroi/c0_p.webp" alt="Scene from Big Buck Bunny with depth: the arrow pops out of the screen"></div>
-          <canvas aria-hidden="true"></canvas>
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="Scene from Big Buck Bunny with depth: the arrow pops out of the screen">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela"><div class="pilha" data-z="0.102,0.363,0.762" aria-hidden="true"><img class="cam" src="../cenas/heroi/c0_p.webp" srcset="../cenas/heroi/c0_p.webp 960w, ../cenas/heroi/c0.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async" fetchpriority="high"><img class="cam" src="../cenas/heroi/c1_p.webp" srcset="../cenas/heroi/c1_p.webp 960w, ../cenas/heroi/c1.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"><img class="cam" src="../cenas/heroi/c2_p.webp" srcset="../cenas/heroi/c2_p.webp 960w, ../cenas/heroi/c2.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"></div></div>
         </div>
-        <div class="cinema-rodape">
-          <span class="rotulo">Big Buck Bunny · Blender Foundation</span>
-          <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>Got red-and-blue 3D glasses?</button>
-        </div>
-        <div class="dica-mexer">Move your mouse or tilt your phone: the depth is real.</div>
+        <div class="cinema-rodape"><span class="rotulo">Big Buck Bunny · Blender Foundation</span></div>
       </div>
     </div>
   </section>
 
-  <div class="letreiro" aria-hidden="true">
-    <div class="trilho"><span>Movies</span><span class="estrela">✦</span><span class="cheio">Series</span><span class="estrela">✦</span><span>YouTube</span><span class="estrela">✦</span><span>Games</span><span class="estrela">✦</span><span class="cheio">Travel</span><span class="estrela">✦</span><span>Family</span><span class="estrela">✦</span><span>Photos</span><span class="estrela">✦</span><span class="cheio">Anime</span><span class="estrela">✦</span><span>Concerts</span><span class="estrela">✦</span><span>Documentaries</span><span class="estrela">✦</span><span class="cheio">Cartoons</span><span class="estrela">✦</span><span>Music videos</span><span class="estrela">✦</span><span>Movies</span><span class="estrela">✦</span><span class="cheio">Series</span><span class="estrela">✦</span><span>YouTube</span><span class="estrela">✦</span><span>Games</span><span class="estrela">✦</span><span class="cheio">Travel</span><span class="estrela">✦</span><span>Family</span><span class="estrela">✦</span><span>Photos</span><span class="estrela">✦</span><span class="cheio">Anime</span><span class="estrela">✦</span><span>Concerts</span><span class="estrela">✦</span><span>Documentaries</span><span class="estrela">✦</span><span class="cheio">Cartoons</span><span class="estrela">✦</span><span>Music videos</span><span class="estrela">✦</span></div>
-    <div class="trilho volta"><span>Photos</span><span class="estrela">✦</span><span class="cheio">Family</span><span class="estrela">✦</span><span>Travel</span><span class="estrela">✦</span><span>Games</span><span class="estrela">✦</span><span class="cheio">YouTube</span><span class="estrela">✦</span><span>Series</span><span class="estrela">✦</span><span>Movies</span><span class="estrela">✦</span><span class="cheio">Music videos</span><span class="estrela">✦</span><span>Cartoons</span><span class="estrela">✦</span><span>Documentaries</span><span class="estrela">✦</span><span class="cheio">Concerts</span><span class="estrela">✦</span><span>Anime</span><span class="estrela">✦</span><span>Photos</span><span class="estrela">✦</span><span class="cheio">Family</span><span class="estrela">✦</span><span>Travel</span><span class="estrela">✦</span><span>Games</span><span class="estrela">✦</span><span class="cheio">YouTube</span><span class="estrela">✦</span><span>Series</span><span class="estrela">✦</span><span>Movies</span><span class="estrela">✦</span><span class="cheio">Music videos</span><span class="estrela">✦</span><span>Cartoons</span><span class="estrela">✦</span><span>Documentaries</span><span class="estrela">✦</span><span class="cheio">Concerts</span><span class="estrela">✦</span><span>Anime</span><span class="estrela">✦</span></div>
-  </div>
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">Works with what you already have</span>
+        <h2>Your way, on your headset.</h2>
+        <p class="intro">Use our Quest app, the easiest way, or the PC VR app you already use.</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.180,0.527,0.848" aria-hidden="true"><img class="cam" src="../cenas/praia/c0_p.webp" srcset="../cenas/praia/c0_p.webp 960w, ../cenas/praia/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c1_p.webp" srcset="../cenas/praia/c1_p.webp 960w, ../cenas/praia/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c2_p.webp" srcset="../cenas/praia/c2_p.webp 960w, ../cenas/praia/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="quest-txt">
+            <span class="selo-quest">Recommended</span>
+            <h3>Pop3D app for Meta Quest</h3>
+            <p>Open the app on your headset and it finds your computer by itself over your home Wi-Fi. No cables, no setup.</p>
+            <ul><li>Wireless, over Wi-Fi</li><li>Finds your PC by itself</li><li>Menus made for VR</li><li>Free</li></ul>
+            <div class="quest-status">
+              <span class="breve">Coming soon to the Meta Horizon Store</span>
+              <a href="#baixar-quest">Install it now in developer mode&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>Also works with</h3>
+          <p>Prefer what you already use? Pop3D works with the most popular ways to connect a headset to a PC.</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico and more</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="historia" id="magica">
-    <div class="historia-fixa" data-cena="turma" data-modo="historia" data-forca=".5" data-foco=".72" data-margem="1" data-raio="24" data-amp=".9" data-particulas="vagalume">
-      <div class="historia-palco">
-        <div class="janela" data-janela><img class="plana" src="../cenas/turma/c0_p.webp" alt="Scene from Big Buck Bunny split into depth layers" loading="lazy"></div>
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="Scene from Big Buck Bunny split into depth layers">
+        <div class="janela"><div class="pilha" data-z="0.172,0.535,0.863" aria-hidden="true"><img class="cam" src="../cenas/turma/c0_p.webp" srcset="../cenas/turma/c0_p.webp 960w, ../cenas/turma/c0.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c1_p.webp" srcset="../cenas/turma/c1_p.webp 960w, ../cenas/turma/c1.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c2_p.webp" srcset="../cenas/turma/c2_p.webp 960w, ../cenas/turma/c2.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="mapa" src="../cenas/turma/d.webp" alt="" decoding="async" loading="lazy"><i class="varredura"></i></div></div>
       </div>
-      <canvas aria-hidden="true"></canvas>
       <div class="historia-texto">
         <span class="olho-secao grad">The magic inside</span>
         <h2>Every picture becomes a layered world.</h2>
@@ -123,26 +144,26 @@
         <p class="intro">Movies are just the beginning. Trips, family moments, photos, YouTube videos and even your favorite game gain depth.</p>
       </div>
       <div class="bento">
-        <article class="cartao c-filme aparece" data-cena="spring" data-forca=".42" data-foco=".95" data-particulas="poeira">
-          <div class="janela" data-janela><img class="plana" src="../cenas/spring/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.391,0.801" aria-hidden="true"><img class="cam" src="../cenas/spring/c0_p.webp" srcset="../cenas/spring/c0_p.webp 960w, ../cenas/spring/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c1_p.webp" srcset="../cenas/spring/c1_p.webp 960w, ../cenas/spring/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c2_p.webp" srcset="../cenas/spring/c2_p.webp 960w, ../cenas/spring/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Movies & shows</h3><p>Your whole collection in 3D, on a cinema screen all your own.</p></div></article>
-        <article class="cartao c-jogo aparece" data-cena="jogo" data-forca=".42" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/jogo/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.141,0.465,0.824" aria-hidden="true"><img class="cam" src="../cenas/jogo/c0_p.webp" srcset="../cenas/jogo/c0_p.webp 960w, ../cenas/jogo/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c1_p.webp" srcset="../cenas/jogo/c1_p.webp 960w, ../cenas/jogo/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c2_p.webp" srcset="../cenas/jogo/c2_p.webp 960w, ../cenas/jogo/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Games</h3><p>Your PC games in 3D in your headset, no mods needed.</p></div></article>
-        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/coqueiros/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.355,0.766" aria-hidden="true"><img class="cam" src="../cenas/coqueiros/c0_p.webp" srcset="../cenas/coqueiros/c0_p.webp 960w, ../cenas/coqueiros/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c1_p.webp" srcset="../cenas/coqueiros/c1_p.webp 960w, ../cenas/coqueiros/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c2_p.webp" srcset="../cenas/coqueiros/c2_p.webp 960w, ../cenas/coqueiros/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Travel</h3><p>Go back to that beach. This time, with depth.</p></div></article>
-        <article class="cartao c-familia aparece" data-cena="festa" data-forca=".4" data-foco="1" data-particulas="brilho">
-          <div class="janela" data-janela><img class="plana" src="../cenas/festa/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.191,0.559,0.867" aria-hidden="true"><img class="cam" src="../cenas/festa/c0_p.webp" srcset="../cenas/festa/c0_p.webp 960w, ../cenas/festa/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c1_p.webp" srcset="../cenas/festa/c1_p.webp 960w, ../cenas/festa/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c2_p.webp" srcset="../cenas/festa/c2_p.webp 960w, ../cenas/festa/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Family</h3><p>Birthdays, graduations, the baby's first steps.</p></div></article>
-        <article class="cartao c-fotos aparece" data-cena="filhote" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/filhote/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.168,0.504,0.836" aria-hidden="true"><img class="cam" src="../cenas/filhote/c0_p.webp" srcset="../cenas/filhote/c0_p.webp 960w, ../cenas/filhote/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c1_p.webp" srcset="../cenas/filhote/c1_p.webp 960w, ../cenas/filhote/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c2_p.webp" srcset="../cenas/filhote/c2_p.webp 960w, ../cenas/filhote/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Photos</h3><p>Open a photo on your PC and step inside it.</p></div></article>
-        <article class="cartao c-youtube aparece" data-cena="lago" data-forca=".38" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/lago/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.133,0.422,0.789" aria-hidden="true"><img class="cam" src="../cenas/lago/c0_p.webp" srcset="../cenas/lago/c0_p.webp 960w, ../cenas/lago/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c1_p.webp" srcset="../cenas/lago/c1_p.webp 960w, ../cenas/lago/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c2_p.webp" srcset="../cenas/lago/c2_p.webp 960w, ../cenas/lago/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>YouTube & browser</h3><p>Vlogs, documentaries, music videos: whatever is on your computer screen.</p></div></article>
-        <article class="cartao c-natureza aparece" data-cena="cascata" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/cascata/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.145,0.465,0.820" aria-hidden="true"><img class="cam" src="../cenas/cascata/c0_p.webp" srcset="../cenas/cascata/c0_p.webp 960w, ../cenas/cascata/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c1_p.webp" srcset="../cenas/cascata/c1_p.webp 960w, ../cenas/cascata/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c2_p.webp" srcset="../cenas/cascata/c2_p.webp 960w, ../cenas/cascata/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"></div></div>
           <div class="txt"><h3>Nature</h3><p>Landscapes with the depth they really have.</p></div></article>
       </div>
     </div>
@@ -155,9 +176,9 @@
         <h2>Same picture. A whole new dimension.</h2>
         <p class="intro">Drag the line. On one side, the same old flat screen. On the other, the same scene with Pop3D. In your headset it's even more impressive: each eye gets its own image.</p>
       </div>
-      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-forca=".45" data-foco="1" role="img" aria-label="Comparison between the flat image and the image with depth">
-        <div class="janela" data-janela><img class="plana" src="../cenas/cachorro/c0_p.webp" alt="" loading="lazy"></div>
-        <canvas aria-hidden="true"></canvas>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="Comparison between the flat image and the image with depth">
+        <div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div>
+        <div class="lado-plano"><div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div></div>
         <div class="comparar-linha"><i></i></div>
         <span class="lado esq">Regular screen</span><span class="lado dir"><span class="grad">With Pop3D</span></span>
       </div>
@@ -172,44 +193,35 @@
     </div>
   </section>
 
-  <section id="onde">
+  <section id="baixar">
     <div class="faixa">
-      <div class="aparece">
-        <span class="olho-secao grad">Works with what you already have</span>
-        <h2>Your way, on your headset.</h2>
-        <p class="intro">Use our Quest app, the easiest way, or the PC VR app you already use.</p>
+      <div class="centro aparece">
+        <span class="olho-secao grad">Download</span>
+        <h2>Up and running in minutes.</h2>
+        <p class="intro">Pop3D does the magic on your computer and shows it on your headset. Install it on your PC first; the Quest app is the easiest way to watch.</p>
       </div>
-      <div class="conexoes">
-        <div class="destaque-quest aparece" data-cena="praia" data-forca=".35" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="../cenas/praia/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
-          <div class="quest-txt">
-            <span class="selo-quest">Recommended</span>
-            <h3>Pop3D app for Meta Quest</h3>
-            <p>Open the app on your headset and it finds your computer by itself over your home Wi-Fi. No cables, no setup. Coming to the Meta store.</p>
-            <ul><li>Wireless, over Wi-Fi</li><li>Finds your PC by itself</li><li>Menus made for VR</li><li>Free</li></ul>
-          </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>On your computer</span>
+          <h3>Pop3D for Windows</h3>
+          <p>Download, click Next and you're done. It gets ready for your graphics card by itself and keeps itself up to date.</p>
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Free download for Windows</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Free</div>
         </div>
-        <div class="outros aparece">
-          <h3>Also works with</h3>
-          <p>Prefer what you already use? Pop3D works with the most popular ways to connect a headset to a PC.</p>
-          <div class="chips">
-            <div class="chip">Steam Link<small>Meta Quest</small></div>
-            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
-            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
-            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico and more</small></div>
-          </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>On your Meta Quest</span>
+          <h3>Pop3D app for Meta Quest</h3>
+          <div class="loja"><span class="breve">Coming soon to the Meta Horizon Store</span></div>
+          <p>Until the app reaches the store, you can already install it over a USB cable:</p>
+          <ol class="dev">
+            <li>On your phone, open the <b>Meta Horizon</b> app and turn on <b>Developer Mode</b> under Devices › Headset settings. Meta asks for a developer account, which is free.</li>
+            <li>Connect your Quest to your computer with a USB cable.</li>
+            <li>In Pop3D on your computer, open <b>Settings › Headset</b>, click <b>Install on Quest</b> and tap <b>Allow</b> inside the headset. Done!</li>
+          </ol>
+          <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">Already use SideQuest? Download the APK</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="como">
-    <div class="faixa">
-      <div class="centro aparece"><h2>Three steps. Zero hassle.</h2></div>
-      <div class="passos">
-        <div class="passo aparece"><span class="passo-n grad">01</span><b>Install on your PC</b><span>Download, click Next and you're done. It gets ready for your graphics card by itself.</span></div>
-        <div class="passo aparece"><span class="passo-n grad">02</span><b>Open it on your headset</b><span>Open the Pop3D app on your Quest (or your PC VR app). It finds the computer by itself.</span></div>
-        <div class="passo aparece"><span class="passo-n grad">03</span><b>Pick and enjoy</b><span>Your videos show up in a virtual movie theater, already in 3D. Popcorn not included.</span></div>
       </div>
     </div>
   </section>
@@ -231,6 +243,8 @@
       <h2 class="aparece">FAQ</h2>
       <details class="aparece"><summary>Is it really free?</summary><p>Yes. No ads, no subscription, no catch.</p></details>
 <details class="aparece"><summary>Do I need to convert my videos first?</summary><p>No. Just press play: the 3D happens while you watch.</p></details>
+<details class="aparece"><summary>Do I need to install anything on my headset?</summary><p>It's optional. The Pop3D app for Quest is the easiest way: it's coming soon to the Meta store, and you can already <a href="#baixar-quest">install it in developer mode</a>. If you prefer, Pop3D also works with Steam Link, Air Link, Virtual Desktop and SteamVR.</p></details>
+<details class="aparece"><summary>I only installed the Quest app. Now what?</summary><p>The Quest app shows what Pop3D on your computer prepares. Also install <a href="#baixar">Pop3D on your Windows PC</a>: with both open, the headset finds the computer by itself.</p></details>
 <details class="aparece"><summary>Is the installation quick?</summary><p>The first time, Pop3D downloads about 4 GB: that's the artificial intelligence that makes the magic happen, and it gets tuned for your graphics card. How long it takes depends on your internet. After that, the app opens in seconds and updates itself.</p></details>
 <details class="aparece"><summary>Does it work with streaming?</summary><p>It works with whatever shows up on your computer screen, like YouTube and most websites. Some paid services protect their videos against copying and don't let any program capture the picture. Videos on your computer work right away.</p></details>
 <details class="aparece"><summary>Does it work without an NVIDIA card?</summary><p>For now, the magic needs an NVIDIA RTX graphics card. If your PC doesn't have one, the installer tells you right at the start, before downloading anything.</p></details>
@@ -240,18 +254,17 @@
     </div>
   </section>
 
-  <div class="final" data-cena="baloes" data-forca=".34" data-foco="1" data-particulas="brilho">
-    <div class="janela" data-janela><img class="plana" src="../cenas/baloes/c0_p.webp" alt="" loading="lazy"></div>
-    <canvas aria-hidden="true"></canvas>
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela"><div class="pilha" data-z="0.113,0.410,0.797" aria-hidden="true"><img class="cam" src="../cenas/baloes/c0_p.webp" srcset="../cenas/baloes/c0_p.webp 960w, ../cenas/baloes/c0.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c1_p.webp" srcset="../cenas/baloes/c1_p.webp 960w, ../cenas/baloes/c1.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c2_p.webp" srcset="../cenas/baloes/c2_p.webp 960w, ../cenas/baloes/c2.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"></div></div>
     <div class="faixa final-txt aparece">
       <h2>Ready to see everything in <span class="grad">3D</span>?</h2>
       <p class="lead">Free. Installs itself. Works on your headset.</p>
       <div class="botoes">
-        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
           <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Free download for Windows</span>
         </a>
       </div>
-      <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+      <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Free</div>
     </div>
   </div>
 </main>
@@ -270,6 +283,6 @@
   const topo = document.getElementById("topo");
   addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
 </script>
-<script src="../js/pop3d.js?v=65248819" defer></script>
+<script src="../js/pop3d.js?v=045ca6d3" defer></script>
 </body>
 </html>

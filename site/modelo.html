@@ -18,21 +18,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
-<link rel="preload" as="image" href="{{raiz}}cenas/heroi/c0_p.webp">
 <link rel="stylesheet" href="{{raiz}}css/site.css?v={{versao}}">
 {{redirecionar}}
 <script>window.POP3D_TEXTOS = {{textos_js}};</script>
 </head>
 <body>
-<canvas id="estrelas" aria-hidden="true"></canvas>
-<div class="grao" aria-hidden="true"></div>
+<div class="ceu" aria-hidden="true"></div>
 
 <header id="topo">
   <div class="faixa">
     <a class="marca" href="{{inicio}}"><i>3D</i>Pop3D</a>
     <nav>
+      <a class="some" href="#quest">{{nav_onde}}</a>
       <a class="some" href="#magica">{{nav_magica}}</a>
-      <a class="some" href="#onde">{{nav_onde}}</a>
       <a class="some" href="#duvidas">{{nav_duvidas}}</a>
       <span class="idiomas">{{idiomas}}</span>
       <a class="cta-topo" href="#baixar">{{nav_baixar}}</a>
@@ -41,47 +39,70 @@
 </header>
 
 <main>
-  <section class="heroi" id="baixar">
-    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <section class="heroi">
     <div class="faixa heroi-grade">
       <div class="heroi-texto">
         <div class="selo">{{selo}}</div>
         <h1>{{h1}}</h1>
         <p class="lead">{{lead}}</p>
         <div class="botoes">
-          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+          <a class="botao principal" data-baixar href="{{url_instalador}}">
             <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>{{baixar}}</span>
           </a>
-          <a class="botao" href="#magica">{{ver_magica}}</a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>{{botao_quest}}</span></a>
         </div>
-        <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+        <div class="detalhe" data-baixar-detalhe>{{detalhe_pc}}</div>
       </div>
       <div class="cinema">
-        <div class="palco-heroi" data-cena="heroi" data-forca=".62" data-foco=".5" data-margem="1" data-raio="22" data-amp="1.25" data-particulas="poeira">
-          <img class="ambi" src="{{raiz}}cenas/heroi/c0_p.webp" alt="" aria-hidden="true">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/heroi/c0_p.webp" alt="{{alt_heroi}}"></div>
-          <canvas aria-hidden="true"></canvas>
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="{{alt_heroi}}">
+          <img class="ambi" src="{{raiz}}cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela">{{pilha:heroi|(max-width: 1000px) 94vw, 58vw|ja}}</div>
         </div>
-        <div class="cinema-rodape">
-          <span class="rotulo">{{rotulo_heroi}}</span>
-          <button class="anaglifo" id="anaglifo" type="button"><span class="oculos"><i></i><i></i></span>{{anaglifo}}</button>
-        </div>
-        <div class="dica-mexer">{{dica_mexer}}</div>
+        <div class="cinema-rodape"><span class="rotulo">{{rotulo_heroi}}</span></div>
       </div>
     </div>
   </section>
 
-  <div class="letreiro" aria-hidden="true">
-    <div class="trilho">{{letreiro}}</div>
-    <div class="trilho volta">{{letreiro2}}</div>
-  </div>
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">{{onde_olho}}</span>
+        <h2>{{onde_h2}}</h2>
+        <p class="intro">{{onde_intro}}</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela">{{pilha:praia|(max-width: 900px) 100vw, 60vw}}</div>
+          <div class="quest-txt">
+            <span class="selo-quest">{{quest_selo}}</span>
+            <h3>{{quest_h3}}</h3>
+            <p>{{quest_p}}</p>
+            <ul><li>{{quest_l1}}</li><li>{{quest_l2}}</li><li>{{quest_l3}}</li><li>{{quest_l4}}</li></ul>
+            <div class="quest-status">
+              <span class="breve">{{em_breve_loja}}</span>
+              <a href="#baixar-quest">{{quest_ja}}&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>{{outros_h3}}</h3>
+          <p>{{outros_p}}</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>{{steamvr_p}}</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="historia" id="magica">
-    <div class="historia-fixa" data-cena="turma" data-modo="historia" data-forca=".5" data-foco=".72" data-margem="1" data-raio="24" data-amp=".9" data-particulas="vagalume">
-      <div class="historia-palco">
-        <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/turma/c0_p.webp" alt="{{alt_historia}}" loading="lazy"></div>
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="{{alt_historia}}">
+        <div class="janela">{{pilha:turma|(max-width: 900px) 92vw, 62vw|mapa}}</div>
       </div>
-      <canvas aria-hidden="true"></canvas>
       <div class="historia-texto">
         <span class="olho-secao grad">{{magica_olho}}</span>
         <h2>{{magica_h2}}</h2>
@@ -104,26 +125,26 @@
         <p class="intro">{{tudo_intro}}</p>
       </div>
       <div class="bento">
-        <article class="cartao c-filme aparece" data-cena="spring" data-forca=".42" data-foco=".95" data-particulas="poeira">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/spring/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:spring|(max-width: 900px) 100vw, 58vw}}</div>
           <div class="txt"><h3>{{c_filme}}</h3><p>{{c_filme_p}}</p></div></article>
-        <article class="cartao c-jogo aparece" data-cena="jogo" data-forca=".42" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/jogo/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:jogo|(max-width: 900px) 100vw, 42vw}}</div>
           <div class="txt"><h3>{{c_jogo}}</h3><p>{{c_jogo_p}}</p></div></article>
-        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/coqueiros/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:coqueiros|(max-width: 900px) 100vw, 42vw}}</div>
           <div class="txt"><h3>{{c_viagem}}</h3><p>{{c_viagem_p}}</p></div></article>
-        <article class="cartao c-familia aparece" data-cena="festa" data-forca=".4" data-foco="1" data-particulas="brilho">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/festa/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:festa|(max-width: 900px) 50vw, 34vw}}</div>
           <div class="txt"><h3>{{c_familia}}</h3><p>{{c_familia_p}}</p></div></article>
-        <article class="cartao c-fotos aparece" data-cena="filhote" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/filhote/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:filhote|(max-width: 900px) 50vw, 34vw}}</div>
           <div class="txt"><h3>{{c_fotos}}</h3><p>{{c_fotos_p}}</p></div></article>
-        <article class="cartao c-youtube aparece" data-cena="lago" data-forca=".38" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/lago/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:lago|(max-width: 900px) 100vw, 34vw}}</div>
           <div class="txt"><h3>{{c_youtube}}</h3><p>{{c_youtube_p}}</p></div></article>
-        <article class="cartao c-natureza aparece" data-cena="cascata" data-forca=".4" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/cascata/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela">{{pilha:cascata|(max-width: 900px) 100vw, 34vw}}</div>
           <div class="txt"><h3>{{c_natureza}}</h3><p>{{c_natureza_p}}</p></div></article>
       </div>
     </div>
@@ -136,9 +157,9 @@
         <h2>{{dif_h2}}</h2>
         <p class="intro">{{dif_intro}}</p>
       </div>
-      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-forca=".45" data-foco="1" role="img" aria-label="{{dif_alt}}">
-        <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/cachorro/c0_p.webp" alt="" loading="lazy"></div>
-        <canvas aria-hidden="true"></canvas>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="{{dif_alt}}">
+        <div class="janela">{{pilha:cachorro|(max-width: 1240px) 100vw, 1200px}}</div>
+        <div class="lado-plano"><div class="janela">{{pilha:cachorro|(max-width: 1240px) 100vw, 1200px}}</div></div>
         <div class="comparar-linha"><i></i></div>
         <span class="lado esq">{{dif_esq}}</span><span class="lado dir"><span class="grad">{{dif_dir}}</span></span>
       </div>
@@ -153,44 +174,35 @@
     </div>
   </section>
 
-  <section id="onde">
+  <section id="baixar">
     <div class="faixa">
-      <div class="aparece">
-        <span class="olho-secao grad">{{onde_olho}}</span>
-        <h2>{{onde_h2}}</h2>
-        <p class="intro">{{onde_intro}}</p>
+      <div class="centro aparece">
+        <span class="olho-secao grad">{{baixar_olho}}</span>
+        <h2>{{baixar_h2}}</h2>
+        <p class="intro">{{baixar_intro}}</p>
       </div>
-      <div class="conexoes">
-        <div class="destaque-quest aparece" data-cena="praia" data-forca=".35" data-foco="1">
-          <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/praia/c0_p.webp" alt="" loading="lazy"></div><canvas aria-hidden="true"></canvas>
-          <div class="quest-txt">
-            <span class="selo-quest">{{quest_selo}}</span>
-            <h3>{{quest_h3}}</h3>
-            <p>{{quest_p}}</p>
-            <ul><li>{{quest_l1}}</li><li>{{quest_l2}}</li><li>{{quest_l3}}</li><li>{{quest_l4}}</li></ul>
-          </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>{{etapa_pc}}</span>
+          <h3>{{pc_h3}}</h3>
+          <p>{{pc_p}}</p>
+          <a class="botao principal" data-baixar href="{{url_instalador}}">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>{{baixar}}</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>{{detalhe_pc}}</div>
         </div>
-        <div class="outros aparece">
-          <h3>{{outros_h3}}</h3>
-          <p>{{outros_p}}</p>
-          <div class="chips">
-            <div class="chip">Steam Link<small>Meta Quest</small></div>
-            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
-            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
-            <div class="chip">SteamVR<small>{{steamvr_p}}</small></div>
-          </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>{{etapa_quest}}</span>
+          <h3>{{quest_h3}}</h3>
+          <div class="loja"><span class="breve">{{em_breve_loja}}</span></div>
+          <p>{{dev_intro}}</p>
+          <ol class="dev">
+            <li>{{dev1}}</li>
+            <li>{{dev2}}</li>
+            <li>{{dev3}}</li>
+          </ol>
+          <a class="link-apk" href="{{url_apk}}">{{dev_apk}}</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="como">
-    <div class="faixa">
-      <div class="centro aparece"><h2>{{como_h2}}</h2></div>
-      <div class="passos">
-        <div class="passo aparece"><span class="passo-n grad">01</span><b>{{passo1}}</b><span>{{passo1_p}}</span></div>
-        <div class="passo aparece"><span class="passo-n grad">02</span><b>{{passo2}}</b><span>{{passo2_p}}</span></div>
-        <div class="passo aparece"><span class="passo-n grad">03</span><b>{{passo3}}</b><span>{{passo3_p}}</span></div>
       </div>
     </div>
   </section>
@@ -214,18 +226,17 @@
     </div>
   </section>
 
-  <div class="final" data-cena="baloes" data-forca=".34" data-foco="1" data-particulas="brilho">
-    <div class="janela" data-janela><img class="plana" src="{{raiz}}cenas/baloes/c0_p.webp" alt="" loading="lazy"></div>
-    <canvas aria-hidden="true"></canvas>
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela">{{pilha:baloes|100vw}}</div>
     <div class="faixa final-txt aparece">
       <h2>{{final_h2}}</h2>
       <p class="lead">{{final_p}}</p>
       <div class="botoes">
-        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest">
+        <a class="botao principal" data-baixar href="{{url_instalador}}">
           <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>{{baixar}}</span>
         </a>
       </div>
-      <div class="detalhe" data-baixar-detalhe>&nbsp;</div>
+      <div class="detalhe" data-baixar-detalhe>{{detalhe_pc}}</div>
     </div>
   </div>
 </main>

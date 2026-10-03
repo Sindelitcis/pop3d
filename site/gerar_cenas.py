@@ -1,6 +1,6 @@
 # Cenas 3D do site: cada foto vira camadas (fundo, meio, frente) com profundidade própria e o que fica
-# escondido atrás dos objetos reconstruído pela IA. No navegador, cada camada vira uma malha 3D: quando a
-# câmera se mexe aparece fundo de verdade, sem pixel esticado.
+# escondido atrás dos objetos reconstruído pela IA. No navegador, as camadas só deslizam umas sobre as outras
+# (pop3d.js): quando a cabeça se mexe aparece fundo de verdade, sem pixel esticado.
 #   Profundidade: Depth Pro (Apple), na resolução nativa de 1536.  Preenchimento: LaMa (big-lama).
 #   Modelos em site/modelos (fora do git). Roda com o Python do Pop3D:
 #   D:\Estudio\ia\video\nunif\.venv\Scripts\python.exe gerar_cenas.py [nome ...] [--rapido]
@@ -25,7 +25,7 @@ PROVAS = os.path.join(AQUI, "provas")          # folhas de conferência (fora do
 CENAS = {
     "heroi":    dict(arq="bunny2.png", larg=1920, camadas=3),
     "filme":    dict(arq="bunny3.png", larg=1600, camadas=3),
-    "turma":    dict(arq="bunny1.png", larg=1600, camadas=3),
+    "turma":    dict(arq="bunny1.png", larg=1600, camadas=3, mapa=True),
     "spring":   dict(arq="spring1.png", larg=1600, camadas=3, ceu=True, recorte=(0.0, 0.062, 1.0, 0.9)),
     "baloes":   dict(arq="baloes2.jpg", larg=1920, camadas=3, ceu=True),
     "praia":    dict(arq="praia2.jpg", larg=1600, camadas=3, ceu=True),
@@ -292,16 +292,16 @@ def cena(nome, cfg, mdp, lama, dev):
                 a = cv2.resize(alfas[i], (lw, lh), interpolation=cv2.INTER_AREA) if lw != W else alfas[i]
                 rgba = np.dstack([c, (np.clip(a, 0, 1) * 255 + 0.5).astype(np.uint8)])
                 Image.fromarray(rgba, "RGBA").save(os.path.join(pasta, f"c{i}{sufixo}.webp"), quality=86, method=6)
-        # profundidades das camadas juntas numa imagem (R, G, B = camada 0, 1, 2), metade do tamanho
-        pw, ph = max(2, lw // 2), max(2, lh // 2)
-        canais = [cv2.resize(profs[i], (pw, ph), interpolation=cv2.INTER_AREA) for i in range(k)]
-        while len(canais) < 3:
-            canais.append(canais[-1])
-        pack = (np.clip(np.dstack(canais[:3]), 0, 1) * 255 + 0.5).astype(np.uint8)
-        Image.fromarray(pack, "RGB").save(os.path.join(pasta, f"p{sufixo}.webp"), lossless=True, quality=100, method=6)
         return lw, lh
 
     salvar(W, "")
+    if cfg.get("mapa"):
+        # o mapa de profundidade com as cores do site (longe = anil escuro, perto = ciano claro), para a seção
+        # que mostra como a mágica funciona
+        paradas = np.array([[0, 12, 14, 40], [.3, 52, 40, 150], [.58, 98, 84, 255], [.8, 20, 180, 255], [1, 225, 248, 255]], np.float32)
+        dd = cv2.resize(d, (PEQUENA, round(H * PEQUENA / W)), interpolation=cv2.INTER_AREA)
+        cor = np.stack([np.interp(dd, paradas[:, 0], paradas[:, c]) for c in (1, 2, 3)], -1)
+        Image.fromarray(cor.clip(0, 255).astype(np.uint8)).save(os.path.join(pasta, "d.webp"), quality=88, method=6)
     if W > PEQUENA:
         salvar(PEQUENA, "_p")
 
