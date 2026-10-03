@@ -29,8 +29,8 @@
   <div class="faixa">
     <a class="marca" href="{{inicio}}"><i>3D</i>Pop3D</a>
     <nav>
-      <a class="some" href="#quest">{{nav_onde}}</a>
       <a class="some" href="#magica">{{nav_magica}}</a>
+      <a class="some" href="#quest">{{nav_onde}}</a>
       <a class="some" href="#duvidas">{{nav_duvidas}}</a>
       <span class="idiomas">{{idiomas}}</span>
       <a class="cta-topo" href="#baixar">{{nav_baixar}}</a>
@@ -60,6 +60,25 @@
         </div>
         <div class="cinema-rodape"><span class="rotulo">{{rotulo_heroi}}</span></div>
       </div>
+    </div>
+  </section>
+
+  <section class="historia" id="magica">
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="{{alt_historia}}">
+        <div class="janela">{{pilha:turma|(max-width: 900px) 92vw, 62vw|mapa}}</div>
+      </div>
+      <div class="historia-texto">
+        <span class="olho-secao grad">{{magica_olho}}</span>
+        <h2>{{magica_h2}}</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span>{{hist1}}</span></li>
+          <li data-passo><span class="n">2</span><span>{{hist2}}</span></li>
+          <li data-passo><span class="n">3</span><span>{{hist3}}</span></li>
+          <li data-passo><span class="n">4</span><span>{{hist4}}</span></li>
+        </ol>
+      </div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
     </div>
   </section>
 
@@ -95,25 +114,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="historia" id="magica">
-    <div class="historia-fixa">
-      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="{{alt_historia}}">
-        <div class="janela">{{pilha:turma|(max-width: 900px) 92vw, 62vw|mapa}}</div>
-      </div>
-      <div class="historia-texto">
-        <span class="olho-secao grad">{{magica_olho}}</span>
-        <h2>{{magica_h2}}</h2>
-        <ol class="passos-hist">
-          <li data-passo><span class="n">1</span><span>{{hist1}}</span></li>
-          <li data-passo><span class="n">2</span><span>{{hist2}}</span></li>
-          <li data-passo><span class="n">3</span><span>{{hist3}}</span></li>
-          <li data-passo><span class="n">4</span><span>{{hist4}}</span></li>
-        </ol>
-      </div>
-      <div class="historia-barra" aria-hidden="true"><i></i></div>
     </div>
   </section>
 
