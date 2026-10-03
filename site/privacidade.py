@@ -25,7 +25,7 @@ PT = {"titulo": "Política de Privacidade", "atualizada": "Atualizada em", "inic
 <li>Modelo da placa de vídeo, memória de vídeo, versão do driver, processador e memória RAM.</li>
 <li>Resultados de desempenho: quadros por segundo, uso da placa de vídeo e a qualidade escolhida.</li>
 <li>Como o app é usado: tipo de óculos e de conexão (Wi-Fi, cabo, PC VR), modo de vídeo (2D, 3D, tela do PC), tempo de uso.</li>
-<li>Etapas da instalação e mensagens de erro (sem nomes de arquivos ou pastas).</li>
+<li>Etapas da instalação e mensagens de erro (sem nomes de arquivos ou pastas). Quando acontece um erro ou o vídeo trava, vão junto as últimas linhas do registro técnico do app, limpas antes de sair do computador: sem nomes de filmes, arquivos, pastas, e-mails ou endereços IP.</li>
 </ul>
 <p>Esses dados são guardados pelo <b>PostHog</b>, um serviço de estatísticas, em servidores na <b>União Europeia</b>, e só são vistos pela equipe do Pop3D. Não vendemos nem compartilhamos esses dados com mais ninguém, e não os usamos para propaganda.</p>
 <h2>Sugestões que você nos manda</h2>
@@ -67,7 +67,7 @@ EN = {"titulo": "Privacy Policy", "atualizada": "Updated on", "inicio": "Home", 
 <li>Graphics card model, video memory, driver version, processor and RAM.</li>
 <li>Performance results: frames per second, graphics card usage and the chosen quality.</li>
 <li>How the app is used: headset and connection type (Wi-Fi, cable, PC VR), video mode (2D, 3D, PC screen), usage time.</li>
-<li>Installation steps and error messages (without file or folder names).</li>
+<li>Installation steps and error messages (without file or folder names). When an error happens or the video freezes, the last lines of the app's technical log go along, cleaned before they leave the computer: no movie, file or folder names, e-mails or IP addresses.</li>
 </ul>
 <p>This data is stored by <b>PostHog</b>, an analytics service, on servers in the <b>European Union</b>, and is only seen by the Pop3D team. We do not sell or share this data with anyone else, and we do not use it for advertising.</p>
 <h2>Suggestions you send us</h2>
@@ -109,7 +109,7 @@ ES = {"titulo": "Política de Privacidad", "atualizada": "Actualizada el", "inic
 <li>Modelo de la tarjeta gráfica, memoria de video, versión del controlador, procesador y memoria RAM.</li>
 <li>Resultados de rendimiento: cuadros por segundo, uso de la tarjeta gráfica y la calidad elegida.</li>
 <li>Cómo se usa la app: tipo de visor y de conexión (Wi-Fi, cable, PC VR), modo de video (2D, 3D, pantalla de la PC), tiempo de uso.</li>
-<li>Pasos de la instalación y mensajes de error (sin nombres de archivos ni carpetas).</li>
+<li>Pasos de la instalación y mensajes de error (sin nombres de archivos ni carpetas). Cuando ocurre un error o el video se traba, van también las últimas líneas del registro técnico de la app, limpias antes de salir de la computadora: sin nombres de películas, archivos, carpetas, correos ni direcciones IP.</li>
 </ul>
 <p>Estos datos se guardan en <b>PostHog</b>, un servicio de estadísticas, en servidores de la <b>Unión Europea</b>, y solo los ve el equipo de Pop3D. No vendemos ni compartimos estos datos con nadie más, y no los usamos para publicidad.</p>
 <h2>Sugerencias que nos envías</h2>
