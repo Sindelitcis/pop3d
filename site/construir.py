@@ -172,6 +172,7 @@ def main():
             versao=versao(),
             url_instalador=BAIXAR + "Pop3D_Instalador.exe",
             url_apk=BAIXAR + "Pop3D-Quest.apk",
+            url_loja="https://www.meta.com/experiences/1331076283427448/",
             creditos=creditos(lingua),
             url_privacidade=PRIV[lingua],
             textos_js=json.dumps(dict(t["js"], obrigado=t["obrigado"]), ensure_ascii=False),
