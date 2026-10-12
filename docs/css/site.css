@@ -50,9 +50,29 @@ header .faixa { display: flex; align-items: center; gap: 14px; height: 68px; }
 header nav { margin-left: auto; display: flex; align-items: center; gap: 24px; font-size: 15px; }
 header nav a { text-decoration: none; color: var(--texto2); transition: color .2s; }
 header nav a:hover { color: var(--texto); }
-.idiomas { display: flex; gap: 2px; padding: 3px; border-radius: 99px; border: 1px solid var(--borda2); background: rgba(255,255,255,.03); }
-.idiomas a { padding: 3px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 700; color: var(--texto3); }
-.idiomas a.ativo { background: rgba(255,255,255,.12); color: var(--texto); }
+/* idioma: botão pequeno (globo + PT) que abre a lista; cabe quantos idiomas vierem sem poluir o topo */
+details.idiomas, details.idiomas[open] { position: relative; background: none; border: 0; border-radius: 0; padding: 0; margin: 0; }
+.idiomas > summary { list-style: none; display: flex; align-items: center; gap: 6px; padding: 5px 9px 5px 10px; border-radius: 99px;
+  border: 1px solid var(--borda2); background: rgba(255,255,255,.03); color: var(--texto2); font-size: 12.5px; font-weight: 700;
+  letter-spacing: .03em; cursor: pointer; user-select: none; transition: color .2s, border-color .2s, background .2s; }
+.idiomas > summary::-webkit-details-marker { display: none; }
+.idiomas > summary::after, .idiomas > summary::before { content: none !important; display: none !important; }
+.idiomas > summary:hover, .idiomas[open] > summary { color: var(--texto); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.07); }
+.idiomas > summary:focus-visible { outline: 2px solid var(--acento2); outline-offset: 2px; }
+.idiomas svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.idiomas .seta { width: 12px; height: 12px; stroke-width: 2.2; opacity: .7; transition: transform .2s; }
+.idiomas[open] .seta { transform: rotate(180deg); }
+.idiomas-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 196px; padding: 6px; border-radius: 14px; display: grid; gap: 2px;
+  background: rgba(17,21,31,.97); border: 1px solid var(--borda2); box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); animation: idiomas-abre .16s ease-out; z-index: 90; }
+header nav .idiomas-menu a, .idiomas-menu a { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 8px 12px;
+  border-radius: 9px; text-decoration: none; color: var(--texto2); font-size: 14px; }
+.idiomas-menu a small { color: var(--texto3); font-size: 11px; font-weight: 700; letter-spacing: .05em; }
+header nav .idiomas-menu a:hover, .idiomas-menu a:hover, .idiomas-menu a:focus-visible { background: rgba(255,255,255,.07); color: var(--texto); outline: none; }
+header nav .idiomas-menu a.ativo, .idiomas-menu a.ativo { background: rgba(124,92,255,.16); color: var(--texto); }
+.idiomas-menu a.ativo small { color: #b9a9ff; }
+@keyframes idiomas-abre { from { opacity: 0; transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .idiomas-menu { animation: none; } }
 .cta-topo { padding: 9px 18px; border-radius: 99px; background: var(--grad); color: #fff !important; font-weight: 700; font-size: 14px; box-shadow: 0 6px 24px rgba(79,139,255,.3); }
 @media (max-width: 760px) { header nav .some { display: none; } .cta-topo { display: none; } }
 

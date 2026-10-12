@@ -322,4 +322,12 @@
   document.querySelectorAll("[data-idioma]").forEach(a => a.addEventListener("click", () => {
     try { localStorage.setItem("pop3d_idioma", a.dataset.idioma); } catch (e) {}
   }));
+  // o menu de idiomas fecha ao clicar fora dele ou apertar Esc
+  const menuIdioma = document.querySelector("details.idiomas");
+  if (menuIdioma) {
+    document.addEventListener("click", e => { if (menuIdioma.open && !menuIdioma.contains(e.target)) menuIdioma.open = false; });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && menuIdioma.open) { menuIdioma.open = false; menuIdioma.querySelector("summary").focus(); }
+    });
+  }
 })();
