@@ -2,7 +2,8 @@
 # Mudou algo no que o app coleta? Atualize todas e a DATA.
 
 DATA = {"pt": "2 de outubro de 2026", "en": "October 2, 2026", "es": "2 de octubre de 2026", "fr": "2 octobre 2026",
-        "de": "2. Oktober 2026", "it": "2 ottobre 2026", "uk": "2 жовтня 2026 р."}
+        "de": "2. Oktober 2026", "it": "2 ottobre 2026", "uk": "2 жовтня 2026 р.",
+        "sv": "2 oktober 2026", "ja": "2026年10月2日", "zh": "2026年10月2日"}
 ISSUES = '<a href="https://github.com/Sindelitcis/pop3d/issues">github.com/Sindelitcis/pop3d/issues</a>'
 
 PT = {"titulo": "Política de Privacidade", "atualizada": "Atualizada em", "inicio": "Página inicial", "corpo": f"""
@@ -299,4 +300,130 @@ UK = {"titulo": "Політика конфіденційності", "atualizada
 <p>Питання чи запити: {ISSUES}.</p>
 """}
 
-IDIOMAS = {"pt": PT, "en": EN, "es": ES, "fr": FR, "de": DE, "it": IT, "uk": UK}
+SV = {"titulo": "Integritetspolicy", "atualizada": "Uppdaterad", "inicio": "Startsida", "corpo": f"""
+<div class="resumo"><p><b>I korthet:</b> dina filmer och videor lämnar aldrig din dator. Pop3D skickar bara anonym användningsstatistik (som grafikkortsmodell och prestanda) så att vi kan förbättra appen, och du kan stänga av det när som helst under Settings (inställningar).</p></div>
+<h2>Vilka vi är</h2>
+<p>Pop3D är en gratis app som förvandlar 2D-videor till 3D för VR-headset. Den består av datorappen (Windows) och headsetappen (Meta Quest). Den här policyn gäller båda.</p>
+<h2>Det här samlar vi aldrig in</h2>
+<ul>
+<li>Namn, innehåll eller bilder från dina filmer och videor, eller något som visas på din datorskärm.</li>
+<li>Namn på mappar och filer på din dator.</li>
+<li>Ditt namn, konton, kontakter eller andra uppgifter som identifierar dig (en e-postadress bara om du själv skriver den i ett förslag; se nedan).</li>
+<li>Din IP-adress: den sparas inte och används inte för att ta reda på var du befinner dig.</li>
+<li>Kamerabilder, din omgivning eller headsetets rörelser.</li>
+</ul>
+<p>All bearbetning sker på din egen dator. Videon går från datorn till headsetet via ditt lokala nätverk (wifi eller kabel), aldrig via internet.</p>
+<h2>Det här samlar vi in (anonym användningsstatistik)</h2>
+<p>För att hitta problem och göra appen snabbare på fler datorer skickar datorappen teknisk information som:</p>
+<ul>
+<li>En slumpmässig kod som skapas vid installationen och inte har något med dig att göra (används bara för att räkna installationer utan dubbletter).</li>
+<li>Versioner av Pop3D och Windows, system- och appspråk.</li>
+<li>Grafikkortsmodell, videominne, drivrutinsversion, processor och RAM.</li>
+<li>Prestandaresultat: bilder per sekund, grafikkortets belastning och vald kvalitet.</li>
+<li>Hur appen används: typ av headset och anslutning (wifi, kabel, PC VR), videoläge (2D, 3D, datorskärm), användningstid.</li>
+<li>Installationssteg och felmeddelanden (utan fil- eller mappnamn). När ett fel inträffar eller videon fryser skickas de sista raderna i appens tekniska logg med, rensade innan de lämnar datorn: inga film-, fil- eller mappnamn, e-postadresser eller IP-adresser.</li>
+</ul>
+<p>Uppgifterna lagras av <b>PostHog</b>, en analystjänst, på servrar i <b>Europeiska unionen</b>, och ses bara av Pop3D-teamet. Vi säljer inte och delar inte uppgifterna med någon annan, och vi använder dem inte för reklam.</p>
+<h2>Förslag som du skickar till oss</h2>
+<p>Under <b>Ideas &amp; feedback</b> i appen kan du skicka ett meddelande till oss. Tillsammans med texten du skriver skickas appversionen och din grafikkortsmodell. E-postadressen är <b>valfri</b>: den skickas bara om du fyller i den och används bara för att svara på ditt meddelande. Förslagen lagras i samma tjänst som statistiken (PostHog, Europeiska unionen). De skickas även när statistiken är avstängd, eftersom det är du som väljer att skicka dem.</p>
+<h2>Så stänger du av det</h2>
+<p>Öppna <b>Settings</b> (inställningar) i datorappen och stäng av <b>Send anonymous usage data</b>. Därefter skickas inget mer (förutom förslag som du själv väljer att skicka).</p>
+<h2>Uppdateringar</h2>
+<p>När Pop3D startar kontrollerar det <b>GitHub</b> (där versionerna publiceras) för att se om en ny version har kommit. Som alla webbplatser får GitHub din dators internetadress i det ögonblicket; GitHubs integritetspolicy gäller för den kontrollen. Inga av dina uppgifter skickas med.</p>
+<h2>Headsetappen (Meta Quest)</h2>
+<p>Pop3D-appen i headsetet samlar inte in och skickar inte några uppgifter till internet. Den kommunicerar bara med din dator, i ditt lokala nätverk, för att ta emot video och skicka handkontrollernas kommandon.</p>
+<h2>Barn</h2>
+<p>Pop3D samlar inte in personuppgifter från någon, inte heller från barn. Följ headsettillverkarens åldersrekommendationer.</p>
+<h2>Dina rättigheter (GDPR och LGPD)</h2>
+<p>Eftersom statistiken är anonym kan vi inte koppla den till dig. Om du ändå vill att vi raderar statistiken från din dator eller ett förslag som du har skickat kan du kontakta oss via länken nedan och ange installationskoden som visas under Settings.</p>
+<h2>Ändringar i den här policyn</h2>
+<p>Om policyn ändras visas den nya versionen på den här sidan med ett uppdaterat datum.</p>
+<h2>Kontakt</h2>
+<p>Frågor eller önskemål: {ISSUES}.</p>
+"""}
+
+JA = {"titulo": "プライバシーポリシー", "atualizada": "更新日", "inicio": "ホーム", "corpo": f"""
+<div class="resumo"><p><b>要約：</b>あなたの映画や動画がパソコンの外に出ることはありません。Pop3D が送るのは、アプリを改善するための匿名の利用統計（グラフィックボードの型番や性能など）だけで、Settings（設定）からいつでもオフにできます。</p></div>
+<h2>運営者について</h2>
+<p>Pop3D は、2D 動画を VR ヘッドセット向けの 3D に変える無料アプリです。パソコン用アプリ（Windows）とヘッドセット用アプリ（Meta Quest）からなり、本ポリシーはその両方に適用されます。</p>
+<h2>収集しないもの</h2>
+<ul>
+<li>映画や動画のタイトル、内容、映像、およびパソコンの画面に表示されるもの。</li>
+<li>パソコン内のフォルダ名やファイル名。</li>
+<li>お名前、アカウント、連絡先など、あなたを特定できる情報（メールアドレスは、ご自身で提案に書き込んだ場合のみ。下記参照）。</li>
+<li>IP アドレス：保存せず、所在地の特定にも使いません。</li>
+<li>カメラの映像、周囲の環境、ヘッドセットの動き。</li>
+</ul>
+<p>処理はすべてあなたのパソコンの中で行われます。映像はローカルネットワーク（Wi-Fi またはケーブル）を通ってパソコンからヘッドセットへ届き、インターネットを経由することはありません。</p>
+<h2>収集するもの（匿名の利用統計）</h2>
+<p>問題を見つけ、より多くのパソコンでアプリを速くするために、パソコン用アプリは次のような技術情報を送信します。</p>
+<ul>
+<li>インストール時に作られるランダムなコード。あなたとは無関係です（インストール数を重複なく数えるためだけに使います）。</li>
+<li>Pop3D と Windows のバージョン、システムとアプリの言語。</li>
+<li>グラフィックボードの型番、ビデオメモリ、ドライバーのバージョン、プロセッサー、メモリ（RAM）。</li>
+<li>性能の結果：1 秒あたりのフレーム数、グラフィックボードの使用率、選ばれた画質。</li>
+<li>アプリの使われ方：ヘッドセットと接続の種類（Wi-Fi、ケーブル、PC VR）、映像モード（2D、3D、パソコンの画面）、利用時間。</li>
+<li>インストールの段階とエラーメッセージ（ファイル名やフォルダ名は含みません）。エラーや映像の停止が起きたときは、アプリの技術ログの最後の数行も送られますが、パソコンを出る前に整理され、映画名、ファイル名、フォルダ名、メールアドレス、IP アドレスは含まれません。</li>
+</ul>
+<p>これらのデータは分析サービス <b>PostHog</b> によって<b>欧州連合</b>内のサーバーに保存され、Pop3D チームだけが閲覧します。データを販売したり第三者と共有したりすることはなく、広告にも使いません。</p>
+<h2>お寄せいただく提案</h2>
+<p>アプリ内の <b>Ideas &amp; feedback</b> からメッセージを送れます。書いた文章と一緒に、アプリのバージョンとグラフィックボードの型番が送られます。メールアドレスは<b>任意</b>で、入力した場合のみ送られ、返信のためだけに使います。提案は統計と同じサービス（PostHog、欧州連合）に保存されます。ご自身で送ると決めたものなので、統計をオフにしていても送信されます。</p>
+<h2>オフにする方法</h2>
+<p>パソコン用アプリで <b>Settings</b>（設定）を開き、<b>Send anonymous usage data</b> をオフにしてください。それ以降は何も送信されません（ご自身で送る提案を除きます）。</p>
+<h2>アップデート</h2>
+<p>Pop3D は起動時に <b>GitHub</b>（バージョンを公開している場所）を確認し、新しいバージョンが出ているかを調べます。ほかのウェブサイトと同じく、その際に GitHub はパソコンのインターネット上のアドレスを受け取ります。この確認には GitHub のプライバシーポリシーが適用されます。あなたの情報が一緒に送られることはありません。</p>
+<h2>ヘッドセット用アプリ（Meta Quest）</h2>
+<p>ヘッドセット用の Pop3D アプリは、データを収集したり、インターネットに送ったりしません。映像を受け取り、コントローラーの操作を送るために、ローカルネットワーク内であなたのパソコンとやり取りするだけです。</p>
+<h2>お子さまについて</h2>
+<p>Pop3D は、お子さまを含め、誰の個人データも収集しません。ヘッドセットのメーカーが定める対象年齢に従ってください。</p>
+<h2>あなたの権利（GDPR・LGPD）</h2>
+<p>統計は匿名のため、あなたと結びつけることはできません。それでも、お使いのパソコンの統計や、送った提案の削除をご希望の場合は、Settings に表示されるインストールコードを添えて、下記のリンクからご連絡ください。</p>
+<h2>本ポリシーの変更</h2>
+<p>本ポリシーを変更した場合は、更新日とともにこのページに新しい内容を掲載します。</p>
+<h2>お問い合わせ</h2>
+<p>ご質問やご要望：{ISSUES}</p>
+"""}
+
+ZH = {"titulo": "隱私權政策", "atualizada": "更新日期", "inicio": "首頁", "corpo": f"""
+<div class="resumo"><p><b>重點摘要：</b>你的電影和影片永遠不會離開你的電腦。Pop3D 只會傳送匿名的使用統計（例如顯示卡型號和效能），讓我們改進應用程式，你也可以隨時在 Settings（設定）中關閉。</p></div>
+<h2>關於我們</h2>
+<p>Pop3D 是一款免費應用程式，能把 2D 影片轉成 VR 頭戴裝置用的 3D。它包含電腦應用程式（Windows）和頭戴裝置應用程式（Meta Quest），本政策適用於兩者。</p>
+<h2>我們絕不收集的資料</h2>
+<ul>
+<li>你的電影和影片的名稱、內容或畫面，以及電腦螢幕上顯示的任何內容。</li>
+<li>電腦中資料夾和檔案的名稱。</li>
+<li>你的姓名、帳號、聯絡人或任何能識別你的資料（電子郵件地址只有在你自己填進建議時才會傳送，見下文）。</li>
+<li>你的 IP 位址：不會被儲存，也不會用來找出你的所在位置。</li>
+<li>攝影機畫面、你周圍的環境或頭戴裝置的動作。</li>
+</ul>
+<p>所有處理都在你自己的電腦上進行。影片透過你的區域網路（Wi-Fi 或線材）從電腦傳到頭戴裝置，絕不經過網際網路。</p>
+<h2>我們收集的資料（匿名使用統計）</h2>
+<p>為了找出問題，並讓應用程式在更多電腦上跑得更快，電腦應用程式會傳送以下技術資訊：</p>
+<ul>
+<li>安裝時產生的隨機代碼，與你本人無關（只用來計算安裝次數而不重複）。</li>
+<li>Pop3D 與 Windows 的版本、系統與應用程式的語言。</li>
+<li>顯示卡型號、顯示記憶體、驅動程式版本、處理器和記憶體（RAM）。</li>
+<li>效能結果：每秒影格數、顯示卡使用率和所選的畫質。</li>
+<li>應用程式的使用方式：頭戴裝置與連線類型（Wi-Fi、線材、PC VR）、影片模式（2D、3D、電腦螢幕）、使用時間。</li>
+<li>安裝步驟和錯誤訊息（不含檔案或資料夾名稱）。發生錯誤或影片卡住時，會一併傳送應用程式技術記錄的最後幾行，並在離開電腦前先清理過：不含電影、檔案或資料夾名稱、電子郵件或 IP 位址。</li>
+</ul>
+<p>這些資料由分析服務 <b>PostHog</b> 儲存在<b>歐盟</b>境內的伺服器，只有 Pop3D 團隊能查看。我們不會出售或與任何人分享這些資料，也不會用於廣告。</p>
+<h2>你傳給我們的建議</h2>
+<p>在應用程式的 <b>Ideas &amp; feedback</b> 中，你可以傳訊息給我們。除了你寫的內容，還會附上應用程式版本和你的顯示卡型號。電子郵件是<b>選填</b>的：只有在你填寫時才會傳送，而且只用來回覆你的訊息。建議和統計資料存放在同一個服務（PostHog，歐盟）。即使關閉統計，建議仍會傳送，因為是你自己決定要傳的。</p>
+<h2>如何關閉</h2>
+<p>在電腦應用程式中打開 <b>Settings</b>（設定），關閉 <b>Send anonymous usage data</b>。之後就不會再傳送任何資料（你自己選擇傳送的建議除外）。</p>
+<h2>更新</h2>
+<p>Pop3D 開啟時會查詢 <b>GitHub</b>（發布版本的地方），看看是否有新版本。就像任何網站一樣，GitHub 在那一刻會收到你電腦的網路位址；這項查詢適用 GitHub 的隱私權政策。不會附帶你的任何資訊。</p>
+<h2>頭戴裝置應用程式（Meta Quest）</h2>
+<p>頭戴裝置上的 Pop3D 應用程式不會收集資料，也不會傳送任何資料到網際網路。它只在你的區域網路中和你的電腦溝通，用來接收影片和傳送控制器的操作。</p>
+<h2>兒童</h2>
+<p>Pop3D 不會收集任何人的個人資料，包括兒童。請遵守頭戴裝置製造商的年齡建議。</p>
+<h2>你的權利（GDPR 與 LGPD）</h2>
+<p>由於統計資料是匿名的，我們無法把它和你連結起來。即使如此，如果你希望我們刪除你電腦的統計資料或你傳送的建議，請透過下方連結聯絡我們，並提供 Settings 中顯示的安裝代碼。</p>
+<h2>本政策的變更</h2>
+<p>如果本政策有所變更，新版本會連同更新日期顯示在這個頁面。</p>
+<h2>聯絡我們</h2>
+<p>問題或要求：{ISSUES}。</p>
+"""}
+
+IDIOMAS = {"pt": PT, "en": EN, "es": ES, "fr": FR, "de": DE, "it": IT, "uk": UK, "sv": SV, "ja": JA, "zh": ZH}

@@ -12,15 +12,19 @@ import textos
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(AQUI, "..", "docs")
-LINGUAS = ("pt", "en", "es", "fr", "de", "it", "uk")
-PASTA = {"pt": "", "en": "en/", "es": "es/", "fr": "fr/", "de": "de/", "it": "it/", "uk": "uk/"}
+LINGUAS = ("pt", "en", "es", "fr", "de", "it", "uk", "sv", "ja", "zh")
+PASTA = {"pt": "", "en": "en/", "es": "es/", "fr": "fr/", "de": "de/", "it": "it/", "uk": "uk/",
+         "sv": "sv/", "ja": "ja/", "zh": "zh/"}
 PRIV = {"pt": "privacidade.html", "en": "privacy.html", "es": "privacidad.html", "fr": "confidentialite.html",
-        "de": "datenschutz.html", "it": "privacy.html", "uk": "konfidentsiinist.html"}
+        "de": "datenschutz.html", "it": "privacy.html", "uk": "konfidentsiinist.html",
+        "sv": "integritet.html", "ja": "privacy.html", "zh": "privacy.html"}
 NOME = {o: o.upper() for o in LINGUAS}
 NATIVO = {"pt": "Português", "en": "English", "es": "Español", "fr": "Français", "de": "Deutsch", "it": "Italiano",
-          "uk": "Українська"}
-HREFLANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "uk": "uk"}
-ROTULO = {"pt": "Idioma", "en": "Language", "es": "Idioma", "fr": "Langue", "de": "Sprache", "it": "Lingua", "uk": "Мова"}
+          "uk": "Українська", "sv": "Svenska", "ja": "日本語", "zh": "繁體中文"}
+HREFLANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "uk": "uk",
+            "sv": "sv", "ja": "ja", "zh": "zh-Hant"}
+ROTULO = {"pt": "Idioma", "en": "Language", "es": "Idioma", "fr": "Langue", "de": "Sprache", "it": "Lingua", "uk": "Мова",
+          "sv": "Språk", "ja": "言語", "zh": "語言"}
 INDICE = json.load(open(os.path.join(DOCS, "cenas", "cenas.json"), encoding="utf-8"))
 BAIXAR = "https://github.com/Sindelitcis/pop3d/releases/latest/download/"
 
@@ -39,7 +43,8 @@ def redirecionar(lingua):
       var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
       var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
       var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
-                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/};
+                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/};
       var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
       var quer = null;
       for (var i = 0; i < langs.length && !quer; i++) {
@@ -92,7 +97,10 @@ def creditos(lingua):
             "fr": "Photos de Wikimedia Commons. Effets 3D réalisés avec l'intelligence artificielle (profondeur : Depth Pro, d'Apple ; arrière-plans reconstruits : LaMa).",
             "de": "Fotos von Wikimedia Commons. 3D-Effekte mit künstlicher Intelligenz erstellt (Tiefe: Depth Pro von Apple; rekonstruierte Hintergründe: LaMa).",
             "it": "Foto da Wikimedia Commons. Effetti 3D realizzati con l'intelligenza artificiale (profondità: Depth Pro, di Apple; sfondi ricostruiti: LaMa).",
-            "uk": "Фото з Wikimedia Commons. 3D-ефекти створено штучним інтелектом (глибина: Depth Pro від Apple; відновлений фон: LaMa)."}[lingua]
+            "uk": "Фото з Wikimedia Commons. 3D-ефекти створено штучним інтелектом (глибина: Depth Pro від Apple; відновлений фон: LaMa).",
+            "sv": "Foton från Wikimedia Commons. 3D-effekter skapade med artificiell intelligens (djup: Apples Depth Pro; återskapade bakgrunder: LaMa).",
+            "ja": "写真は Wikimedia Commons より。3D 効果は人工知能で作成（奥行き：Apple の Depth Pro、背景の復元：LaMa）。",
+            "zh": "照片來自 Wikimedia Commons。3D 效果以人工智慧製作（景深：Apple 的 Depth Pro；背景重建：LaMa）。"}[lingua]
     bunny = ("<p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p>"
              "<p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p>")
     return f"<p>{nota}</p>{bunny}" + "".join(linhas)
