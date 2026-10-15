@@ -281,8 +281,16 @@
     if (!botoes.length) return;
     const detalhes = document.querySelectorAll("[data-baixar-detalhe]");
     const celular = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
-    if (celular) detalhes.forEach(d => d.textContent = TX.no_pc || "");
-    botoes.forEach(b => b.addEventListener("click", () => { if (!celular && !b.classList.contains("desligado")) avisar(); }));
+    if (celular) {
+      // No celular o instalador não serve: o botão manda o link do site para abrir no computador.
+      detalhes.forEach(d => d.textContent = TX.no_pc || "");
+      if (TX.mandar_pc) botoes.forEach(b => {
+        b.querySelector("span").textContent = TX.mandar_pc;
+        b.querySelector("svg").innerHTML = '<path d="M12 15V3m0 0-4 4m4-4 4 4M5 12v7h14v-7"/>';
+        b.addEventListener("click", mandarLink);
+      });
+    }
+    botoes.forEach(b => b.addEventListener("click", () => { if (!celular && !b.classList.contains("desligado")) avisar(TX.obrigado); }));
     try {
       const r = await fetch("https://api.github.com/repos/Sindelitcis/pop3d/releases/latest");
       if (r.status === 404) {
@@ -302,17 +310,28 @@
       }
     } catch (e) { /* sem a API, o link direto continua valendo */ }
   })();
+  async function mandarLink(e) {
+    e.preventDefault();
+    const url = location.origin + location.pathname;
+    if (navigator.share) {
+      try { await navigator.share({ title: document.title, url }); return; }
+      catch (erro) { if (erro.name === "AbortError") return; }
+    }
+    try { await navigator.clipboard.writeText(url); avisar(TX.link_copiado); }
+    catch (erro) { avisar(url); }
+  }
   let aviso = null;
-  function avisar() {
-    if (!TX.obrigado) return;
+  function avisar(texto) {
+    if (!texto) return;
     if (!aviso) {
       aviso = document.createElement("div");
       aviso.className = "aviso-baixar";
       aviso.setAttribute("role", "status");
-      aviso.innerHTML = `<p>${TX.obrigado}</p><button type="button" aria-label="OK">×</button>`;
+      aviso.innerHTML = `<p></p><button type="button" aria-label="OK">×</button>`;
       aviso.querySelector("button").addEventListener("click", () => aviso.classList.remove("aberto"));
       document.body.appendChild(aviso);
     }
+    aviso.querySelector("p").innerHTML = texto;
     requestAnimationFrame(() => aviso.classList.add("aberto"));
     clearTimeout(aviso._t);
     aviso._t = setTimeout(() => aviso.classList.remove("aberto"), 14000);

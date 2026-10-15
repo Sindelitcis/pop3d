@@ -79,8 +79,10 @@ PT = {
     "final_p": "Grátis. Se instala sozinho. Funciona no seu óculos.",
     "privacidade": "Política de Privacidade", "versoes": "Todas as versões", "codigo_quest": "Código do app do Quest (GPLv3)", "problema": "Achou um problema? Conta pra gente",
     "creditos_tit": "Créditos das imagens",
+    "credito_autor": "Pop3D é um projeto independente de Rafael Probst",
     "js": {"em_breve": "Em breve", "forno": "A primeira versão está saindo do forno.", "versao": "Versão",
-           "no_pc": "Baixe no computador (Windows): o Pop3D roda no PC."},
+           "no_pc": "Baixe no computador (Windows): o Pop3D roda no PC.",
+           "mandar_pc": "Mandar o link para o PC", "link_copiado": "Link copiado. Abra no computador."},
 }
 
 EN = {
@@ -161,8 +163,10 @@ EN = {
     "final_p": "Free. Installs itself. Works on your headset.",
     "privacidade": "Privacy Policy", "versoes": "All versions", "codigo_quest": "Quest app source code (GPLv3)", "problema": "Found a problem? Tell us",
     "creditos_tit": "Image credits",
+    "credito_autor": "Pop3D is an independent project by Rafael Probst",
     "js": {"em_breve": "Coming soon", "forno": "The first version is almost out of the oven.", "versao": "Version",
-           "no_pc": "Download it on your computer (Windows): Pop3D runs on your PC."},
+           "no_pc": "Download it on your computer (Windows): Pop3D runs on your PC.",
+           "mandar_pc": "Send the link to your PC", "link_copiado": "Link copied. Open it on your computer."},
 }
 
 ES = {
@@ -243,8 +247,10 @@ ES = {
     "final_p": "Gratis. Se instala solo. Funciona en tu visor.",
     "privacidade": "Política de Privacidad", "versoes": "Todas las versiones", "codigo_quest": "Código de la app de Quest (GPLv3)", "problema": "¿Encontraste un problema? Cuéntanos",
     "creditos_tit": "Créditos de las imágenes",
+    "credito_autor": "Pop3D es un proyecto independiente de Rafael Probst",
     "js": {"em_breve": "Muy pronto", "forno": "La primera versión está por salir del horno.", "versao": "Versión",
-           "no_pc": "Descárgalo en la computadora (Windows): Pop3D funciona en la PC."},
+           "no_pc": "Descárgalo en la computadora (Windows): Pop3D funciona en la PC.",
+           "mandar_pc": "Enviar el enlace a la PC", "link_copiado": "Enlace copiado. Ábrelo en la computadora."},
 }
 
 FR = {
@@ -325,8 +331,10 @@ FR = {
     "final_p": "Gratuit. S'installe tout seul. Fonctionne dans votre casque.",
     "privacidade": "Politique de confidentialité", "versoes": "Toutes les versions", "codigo_quest": "Code source de l'app Quest (GPLv3)", "problema": "Un problème ? Dites-le-nous",
     "creditos_tit": "Crédits des images",
+    "credito_autor": "Pop3D est un projet indépendant de Rafael Probst",
     "js": {"em_breve": "Bientôt", "forno": "La première version sort bientôt du four.", "versao": "Version",
-           "no_pc": "Téléchargez-le sur l'ordinateur (Windows) : Pop3D fonctionne sur le PC."},
+           "no_pc": "Téléchargez-le sur l'ordinateur (Windows) : Pop3D fonctionne sur le PC.",
+           "mandar_pc": "Envoyer le lien vers le PC", "link_copiado": "Lien copié. Ouvrez-le sur l'ordinateur."},
 }
 
 DE = {
@@ -407,8 +415,10 @@ DE = {
     "final_p": "Kostenlos. Installiert sich selbst. Läuft auf deinem Headset.",
     "privacidade": "Datenschutzerklärung", "versoes": "Alle Versionen", "codigo_quest": "Quellcode der Quest-App (GPLv3)", "problema": "Ein Problem gefunden? Sag uns Bescheid",
     "creditos_tit": "Bildnachweise",
+    "credito_autor": "Pop3D ist ein unabhängiges Projekt von Rafael Probst",
     "js": {"em_breve": "Bald verfügbar", "forno": "Die erste Version ist fast fertig gebacken.", "versao": "Version",
-           "no_pc": "Lade es auf dem Computer herunter (Windows): Pop3D läuft auf dem PC."},
+           "no_pc": "Lade es auf dem Computer herunter (Windows): Pop3D läuft auf dem PC.",
+           "mandar_pc": "Link an den PC senden", "link_copiado": "Link kopiert. Öffne ihn auf dem Computer."},
 }
 
 IT = {
@@ -489,8 +499,10 @@ IT = {
     "final_p": "Gratis. Si installa da solo. Funziona nel tuo visore.",
     "privacidade": "Informativa sulla privacy", "versoes": "Tutte le versioni", "codigo_quest": "Codice sorgente dell'app per Quest (GPLv3)", "problema": "Hai trovato un problema? Diccelo",
     "creditos_tit": "Crediti delle immagini",
+    "credito_autor": "Pop3D è un progetto indipendente di Rafael Probst",
     "js": {"em_breve": "In arrivo", "forno": "La prima versione sta per uscire dal forno.", "versao": "Versione",
-           "no_pc": "Scaricalo sul computer (Windows): Pop3D funziona sul PC."},
+           "no_pc": "Scaricalo sul computer (Windows): Pop3D funziona sul PC.",
+           "mandar_pc": "Invia il link al PC", "link_copiado": "Link copiato. Aprilo sul computer."},
 }
 
 UK = {
@@ -571,8 +583,10 @@ UK = {
     "final_p": "Безкоштовно. Встановлюється сам. Працює у вашому шоломі.",
     "privacidade": "Політика конфіденційності", "versoes": "Усі версії", "codigo_quest": "Вихідний код застосунку для Quest (GPLv3)", "problema": "Знайшли проблему? Напишіть нам",
     "creditos_tit": "Джерела зображень",
+    "credito_autor": "Pop3D є незалежним проєктом Рафаеля Пробста",
     "js": {"em_breve": "Незабаром", "forno": "Перша версія майже готова.", "versao": "Версія",
-           "no_pc": "Завантажте на комп'ютер (Windows): Pop3D працює на ПК."},
+           "no_pc": "Завантажте на комп'ютер (Windows): Pop3D працює на ПК.",
+           "mandar_pc": "Надіслати посилання на ПК", "link_copiado": "Посилання скопійовано. Відкрийте його на комп'ютері."},
 }
 
 SV = {
@@ -654,8 +668,10 @@ SV = {
     "final_p": "Gratis. Installerar sig själv. Fungerar i ditt headset.",
     "privacidade": "Integritetspolicy", "versoes": "Alla versioner", "codigo_quest": "Källkod för Quest-appen (GPLv3)", "problema": "Hittat ett problem? Berätta för oss",
     "creditos_tit": "Bildkällor",
+    "credito_autor": "Pop3D är ett oberoende projekt av Rafael Probst",
     "js": {"em_breve": "Kommer snart", "forno": "Den första versionen är nästan klar.", "versao": "Version",
-           "no_pc": "Ladda ner det på din dator (Windows): Pop3D körs på datorn."},
+           "no_pc": "Ladda ner det på din dator (Windows): Pop3D körs på datorn.",
+           "mandar_pc": "Skicka länken till datorn", "link_copiado": "Länken är kopierad. Öppna den på datorn."},
 }
 
 JA = {
@@ -737,8 +753,10 @@ JA = {
     "final_p": "無料。インストールは自動。ヘッドセットですぐ使えます。",
     "privacidade": "プライバシーポリシー", "versoes": "すべてのバージョン", "codigo_quest": "Quest アプリのソースコード（GPLv3）", "problema": "問題を見つけたら教えてください",
     "creditos_tit": "画像のクレジット",
+    "credito_autor": "Pop3D は Rafael Probst による個人プロジェクトです",
     "js": {"em_breve": "近日公開", "forno": "最初のバージョンはもうすぐ完成です。", "versao": "バージョン",
-           "no_pc": "パソコン（Windows）でダウンロードしてください。Pop3D はパソコンで動きます。"},
+           "no_pc": "パソコン（Windows）でダウンロードしてください。Pop3D はパソコンで動きます。",
+           "mandar_pc": "リンクをパソコンに送る", "link_copiado": "リンクをコピーしました。パソコンで開いてください。"},
 }
 
 ZH = {
@@ -820,8 +838,10 @@ ZH = {
     "final_p": "免費。自動安裝。在你的頭戴裝置上就能用。",
     "privacidade": "隱私權政策", "versoes": "所有版本", "codigo_quest": "Quest 應用程式原始碼（GPLv3）", "problema": "發現問題？告訴我們",
     "creditos_tit": "圖片來源",
+    "credito_autor": "Pop3D 是 Rafael Probst 的獨立專案",
     "js": {"em_breve": "即將推出", "forno": "第一個版本快要出爐了。", "versao": "版本",
-           "no_pc": "請在電腦（Windows）上下載：Pop3D 在你的電腦上執行。"},
+           "no_pc": "請在電腦（Windows）上下載：Pop3D 在你的電腦上執行。",
+           "mandar_pc": "把連結傳到電腦", "link_copiado": "已複製連結，請在電腦上開啟。"},
 }
 
 IDIOMAS = {"pt": PT, "en": EN, "es": ES, "fr": FR, "de": DE, "it": IT, "uk": UK, "sv": SV, "ja": JA, "zh": ZH}
