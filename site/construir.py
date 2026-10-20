@@ -12,19 +12,22 @@ import textos
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(AQUI, "..", "docs")
-LINGUAS = ("pt", "en", "es", "fr", "de", "it", "uk", "sv", "ja", "zh")
+# zh = chinês tradicional (Taiwan, Hong Kong); zh-hans = simplificado (China continental)
+LINGUAS = ("pt", "en", "es", "fr", "de", "it", "nl", "sv", "hu", "uk", "ru", "ja", "ko", "zh-hans", "zh")
 PASTA = {"pt": "", "en": "en/", "es": "es/", "fr": "fr/", "de": "de/", "it": "it/", "uk": "uk/",
-         "sv": "sv/", "ja": "ja/", "zh": "zh/"}
+         "sv": "sv/", "ja": "ja/", "zh": "zh/", "nl": "nl/", "hu": "hu/", "ru": "ru/", "ko": "ko/", "zh-hans": "zh-hans/"}
 PRIV = {"pt": "privacidade.html", "en": "privacy.html", "es": "privacidad.html", "fr": "confidentialite.html",
         "de": "datenschutz.html", "it": "privacy.html", "uk": "konfidentsiinist.html",
-        "sv": "integritet.html", "ja": "privacy.html", "zh": "privacy.html"}
-NOME = {o: o.upper() for o in LINGUAS}
+        "sv": "integritet.html", "ja": "privacy.html", "zh": "privacy.html", "nl": "privacy.html",
+        "hu": "adatvedelem.html", "ru": "konfidentsialnost.html", "ko": "privacy.html", "zh-hans": "privacy.html"}
+NOME = dict({o: o.upper() for o in LINGUAS}, zh="繁中", **{"zh-hans": "简中"})
 NATIVO = {"pt": "Português", "en": "English", "es": "Español", "fr": "Français", "de": "Deutsch", "it": "Italiano",
-          "uk": "Українська", "sv": "Svenska", "ja": "日本語", "zh": "繁體中文"}
+          "uk": "Українська", "sv": "Svenska", "ja": "日本語", "zh": "繁體中文", "nl": "Nederlands", "hu": "Magyar",
+          "ru": "Русский", "ko": "한국어", "zh-hans": "简体中文"}
 HREFLANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "uk": "uk",
-            "sv": "sv", "ja": "ja", "zh": "zh-Hant"}
+            "sv": "sv", "ja": "ja", "zh": "zh-Hant", "nl": "nl", "hu": "hu", "ru": "ru", "ko": "ko", "zh-hans": "zh-Hans"}
 ROTULO = {"pt": "Idioma", "en": "Language", "es": "Idioma", "fr": "Langue", "de": "Sprache", "it": "Lingua", "uk": "Мова",
-          "sv": "Språk", "ja": "言語", "zh": "語言"}
+          "sv": "Språk", "ja": "言語", "zh": "語言", "nl": "Taal", "hu": "Nyelv", "ru": "Язык", "ko": "언어", "zh-hans": "语言"}
 INDICE = json.load(open(os.path.join(DOCS, "cenas", "cenas.json"), encoding="utf-8"))
 BAIXAR = "https://github.com/Sindelitcis/pop3d/releases/latest/download/"
 
@@ -44,11 +47,15 @@ def redirecionar(lingua):
       var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
       var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
                         it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
-                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/};
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
       var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
       var quer = null;
       for (var i = 0; i < langs.length && !quer; i++) {
-        var l = String(langs[i]).toLowerCase().slice(0, 2);
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
         if (alvos.hasOwnProperty(l)) quer = l;
       }
       if (!quer || quer === "en") {
@@ -100,7 +107,12 @@ def creditos(lingua):
             "uk": "Фото з Wikimedia Commons. 3D-ефекти створено штучним інтелектом (глибина: Depth Pro від Apple; відновлений фон: LaMa).",
             "sv": "Foton från Wikimedia Commons. 3D-effekter skapade med artificiell intelligens (djup: Apples Depth Pro; återskapade bakgrunder: LaMa).",
             "ja": "写真は Wikimedia Commons より。3D 効果は人工知能で作成（奥行き：Apple の Depth Pro、背景の復元：LaMa）。",
-            "zh": "照片來自 Wikimedia Commons。3D 效果以人工智慧製作（景深：Apple 的 Depth Pro；背景重建：LaMa）。"}[lingua]
+            "zh": "照片來自 Wikimedia Commons。3D 效果以人工智慧製作（景深：Apple 的 Depth Pro；背景重建：LaMa）。",
+            "nl": "Foto's van Wikimedia Commons. 3D-effecten gemaakt met kunstmatige intelligentie (diepte: Depth Pro van Apple; herstelde achtergronden: LaMa).",
+            "hu": "Fotók a Wikimedia Commonsból. A 3D-effektusok mesterséges intelligenciával készültek (mélység: az Apple Depth Pro modellje; helyreállított hátterek: LaMa).",
+            "ru": "Фото с Wikimedia Commons. 3D-эффекты созданы искусственным интеллектом (глубина: Depth Pro от Apple; восстановленный фон: LaMa).",
+            "ko": "사진 출처: Wikimedia Commons. 3D 효과는 인공지능으로 만들었습니다(깊이: Apple의 Depth Pro, 배경 복원: LaMa).",
+            "zh-hans": "照片来自 Wikimedia Commons。3D 效果由人工智能制作（景深：Apple 的 Depth Pro；背景重建：LaMa）。"}[lingua]
     bunny = ("<p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p>"
              "<p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p>")
     return f"<p>{nota}</p>{bunny}" + "".join(linhas)

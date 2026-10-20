@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="nl" data-raiz="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pop3D: alles wat je kijkt, nu in 3D in je VR-headset</title>
+<meta name="description" content="Films, series, reisvideo's, familiefoto's, YouTube en games: Pop3D maakt van alles op je computer echt 3D in je VR-headset. Gratis.">
+<meta property="og:title" content="Pop3D: alles wat je kijkt, nu in 3D in je VR-headset">
+<meta property="og:description" content="Films, series, reisvideo's, familiefoto's, YouTube en games: Pop3D maakt van alles op je computer echt 3D in je VR-headset. Gratis.">
+<meta property="og:image" content="https://pop3d.quest/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06070c">
+<link rel="icon" href="../favicon.ico">
+<link rel="alternate" hreflang="pt-BR" href="https://pop3d.quest/">
+<link rel="alternate" hreflang="en" href="https://pop3d.quest/en/">
+<link rel="alternate" hreflang="es" href="https://pop3d.quest/es/">
+<link rel="alternate" hreflang="fr" href="https://pop3d.quest/fr/">
+<link rel="alternate" hreflang="de" href="https://pop3d.quest/de/">
+<link rel="alternate" hreflang="it" href="https://pop3d.quest/it/">
+<link rel="alternate" hreflang="nl" href="https://pop3d.quest/nl/">
+<link rel="alternate" hreflang="sv" href="https://pop3d.quest/sv/">
+<link rel="alternate" hreflang="hu" href="https://pop3d.quest/hu/">
+<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="ru" href="https://pop3d.quest/ru/">
+<link rel="alternate" hreflang="ja" href="https://pop3d.quest/ja/">
+<link rel="alternate" hreflang="ko" href="https://pop3d.quest/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pop3d.quest/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://pop3d.quest/zh/">
+<link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=8bfa9a47">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "nl", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "nl": "../nl/", "sv": "../sv/", "hu": "../hu/", "uk": "../uk/", "ru": "../ru/", "ja": "../ja/", "ko": "../ko/", "zh-hans": "../zh-hans/", "zh": "../zh/"};
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
+                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
+        if (alvos.hasOwnProperty(l)) quer = l;
+      }
+      if (!quer || quer === "en") {
+        if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es";
+        else for (var o in outrosFuso) if (outrosFuso[o].test(fuso)) quer = o;
+      }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "Binnenkort", "forno": "De eerste versie komt bijna uit de oven.", "versao": "Versie", "no_pc": "Download het op je computer (Windows): Pop3D draait op je pc.", "mandar_pc": "Stuur de link naar je pc", "link_copiado": "Link gekopieerd. Open hem op je computer.", "obrigado": "<b>Je download is gestart.</b> Open <b>Pop3D_Instalador.exe</b>. Zegt Windows „Windows heeft uw pc beveiligd”, klik dan op <b>Meer informatie</b> en daarna op <b>Toch uitvoeren</b>."};</script>
+</head>
+<body>
+<div class="ceu" aria-hidden="true"></div>
+
+<header id="topo">
+  <div class="faixa">
+    <a class="marca" href="./"><i>3D</i>Pop3D</a>
+    <nav>
+      <a class="some" href="#magica">De magie</a>
+      <a class="some" href="#quest">Waar het werkt</a>
+      <a class="some" href="#duvidas">Vragen</a>
+      <details class="idiomas"><summary aria-label="Taal: Nederlands" title="Taal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>NL</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../nl/" data-idioma="nl" class="ativo" aria-current="page" hreflang="nl" lang="nl"><span>Nederlands</span><small>NL</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../hu/" data-idioma="hu" hreflang="hu" lang="hu"><span>Magyar</span><small>HU</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../ru/" data-idioma="ru" hreflang="ru" lang="ru"><span>Русский</span><small>RU</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../ko/" data-idioma="ko" hreflang="ko" lang="ko"><span>한국어</span><small>KO</small></a><a href="../zh-hans/" data-idioma="zh-hans" hreflang="zh-Hans" lang="zh-Hans"><span>简体中文</span><small>简中</small></a><a href="../zh/" data-idioma="zh" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>繁中</small></a></div></details>
+      <a class="cta-topo" href="#baixar">Gratis downloaden</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="heroi">
+    <div class="faixa heroi-grade">
+      <div class="heroi-texto">
+        <div class="selo"><b>Gratis</b> · Meta Quest en pc-VR-headsets</div>
+        <h1>Alles wat je kijkt,<br><span class="grad">nu in 3D.</span></h1>
+        <p class="lead">Films, series, de reis van vorig jaar, de verjaardag in de familie, YouTube, je games. Pop3D maakt van alles op je computer echt 3D, direct in je VR-headset. Meteen, zonder iets om te zetten.</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Gratis downloaden voor Windows</span>
+          </a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>App voor Meta Quest</span></a>
+        </div>
+        <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Gratis</div>
+      </div>
+      <div class="cinema">
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="Scène uit Big Buck Bunny met diepte: de pijl komt uit het scherm">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela"><div class="pilha" data-z="0.102,0.363,0.762" aria-hidden="true"><img class="cam" src="../cenas/heroi/c0_p.webp" srcset="../cenas/heroi/c0_p.webp 960w, ../cenas/heroi/c0.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async" fetchpriority="high"><img class="cam" src="../cenas/heroi/c1_p.webp" srcset="../cenas/heroi/c1_p.webp 960w, ../cenas/heroi/c1.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"><img class="cam" src="../cenas/heroi/c2_p.webp" srcset="../cenas/heroi/c2_p.webp 960w, ../cenas/heroi/c2.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"></div></div>
+        </div>
+        <div class="cinema-rodape"><span class="rotulo">Big Buck Bunny · Blender Foundation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" id="magica">
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="Scène uit Big Buck Bunny opgesplitst in dieptelagen">
+        <div class="janela"><div class="pilha" data-z="0.172,0.535,0.863" aria-hidden="true"><img class="cam" src="../cenas/turma/c0_p.webp" srcset="../cenas/turma/c0_p.webp 960w, ../cenas/turma/c0.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c1_p.webp" srcset="../cenas/turma/c1_p.webp 960w, ../cenas/turma/c1.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c2_p.webp" srcset="../cenas/turma/c2_p.webp 960w, ../cenas/turma/c2.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="mapa" src="../cenas/turma/d.webp" alt="" decoding="async" loading="lazy"><i class="varredura"></i></div></div>
+      </div>
+      <div class="historia-texto">
+        <span class="olho-secao grad">De magie van binnen</span>
+        <h2>Elk beeld wordt een wereld in lagen.</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span><b>Een gewoon beeld.</b> Plat, zoals elke video op je scherm.</span></li>
+          <li data-passo><span class="n">2</span><span><b>Pop3D ziet de afstand</b> van elk punt, van de neus van het personage tot de verste boom.</span></li>
+          <li data-passo><span class="n">3</span><span><b>Het splitst de scène in lagen</b> en bedenkt wat er achter elke laag verborgen zat.</span></li>
+          <li data-passo><span class="n">4</span><span><b>Het bouwt alles opnieuw op in 3D</b>, één beeld voor elk oog. Je hersenen doen de rest.</span></li>
+        </ol>
+      </div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">Werkt met wat je al hebt</span>
+        <h2>Op jouw manier, in jouw headset.</h2>
+        <p class="intro">Gebruik onze Quest-app, de makkelijkste manier, of de pc-VR-app die je al gebruikt.</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.180,0.527,0.848" aria-hidden="true"><img class="cam" src="../cenas/praia/c0_p.webp" srcset="../cenas/praia/c0_p.webp 960w, ../cenas/praia/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c1_p.webp" srcset="../cenas/praia/c1_p.webp 960w, ../cenas/praia/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c2_p.webp" srcset="../cenas/praia/c2_p.webp 960w, ../cenas/praia/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="quest-txt">
+            <span class="selo-quest">Aanbevolen</span>
+            <h3>Pop3D-app voor Meta Quest</h3>
+            <p>Open de app in je headset en hij vindt je computer vanzelf via je wifi thuis. Geen kabels, niets in te stellen.</p>
+            <ul><li>Draadloos, via wifi</li><li>Vindt je pc vanzelf</li><li>Menu's gemaakt voor VR</li><li>Gratis</li></ul>
+            <div class="quest-status">
+              <a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Downloaden in de Meta Horizon Store</span></a>
+              <a href="#baixar-quest">Of installeer via USB&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>Werkt ook met</h3>
+          <p>Liever wat je al gebruikt? Pop3D werkt met de populairste manieren om een headset met een pc te verbinden.</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico en meer</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tudo">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Niet alleen films</span>
+        <h2>Staat het op je pc? Dan wordt het 3D.</h2>
+        <p class="intro">Films zijn nog maar het begin. Reizen, familiemomenten, foto's, YouTube-video's en zelfs je favoriete game krijgen diepte.</p>
+      </div>
+      <div class="bento">
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.391,0.801" aria-hidden="true"><img class="cam" src="../cenas/spring/c0_p.webp" srcset="../cenas/spring/c0_p.webp 960w, ../cenas/spring/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c1_p.webp" srcset="../cenas/spring/c1_p.webp 960w, ../cenas/spring/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c2_p.webp" srcset="../cenas/spring/c2_p.webp 960w, ../cenas/spring/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Films en series</h3><p>Je hele collectie in 3D, op een bioscoopscherm helemaal voor jou.</p></div></article>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.141,0.465,0.824" aria-hidden="true"><img class="cam" src="../cenas/jogo/c0_p.webp" srcset="../cenas/jogo/c0_p.webp 960w, ../cenas/jogo/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c1_p.webp" srcset="../cenas/jogo/c1_p.webp 960w, ../cenas/jogo/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c2_p.webp" srcset="../cenas/jogo/c2_p.webp 960w, ../cenas/jogo/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Games</h3><p>Je pc-games in 3D in je headset, zonder mods.</p></div></article>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.355,0.766" aria-hidden="true"><img class="cam" src="../cenas/coqueiros/c0_p.webp" srcset="../cenas/coqueiros/c0_p.webp 960w, ../cenas/coqueiros/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c1_p.webp" srcset="../cenas/coqueiros/c1_p.webp 960w, ../cenas/coqueiros/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c2_p.webp" srcset="../cenas/coqueiros/c2_p.webp 960w, ../cenas/coqueiros/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Reizen</h3><p>Ga terug naar dat strand. Deze keer met diepte.</p></div></article>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.191,0.559,0.867" aria-hidden="true"><img class="cam" src="../cenas/festa/c0_p.webp" srcset="../cenas/festa/c0_p.webp 960w, ../cenas/festa/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c1_p.webp" srcset="../cenas/festa/c1_p.webp 960w, ../cenas/festa/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c2_p.webp" srcset="../cenas/festa/c2_p.webp 960w, ../cenas/festa/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Familie</h3><p>Verjaardagen, diploma-uitreikingen, de eerste stapjes van de baby.</p></div></article>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.168,0.504,0.836" aria-hidden="true"><img class="cam" src="../cenas/filhote/c0_p.webp" srcset="../cenas/filhote/c0_p.webp 960w, ../cenas/filhote/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c1_p.webp" srcset="../cenas/filhote/c1_p.webp 960w, ../cenas/filhote/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c2_p.webp" srcset="../cenas/filhote/c2_p.webp 960w, ../cenas/filhote/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Foto's</h3><p>Open een foto op je pc en stap erin.</p></div></article>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.133,0.422,0.789" aria-hidden="true"><img class="cam" src="../cenas/lago/c0_p.webp" srcset="../cenas/lago/c0_p.webp 960w, ../cenas/lago/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c1_p.webp" srcset="../cenas/lago/c1_p.webp 960w, ../cenas/lago/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c2_p.webp" srcset="../cenas/lago/c2_p.webp 960w, ../cenas/lago/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>YouTube en browser</h3><p>Vlogs, documentaires, videoclips: alles wat op je computerscherm staat.</p></div></article>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.145,0.465,0.820" aria-hidden="true"><img class="cam" src="../cenas/cascata/c0_p.webp" srcset="../cenas/cascata/c0_p.webp 960w, ../cenas/cascata/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c1_p.webp" srcset="../cenas/cascata/c1_p.webp 960w, ../cenas/cascata/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c2_p.webp" srcset="../cenas/cascata/c2_p.webp 960w, ../cenas/cascata/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Natuur</h3><p>Landschappen met de diepte die ze echt hebben.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Zie het verschil</span>
+        <h2>Hetzelfde beeld. Een hele nieuwe dimensie.</h2>
+        <p class="intro">Sleep de lijn. Aan de ene kant het vertrouwde platte scherm. Aan de andere kant dezelfde scène met Pop3D. In je headset is het nog indrukwekkender: elk oog krijgt zijn eigen beeld.</p>
+      </div>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="Vergelijking tussen het platte beeld en het beeld met diepte">
+        <div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div>
+        <div class="lado-plano"><div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div></div>
+        <div class="comparar-linha"><i></i></div>
+        <span class="lado esq">Gewoon scherm</span><span class="lado dir"><span class="grad">Met Pop3D</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="faixa numeros">
+      <div class="numero aparece"><b class="grad">Gratis</b><span>Geen advertenties, geen abonnement, geen addertje onder het gras.</span></div>
+      <div class="numero aparece"><b class="grad">Meteen</b><span>Druk op play en het is al 3D. Geen video's omzetten.</span></div>
+      <div class="numero aparece"><b class="grad">Van jou</b><span>Je video's verlaten nooit je computer.</span></div>
+    </div>
+  </section>
+
+  <section id="baixar">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Downloaden</span>
+        <h2>In een paar minuten aan de slag.</h2>
+        <p class="intro">Pop3D doet de magie op je computer en laat die zien in je headset. Installeer het eerst op je pc; de Quest-app is de makkelijkste manier om te kijken.</p>
+      </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>Op je computer</span>
+          <h3>Pop3D voor Windows</h3>
+          <p>Downloaden, op Volgende klikken en klaar. Het stelt zich vanzelf in op je videokaart en houdt zichzelf daarna up-to-date.</p>
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Gratis downloaden voor Windows</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Gratis</div>
+        </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>Op je Meta Quest</span>
+          <h3>Pop3D-app voor Meta Quest</h3>
+          <div class="loja"><a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Downloaden in de Meta Horizon Store</span></a></div>
+          <p>Als je wilt, kun je het ook installeren via een USB-kabel:</p>
+          <ol class="dev">
+            <li>Open op je telefoon de app <b>Meta Horizon</b> en zet <b>Developer Mode</b> (ontwikkelaarsmodus) aan onder Devices › Headset settings. Meta vraagt om een ontwikkelaarsaccount, en dat is gratis.</li>
+            <li>Sluit je Quest met een USB-kabel aan op je computer.</li>
+            <li>Open in Pop3D op je computer <b>Instellingen › Headset</b>, klik op <b>Installeren op de Quest</b> en tik in de headset op <b>Allow</b> (Toestaan). Klaar!</li>
+          </ol>
+          <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">Gebruik je al SideQuest? Download de APK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <div class="faixa">
+      <div class="aparece"><h2>Wat je nodig hebt</h2><p class="intro">Een computer met een NVIDIA RTX-videokaart en een VR-headset. Meer niet.</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>Systeem</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>Videokaart</small>NVIDIA GeForce RTX</div>
+        <div class="req"><small>Vrije ruimte</small>15 GB<span class="req-nota">De app neemt ongeveer 9 GB in beslag; de rest is ruimte om te installeren.</span></div>
+        <div class="req"><small>Headset</small>Meta Quest 2, 3, 3S of Pro, of een pc-VR-headset (SteamVR)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="faixa">
+      <h2 class="aparece">Veelgestelde vragen</h2>
+      <details class="aparece"><summary>Is het echt gratis?</summary><p>Ja. Geen advertenties, geen abonnement, geen addertje onder het gras.</p></details>
+<details class="aparece"><summary>Moet ik mijn video's eerst omzetten?</summary><p>Nee. Druk gewoon op play: de 3D ontstaat terwijl je kijkt.</p></details>
+<details class="aparece"><summary>Moet ik iets in mijn headset installeren?</summary><p>Dat hoeft niet. De Pop3D-app voor Quest is de makkelijkste manier: hij is gratis in de <a href="#baixar-quest">Meta-store</a>. Als je wilt, werkt Pop3D ook met Steam Link, Air Link, Virtual Desktop en SteamVR.</p></details>
+<details class="aparece"><summary>Ik heb alleen de Quest-app geïnstalleerd. En nu?</summary><p>De Quest-app laat zien wat Pop3D op je computer klaarmaakt. Installeer ook <a href="#baixar">Pop3D op je Windows-pc</a>: met allebei open vindt de headset de computer vanzelf.</p></details>
+<details class="aparece"><summary>Gaat de installatie snel?</summary><p>De eerste keer downloadt Pop3D ongeveer 4 GB: dat is de kunstmatige intelligentie die de magie maakt, en die wordt afgestemd op je videokaart. Hoe lang het duurt, hangt af van je internet. Daarna opent de app in een paar seconden en werkt hij zichzelf bij.</p></details>
+<details class="aparece"><summary>Werkt het met streamingdiensten?</summary><p>Het werkt met alles wat op je computerscherm verschijnt, zoals YouTube en de meeste websites. Sommige betaalde diensten beschermen hun video's tegen kopiëren en laten geen enkel programma het beeld opnemen. Video's op je computer werken meteen.</p></details>
+<details class="aparece"><summary>Werkt het zonder NVIDIA-kaart?</summary><p>Voorlopig heeft de magie een NVIDIA RTX-videokaart nodig. Heeft je pc er geen, dan zegt het installatieprogramma dat meteen aan het begin, voordat er iets wordt gedownload.</p></details>
+<details class="aparece"><summary>Verlaten mijn video's ooit mijn computer?</summary><p>Nooit. Alles gebeurt op je computer, en de video gaat via je thuisnetwerk rechtstreeks naar je headset. Pop3D stuurt alleen anonieme gebruiksstatistieken om steeds beter te worden, en je kunt dat uitzetten in Instellingen. Lees het <a href="privacy.html">privacybeleid</a>.</p></details>
+<details class="aparece"><summary>Is de app in het Nederlands?</summary><p>Ja! Pop3D spreekt Nederlands: in de app op je computer, in de headset en in het installatieprogramma. Hij volgt de taal van Windows, en je kunt die wijzigen onder Instellingen › Taal van Pop3D.</p></details>
+<details class="aparece"><summary>Windows zei „Windows heeft uw pc beveiligd”. Wat nu?</summary><p>Dat is de standaardwaarschuwing van Windows voor nieuwe programma's die Microsoft nog niet kent. Klik op <b>Meer informatie</b> en daarna op <b>Toch uitvoeren</b>.</p></details>
+<details class="aparece"><summary>Ik heb een idee voor Pop3D!</summary><p>Geweldig! In de app kun je het onder <b>Ideeën en feedback</b> direct naar ons sturen. Pop3D is gloednieuw en groeit samen met de mensen die het gebruiken.</p></details>
+    </div>
+  </section>
+
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela"><div class="pilha" data-z="0.113,0.410,0.797" aria-hidden="true"><img class="cam" src="../cenas/baloes/c0_p.webp" srcset="../cenas/baloes/c0_p.webp 960w, ../cenas/baloes/c0.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c1_p.webp" srcset="../cenas/baloes/c1_p.webp 960w, ../cenas/baloes/c1.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c2_p.webp" srcset="../cenas/baloes/c2_p.webp 960w, ../cenas/baloes/c2.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"></div></div>
+    <div class="faixa final-txt aparece">
+      <h2>Klaar om alles in <span class="grad">3D</span> te zien?</h2>
+      <p class="lead">Gratis. Installeert zichzelf. Werkt in je headset.</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Gratis downloaden voor Windows</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Gratis</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="faixa">
+    <span>© <span id="ano">2026</span> Pop3D</span>
+    <a href="privacy.html">Privacybeleid</a>
+    <a href="https://github.com/Sindelitcis/pop3d/releases">Alle versies</a>
+    <a href="https://github.com/Sindelitcis/pop3d-quest">Broncode van de Quest-app (GPLv3)</a>
+    <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">Een probleem gevonden? Laat het ons weten</a>
+    <details class="creditos"><summary>Beeldcredits</summary><p>Foto's van Wikimedia Commons. 3D-effecten gemaakt met kunstmatige intelligentie (diepte: Depth Pro van Apple; herstelde achtergronden: LaMa).</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tim_Tams_and_Nuts_on_a_Birthday_Cake_With_Candles.jpg">Tim Tams and Nuts on a Birthday Cake With Candles</a> · Brassluff · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Reclining_tropical_palm_trees,_Philippines.jpg">Malapascua (island), Reclining tropical palm trees, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Blender_Open_Movie_-_Spring_(2019).png">Blender Open Movie - Spring (2019)</a> · Alexandru.rosu · CC0</p></details>
+    <a href="https://github.com/Sindelitcis">Pop3D is een onafhankelijk project van Rafael Probst</a>
+  </div>
+</footer>
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
+</script>
+<script src="../js/pop3d.js?v=8bfa9a47" defer></script>
+</body>
+</html>

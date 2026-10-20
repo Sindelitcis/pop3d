@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko" data-raiz="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pop3D: 보는 모든 것을 이제 VR 헤드셋에서 3D로</title>
+<meta name="description" content="영화, 드라마, 여행 영상, 가족 사진, YouTube, 게임까지. Pop3D는 컴퓨터에서 재생되는 모든 것을 VR 헤드셋에서 진짜 3D로 바꿔 줍니다. 무료.">
+<meta property="og:title" content="Pop3D: 보는 모든 것을 이제 VR 헤드셋에서 3D로">
+<meta property="og:description" content="영화, 드라마, 여행 영상, 가족 사진, YouTube, 게임까지. Pop3D는 컴퓨터에서 재생되는 모든 것을 VR 헤드셋에서 진짜 3D로 바꿔 줍니다. 무료.">
+<meta property="og:image" content="https://pop3d.quest/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06070c">
+<link rel="icon" href="../favicon.ico">
+<link rel="alternate" hreflang="pt-BR" href="https://pop3d.quest/">
+<link rel="alternate" hreflang="en" href="https://pop3d.quest/en/">
+<link rel="alternate" hreflang="es" href="https://pop3d.quest/es/">
+<link rel="alternate" hreflang="fr" href="https://pop3d.quest/fr/">
+<link rel="alternate" hreflang="de" href="https://pop3d.quest/de/">
+<link rel="alternate" hreflang="it" href="https://pop3d.quest/it/">
+<link rel="alternate" hreflang="nl" href="https://pop3d.quest/nl/">
+<link rel="alternate" hreflang="sv" href="https://pop3d.quest/sv/">
+<link rel="alternate" hreflang="hu" href="https://pop3d.quest/hu/">
+<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="ru" href="https://pop3d.quest/ru/">
+<link rel="alternate" hreflang="ja" href="https://pop3d.quest/ja/">
+<link rel="alternate" hreflang="ko" href="https://pop3d.quest/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pop3d.quest/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://pop3d.quest/zh/">
+<link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=8bfa9a47">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "ko", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "nl": "../nl/", "sv": "../sv/", "hu": "../hu/", "uk": "../uk/", "ru": "../ru/", "ja": "../ja/", "ko": "../ko/", "zh-hans": "../zh-hans/", "zh": "../zh/"};
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
+                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
+        if (alvos.hasOwnProperty(l)) quer = l;
+      }
+      if (!quer || quer === "en") {
+        if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es";
+        else for (var o in outrosFuso) if (outrosFuso[o].test(fuso)) quer = o;
+      }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "곧 출시", "forno": "첫 버전이 거의 다 됐어요.", "versao": "버전", "no_pc": "컴퓨터(Windows)에서 다운로드하세요. Pop3D는 PC에서 실행돼요.", "mandar_pc": "PC로 링크 보내기", "link_copiado": "링크를 복사했어요. 컴퓨터에서 여세요.", "obrigado": "<b>다운로드가 시작됐어요.</b> <b>Pop3D_Instalador.exe</b>를 여세요. 'Windows의 PC 보호'라는 창이 나오면 <b>추가 정보</b>를 누른 다음 <b>실행</b>을 누르세요."};</script>
+</head>
+<body>
+<div class="ceu" aria-hidden="true"></div>
+
+<header id="topo">
+  <div class="faixa">
+    <a class="marca" href="./"><i>3D</i>Pop3D</a>
+    <nav>
+      <a class="some" href="#magica">원리</a>
+      <a class="some" href="#quest">지원 환경</a>
+      <a class="some" href="#duvidas">자주 묻는 질문</a>
+      <details class="idiomas"><summary aria-label="언어: 한국어" title="언어"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>KO</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../nl/" data-idioma="nl" hreflang="nl" lang="nl"><span>Nederlands</span><small>NL</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../hu/" data-idioma="hu" hreflang="hu" lang="hu"><span>Magyar</span><small>HU</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../ru/" data-idioma="ru" hreflang="ru" lang="ru"><span>Русский</span><small>RU</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../ko/" data-idioma="ko" class="ativo" aria-current="page" hreflang="ko" lang="ko"><span>한국어</span><small>KO</small></a><a href="../zh-hans/" data-idioma="zh-hans" hreflang="zh-Hans" lang="zh-Hans"><span>简体中文</span><small>简中</small></a><a href="../zh/" data-idioma="zh" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>繁中</small></a></div></details>
+      <a class="cta-topo" href="#baixar">무료 다운로드</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="heroi">
+    <div class="faixa heroi-grade">
+      <div class="heroi-texto">
+        <div class="selo"><b>무료</b> · Meta Quest 및 PC VR 헤드셋</div>
+        <h1>보는 모든 것이,<br><span class="grad">이제 3D로.</span></h1>
+        <p class="lead">영화, 드라마, 작년 여행, 가족 생일, YouTube, 그리고 게임까지. Pop3D는 컴퓨터에서 재생되는 모든 것을 진짜 3D로 바꿔 VR 헤드셋에 바로 보여 줍니다. 변환할 필요 없이, 즉시.</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Windows용 무료 다운로드</span>
+          </a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>Meta Quest용 앱</span></a>
+        </div>
+        <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 무료</div>
+      </div>
+      <div class="cinema">
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="깊이가 있는 『Big Buck Bunny』의 한 장면: 화살이 화면 밖으로 튀어나온다">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela"><div class="pilha" data-z="0.102,0.363,0.762" aria-hidden="true"><img class="cam" src="../cenas/heroi/c0_p.webp" srcset="../cenas/heroi/c0_p.webp 960w, ../cenas/heroi/c0.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async" fetchpriority="high"><img class="cam" src="../cenas/heroi/c1_p.webp" srcset="../cenas/heroi/c1_p.webp 960w, ../cenas/heroi/c1.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"><img class="cam" src="../cenas/heroi/c2_p.webp" srcset="../cenas/heroi/c2_p.webp 960w, ../cenas/heroi/c2.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"></div></div>
+        </div>
+        <div class="cinema-rodape"><span class="rotulo">Big Buck Bunny · Blender Foundation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" id="magica">
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="깊이 층으로 나눈 『Big Buck Bunny』의 한 장면">
+        <div class="janela"><div class="pilha" data-z="0.172,0.535,0.863" aria-hidden="true"><img class="cam" src="../cenas/turma/c0_p.webp" srcset="../cenas/turma/c0_p.webp 960w, ../cenas/turma/c0.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c1_p.webp" srcset="../cenas/turma/c1_p.webp 960w, ../cenas/turma/c1.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c2_p.webp" srcset="../cenas/turma/c2_p.webp 960w, ../cenas/turma/c2.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="mapa" src="../cenas/turma/d.webp" alt="" decoding="async" loading="lazy"><i class="varredura"></i></div></div>
+      </div>
+      <div class="historia-texto">
+        <span class="olho-secao grad">마법의 원리</span>
+        <h2>모든 화면이 겹겹의 세계가 됩니다.</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span><b>평범한 화면.</b> 화면 속 여느 영상처럼 평평합니다.</span></li>
+          <li data-passo><span class="n">2</span><span><b>Pop3D는 모든 지점의 거리를 알아냅니다.</b> 캐릭터의 코끝부터 가장 먼 나무까지.</span></li>
+          <li data-passo><span class="n">3</span><span><b>장면을 여러 층으로 나누고</b> 각 층 뒤에 숨어 있던 것을 그려 냅니다.</span></li>
+          <li data-passo><span class="n">4</span><span><b>모든 것을 3D로 다시 조립합니다.</b> 두 눈에 각각 다른 이미지를. 나머지는 뇌가 알아서 합니다.</span></li>
+        </ol>
+      </div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">이미 가진 장비로 바로</span>
+        <h2>원하는 방식으로, 내 헤드셋에서.</h2>
+        <p class="intro">가장 쉬운 방법인 Quest 앱을 쓰거나, 이미 쓰고 있는 PC VR 앱을 그대로 쓰세요.</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.180,0.527,0.848" aria-hidden="true"><img class="cam" src="../cenas/praia/c0_p.webp" srcset="../cenas/praia/c0_p.webp 960w, ../cenas/praia/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c1_p.webp" srcset="../cenas/praia/c1_p.webp 960w, ../cenas/praia/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c2_p.webp" srcset="../cenas/praia/c2_p.webp 960w, ../cenas/praia/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="quest-txt">
+            <span class="selo-quest">추천</span>
+            <h3>Meta Quest용 Pop3D 앱</h3>
+            <p>헤드셋에서 앱을 열면 집 Wi-Fi로 컴퓨터를 알아서 찾아요. 케이블도, 설정도 필요 없어요.</p>
+            <ul><li>Wi-Fi로 무선 연결</li><li>PC를 자동으로 찾기</li><li>VR에 맞춘 메뉴</li><li>무료</li></ul>
+            <div class="quest-status">
+              <a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Meta Horizon Store에서 받기</span></a>
+              <a href="#baixar-quest">또는 USB로 설치&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>이것들과도 함께 써요</h3>
+          <p>쓰던 방식이 더 편한가요? Pop3D는 헤드셋을 PC에 연결하는 대표적인 방법을 모두 지원해요.</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico 등</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tudo">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">영화만이 아니에요</span>
+        <h2>PC에서 보이면, 3D가 됩니다.</h2>
+        <p class="intro">영화는 시작일 뿐이에요. 여행, 가족과의 순간, 사진, YouTube 영상, 좋아하는 게임까지 깊이가 생깁니다.</p>
+      </div>
+      <div class="bento">
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.391,0.801" aria-hidden="true"><img class="cam" src="../cenas/spring/c0_p.webp" srcset="../cenas/spring/c0_p.webp 960w, ../cenas/spring/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c1_p.webp" srcset="../cenas/spring/c1_p.webp 960w, ../cenas/spring/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c2_p.webp" srcset="../cenas/spring/c2_p.webp 960w, ../cenas/spring/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>영화와 드라마</h3><p>소장한 영상 전부를 3D로, 나만의 영화관 스크린에서.</p></div></article>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.141,0.465,0.824" aria-hidden="true"><img class="cam" src="../cenas/jogo/c0_p.webp" srcset="../cenas/jogo/c0_p.webp 960w, ../cenas/jogo/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c1_p.webp" srcset="../cenas/jogo/c1_p.webp 960w, ../cenas/jogo/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c2_p.webp" srcset="../cenas/jogo/c2_p.webp 960w, ../cenas/jogo/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>게임</h3><p>PC 게임을 헤드셋에서 3D로. 모드는 필요 없어요.</p></div></article>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.355,0.766" aria-hidden="true"><img class="cam" src="../cenas/coqueiros/c0_p.webp" srcset="../cenas/coqueiros/c0_p.webp 960w, ../cenas/coqueiros/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c1_p.webp" srcset="../cenas/coqueiros/c1_p.webp 960w, ../cenas/coqueiros/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c2_p.webp" srcset="../cenas/coqueiros/c2_p.webp 960w, ../cenas/coqueiros/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>여행</h3><p>그 해변으로 다시 떠나 보세요. 이번에는 깊이와 함께.</p></div></article>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.191,0.559,0.867" aria-hidden="true"><img class="cam" src="../cenas/festa/c0_p.webp" srcset="../cenas/festa/c0_p.webp 960w, ../cenas/festa/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c1_p.webp" srcset="../cenas/festa/c1_p.webp 960w, ../cenas/festa/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c2_p.webp" srcset="../cenas/festa/c2_p.webp 960w, ../cenas/festa/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>가족</h3><p>생일, 졸업식, 아기의 첫걸음.</p></div></article>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.168,0.504,0.836" aria-hidden="true"><img class="cam" src="../cenas/filhote/c0_p.webp" srcset="../cenas/filhote/c0_p.webp 960w, ../cenas/filhote/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c1_p.webp" srcset="../cenas/filhote/c1_p.webp 960w, ../cenas/filhote/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c2_p.webp" srcset="../cenas/filhote/c2_p.webp 960w, ../cenas/filhote/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>사진</h3><p>PC에서 사진을 열고 그 안으로 들어가 보세요.</p></div></article>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.133,0.422,0.789" aria-hidden="true"><img class="cam" src="../cenas/lago/c0_p.webp" srcset="../cenas/lago/c0_p.webp 960w, ../cenas/lago/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c1_p.webp" srcset="../cenas/lago/c1_p.webp 960w, ../cenas/lago/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c2_p.webp" srcset="../cenas/lago/c2_p.webp 960w, ../cenas/lago/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>YouTube와 브라우저</h3><p>브이로그, 다큐멘터리, 뮤직비디오: 컴퓨터 화면에 나오는 것이라면 무엇이든.</p></div></article>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.145,0.465,0.820" aria-hidden="true"><img class="cam" src="../cenas/cascata/c0_p.webp" srcset="../cenas/cascata/c0_p.webp 960w, ../cenas/cascata/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c1_p.webp" srcset="../cenas/cascata/c1_p.webp 960w, ../cenas/cascata/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c2_p.webp" srcset="../cenas/cascata/c2_p.webp 960w, ../cenas/cascata/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>자연</h3><p>풍경을 원래 가진 깊이 그대로.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">차이를 확인하세요</span>
+        <h2>같은 화면, 완전히 새로운 차원.</h2>
+        <p class="intro">선을 드래그해 보세요. 한쪽은 늘 보던 평평한 화면, 다른 쪽은 같은 장면에 Pop3D를 적용한 모습이에요. 헤드셋에서는 더욱 놀라워요. 두 눈이 각자 다른 이미지를 받으니까요.</p>
+      </div>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="평평한 이미지와 깊이가 있는 이미지 비교">
+        <div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div>
+        <div class="lado-plano"><div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div></div>
+        <div class="comparar-linha"><i></i></div>
+        <span class="lado esq">일반 화면</span><span class="lado dir"><span class="grad">Pop3D 적용</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="faixa numeros">
+      <div class="numero aparece"><b class="grad">무료</b><span>광고도, 구독도, 숨은 조건도 없어요.</span></div>
+      <div class="numero aparece"><b class="grad">즉시</b><span>재생하면 바로 3D. 영상 변환은 필요 없어요.</span></div>
+      <div class="numero aparece"><b class="grad">나만의 것</b><span>영상은 절대 컴퓨터 밖으로 나가지 않아요.</span></div>
+    </div>
+  </section>
+
+  <section id="baixar">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">다운로드</span>
+        <h2>몇 분이면 시작할 수 있어요.</h2>
+        <p class="intro">Pop3D는 컴퓨터에서 마법을 부리고, 그 결과를 헤드셋에 보여 줘요. 먼저 PC에 설치하세요. 감상은 Quest 앱이 가장 쉬워요.</p>
+      </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>컴퓨터에서</span>
+          <h3>Windows용 Pop3D</h3>
+          <p>다운로드하고 다음을 누르면 끝. 그래픽 카드에 맞춰 알아서 준비하고, 이후에도 알아서 업데이트돼요.</p>
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Windows용 무료 다운로드</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 무료</div>
+        </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>Meta Quest에서</span>
+          <h3>Meta Quest용 Pop3D 앱</h3>
+          <div class="loja"><a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Meta Horizon Store에서 받기</span></a></div>
+          <p>원한다면 USB 케이블로 설치할 수도 있어요:</p>
+          <ol class="dev">
+            <li>휴대폰에서 <b>Meta Horizon</b> 앱을 열고, 기기 › 헤드셋 설정에서 <b>개발자 모드</b>를 켜세요. Meta 개발자 계정(무료)이 필요해요.</li>
+            <li>Quest를 USB 케이블로 컴퓨터에 연결하세요.</li>
+            <li>컴퓨터의 Pop3D에서 <b>설정 › 헤드셋</b>을 열고 <b>Quest에 설치</b>를 누른 다음, 헤드셋 안에서 <b>허용</b>(Allow)을 누르세요. 끝!</li>
+          </ol>
+          <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">SideQuest를 쓰고 있나요? APK 다운로드</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <div class="faixa">
+      <div class="aparece"><h2>필요한 것</h2><p class="intro">NVIDIA RTX 그래픽 카드가 있는 컴퓨터와 VR 헤드셋. 그게 전부예요.</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>운영체제</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>그래픽 카드</small>NVIDIA GeForce RTX</div>
+        <div class="req"><small>여유 공간</small>15 GB<span class="req-nota">앱은 약 9GB를 차지하고, 나머지는 설치에 쓰이는 공간이에요.</span></div>
+        <div class="req"><small>헤드셋</small>Meta Quest 2, 3, 3S, Pro 또는 PC VR 헤드셋(SteamVR)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="faixa">
+      <h2 class="aparece">자주 묻는 질문</h2>
+      <details class="aparece"><summary>정말 무료인가요?</summary><p>네. 광고도, 구독도, 숨은 조건도 없어요.</p></details>
+<details class="aparece"><summary>먼저 영상을 변환해야 하나요?</summary><p>아니요. 재생만 하세요. 보는 동안 3D가 만들어져요.</p></details>
+<details class="aparece"><summary>헤드셋에 뭔가 설치해야 하나요?</summary><p>필수는 아니에요. 가장 쉬운 방법은 Quest용 Pop3D 앱으로, <a href="#baixar-quest">Meta 스토어</a>에서 무료로 받을 수 있어요. 원한다면 Steam Link, Air Link, Virtual Desktop, SteamVR로도 쓸 수 있어요.</p></details>
+<details class="aparece"><summary>Quest 앱만 설치했어요. 이제 뭘 하죠?</summary><p>Quest 앱은 컴퓨터의 Pop3D가 준비한 화면을 보여 줘요. <a href="#baixar">Windows PC에도 Pop3D</a>를 설치하세요. 둘 다 열려 있으면 헤드셋이 컴퓨터를 알아서 찾아요.</p></details>
+<details class="aparece"><summary>설치는 빨리 끝나나요?</summary><p>처음에는 Pop3D가 약 4GB를 내려받아요. 마법을 부리는 인공지능이고, 그래픽 카드에 맞게 조정돼요. 걸리는 시간은 인터넷 속도에 따라 달라요. 그다음부터는 몇 초 만에 열리고 알아서 업데이트돼요.</p></details>
+<details class="aparece"><summary>스트리밍 서비스에서도 되나요?</summary><p>YouTube와 대부분의 웹사이트처럼 컴퓨터 화면에 나오는 것이라면 다 돼요. 다만 일부 유료 서비스는 복제를 막기 위해 어떤 프로그램도 화면을 캡처하지 못하게 해요. 컴퓨터에 있는 영상은 바로 돼요.</p></details>
+<details class="aparece"><summary>NVIDIA 그래픽 카드가 없어도 되나요?</summary><p>아직은 마법을 쓰려면 NVIDIA RTX 그래픽 카드가 필요해요. 없다면 아무것도 내려받기 전에 설치 프로그램이 처음부터 알려 줘요.</p></details>
+<details class="aparece"><summary>영상이 컴퓨터 밖으로 나가나요?</summary><p>절대 아니에요. 모든 처리는 컴퓨터에서 이뤄지고, 영상은 집 네트워크를 통해 헤드셋으로 바로 가요. Pop3D는 더 나아지기 위해 익명 사용 통계만 보내고, 이것도 설정에서 끌 수 있어요. <a href="privacy.html">개인정보 처리방침</a>을 확인하세요.</p></details>
+<details class="aparece"><summary>앱이 한국어를 지원하나요?</summary><p>네! Pop3D는 한국어를 지원해요. 컴퓨터 앱, 헤드셋, 설치 프로그램 모두 한국어예요. Windows 언어를 따라가고, 설정 › Pop3D 언어에서 바꿀 수도 있어요.</p></details>
+<details class="aparece"><summary>'Windows의 PC 보호'라는 창이 떴어요.</summary><p>Microsoft가 아직 모르는 새 프로그램에 Windows가 보여 주는 기본 경고예요. <b>추가 정보</b>를 누른 다음 <b>실행</b>을 누르세요.</p></details>
+<details class="aparece"><summary>Pop3D에 대한 아이디어가 있어요!</summary><p>좋아요! 앱의 <b>아이디어와 의견</b>에서 바로 보내 주세요. Pop3D는 이제 막 태어났고, 쓰는 사람들과 함께 자라요.</p></details>
+    </div>
+  </section>
+
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela"><div class="pilha" data-z="0.113,0.410,0.797" aria-hidden="true"><img class="cam" src="../cenas/baloes/c0_p.webp" srcset="../cenas/baloes/c0_p.webp 960w, ../cenas/baloes/c0.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c1_p.webp" srcset="../cenas/baloes/c1_p.webp 960w, ../cenas/baloes/c1.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c2_p.webp" srcset="../cenas/baloes/c2_p.webp 960w, ../cenas/baloes/c2.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"></div></div>
+    <div class="faixa final-txt aparece">
+      <h2>모든 것을 <span class="grad">3D</span>로 볼 준비 되셨나요?</h2>
+      <p class="lead">무료. 설치는 알아서. 헤드셋에서 바로.</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Windows용 무료 다운로드</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 무료</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="faixa">
+    <span>© <span id="ano">2026</span> Pop3D</span>
+    <a href="privacy.html">개인정보 처리방침</a>
+    <a href="https://github.com/Sindelitcis/pop3d/releases">모든 버전</a>
+    <a href="https://github.com/Sindelitcis/pop3d-quest">Quest 앱 소스 코드(GPLv3)</a>
+    <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">문제를 발견했나요? 알려 주세요</a>
+    <details class="creditos"><summary>이미지 출처</summary><p>사진 출처: Wikimedia Commons. 3D 효과는 인공지능으로 만들었습니다(깊이: Apple의 Depth Pro, 배경 복원: LaMa).</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tim_Tams_and_Nuts_on_a_Birthday_Cake_With_Candles.jpg">Tim Tams and Nuts on a Birthday Cake With Candles</a> · Brassluff · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Reclining_tropical_palm_trees,_Philippines.jpg">Malapascua (island), Reclining tropical palm trees, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Blender_Open_Movie_-_Spring_(2019).png">Blender Open Movie - Spring (2019)</a> · Alexandru.rosu · CC0</p></details>
+    <a href="https://github.com/Sindelitcis">Pop3D는 Rafael Probst의 독립 프로젝트입니다</a>
+  </div>
+</footer>
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
+</script>
+<script src="../js/pop3d.js?v=8bfa9a47" defer></script>
+</body>
+</html>

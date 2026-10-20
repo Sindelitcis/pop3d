@@ -17,30 +17,39 @@
 <link rel="alternate" hreflang="fr" href="https://pop3d.quest/fr/">
 <link rel="alternate" hreflang="de" href="https://pop3d.quest/de/">
 <link rel="alternate" hreflang="it" href="https://pop3d.quest/it/">
-<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="nl" href="https://pop3d.quest/nl/">
 <link rel="alternate" hreflang="sv" href="https://pop3d.quest/sv/">
+<link rel="alternate" hreflang="hu" href="https://pop3d.quest/hu/">
+<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="ru" href="https://pop3d.quest/ru/">
 <link rel="alternate" hreflang="ja" href="https://pop3d.quest/ja/">
+<link rel="alternate" hreflang="ko" href="https://pop3d.quest/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pop3d.quest/zh-hans/">
 <link rel="alternate" hreflang="zh-Hant" href="https://pop3d.quest/zh/">
 <link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="../css/site.css?v=2d532a35">
+<link rel="stylesheet" href="../css/site.css?v=8bfa9a47">
 <script>
   (function () {
     try {
       if (localStorage.getItem("pop3d_idioma")) return;
-      var aqui = "zh", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "uk": "../uk/", "sv": "../sv/", "ja": "../ja/", "zh": "../zh/"};
+      var aqui = "zh", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "nl": "../nl/", "sv": "../sv/", "hu": "../hu/", "uk": "../uk/", "ru": "../ru/", "ja": "../ja/", "ko": "../ko/", "zh-hans": "../zh-hans/", "zh": "../zh/"};
       var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
       var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
       var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
       var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
                         it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
-                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/};
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
       var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
       var quer = null;
       for (var i = 0; i < langs.length && !quer; i++) {
-        var l = String(langs[i]).toLowerCase().slice(0, 2);
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
         if (alvos.hasOwnProperty(l)) quer = l;
       }
       if (!quer || quer === "en") {
@@ -64,7 +73,7 @@
       <a class="some" href="#magica">原理</a>
       <a class="some" href="#quest">支援裝置</a>
       <a class="some" href="#duvidas">常見問題</a>
-      <details class="idiomas"><summary aria-label="語言: 繁體中文" title="語言"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>ZH</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../zh/" data-idioma="zh" class="ativo" aria-current="page" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>ZH</small></a></div></details>
+      <details class="idiomas"><summary aria-label="語言: 繁體中文" title="語言"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>繁中</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../nl/" data-idioma="nl" hreflang="nl" lang="nl"><span>Nederlands</span><small>NL</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../hu/" data-idioma="hu" hreflang="hu" lang="hu"><span>Magyar</span><small>HU</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../ru/" data-idioma="ru" hreflang="ru" lang="ru"><span>Русский</span><small>RU</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../ko/" data-idioma="ko" hreflang="ko" lang="ko"><span>한국어</span><small>KO</small></a><a href="../zh-hans/" data-idioma="zh-hans" hreflang="zh-Hans" lang="zh-Hans"><span>简体中文</span><small>简中</small></a><a href="../zh/" data-idioma="zh" class="ativo" aria-current="page" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>繁中</small></a></div></details>
       <a class="cta-topo" href="#baixar">免費下載</a>
     </nav>
   </div>
@@ -231,7 +240,7 @@
           <ol class="dev">
             <li>在手機上打開 <b>Meta Horizon</b> 應用程式，到「裝置 › 頭戴裝置設定」開啟<b>開發人員模式</b>。Meta 會要求一個免費的開發人員帳號。</li>
             <li>用 USB 線把 Quest 連接到電腦。</li>
-            <li>在電腦上的 Pop3D 打開 <b>Settings › Headset</b>，按 <b>Install on Quest</b>，再在頭戴裝置裡點選<b>允許</b>（Allow）。完成！</li>
+            <li>在電腦上的 Pop3D 打開 <b>設定 › 頭戴裝置</b>，按 <b>安裝到 Quest</b>，再在頭戴裝置裡點選<b>允許</b>（Allow）。完成！</li>
           </ol>
           <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">已經在用 SideQuest？下載 APK</a>
         </div>
@@ -261,10 +270,10 @@
 <details class="aparece"><summary>安裝很快嗎？</summary><p>第一次安裝時，Pop3D 會下載約 4 GB：這是施展魔法的人工智慧，並會針對你的顯示卡調整。所需時間取決於你的網路速度。之後幾秒就能開啟，並會自動更新。</p></details>
 <details class="aparece"><summary>可以用在串流平台上嗎？</summary><p>電腦螢幕上出現的內容都可以，例如 YouTube 和大多數網站。有些付費服務會保護影片防止複製，不讓任何程式擷取畫面。電腦裡的影片則可以直接使用。</p></details>
 <details class="aparece"><summary>沒有 NVIDIA 顯示卡能用嗎？</summary><p>目前魔法需要 NVIDIA RTX 顯示卡。如果你的電腦沒有，安裝程式會在一開始、下載任何東西之前就告訴你。</p></details>
-<details class="aparece"><summary>我的影片會離開電腦嗎？</summary><p>永遠不會。一切都在你的電腦上完成，影片透過家中網路直接傳到頭戴裝置。Pop3D 只會傳送匿名的使用統計來持續改進，你也可以在 Settings（設定）中關閉。請參閱<a href="privacy.html">隱私權政策</a>。</p></details>
-<details class="aparece"><summary>應用程式有中文版嗎？</summary><p>這個網站有中文版，但 Pop3D 應用程式目前以英文顯示。</p></details>
+<details class="aparece"><summary>我的影片會離開電腦嗎？</summary><p>永遠不會。一切都在你的電腦上完成，影片透過家中網路直接傳到頭戴裝置。Pop3D 只會傳送匿名的使用統計來持續改進，你也可以在設定中關閉。請參閱<a href="privacy.html">隱私權政策</a>。</p></details>
+<details class="aparece"><summary>應用程式有中文版嗎？</summary><p>有！電腦上的 App、頭戴裝置裡的畫面和安裝程式都有繁體中文（也有簡體中文）。它會跟著 Windows 的語言自動切換，也可以在 Pop3D 的 設定 › Pop3D 的語言 中更改。</p></details>
 <details class="aparece"><summary>Windows 顯示「Windows 已保護您的電腦」，怎麼辦？</summary><p>這是 Windows 對 Microsoft 還不認識的新程式顯示的標準警告。請按<b>其他資訊</b>，再按<b>仍要執行</b>。</p></details>
-<details class="aparece"><summary>我對 Pop3D 有個點子！</summary><p>太好了！在應用程式的 <b>Ideas &amp; feedback</b> 裡就能直接傳給我們。Pop3D 才剛誕生，會跟著使用它的人一起成長。</p></details>
+<details class="aparece"><summary>我對 Pop3D 有個點子！</summary><p>太好了！在應用程式的 <b>點子與意見</b> 裡就能直接傳給我們。Pop3D 才剛誕生，會跟著使用它的人一起成長。</p></details>
     </div>
   </section>
 
@@ -299,6 +308,6 @@
   const topo = document.getElementById("topo");
   addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
 </script>
-<script src="../js/pop3d.js?v=2d532a35" defer></script>
+<script src="../js/pop3d.js?v=8bfa9a47" defer></script>
 </body>
 </html>

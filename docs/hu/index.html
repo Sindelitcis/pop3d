@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="hu" data-raiz="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pop3D: minden, amit nézel, most 3D-ben a VR-headsetedben</title>
+<meta name="description" content="Filmek, sorozatok, úti videók, családi fotók, YouTube és játékok: a Pop3D mindent, ami a számítógépeden fut, valódi 3D-vé alakít a VR-headsetedben. Ingyenes.">
+<meta property="og:title" content="Pop3D: minden, amit nézel, most 3D-ben a VR-headsetedben">
+<meta property="og:description" content="Filmek, sorozatok, úti videók, családi fotók, YouTube és játékok: a Pop3D mindent, ami a számítógépeden fut, valódi 3D-vé alakít a VR-headsetedben. Ingyenes.">
+<meta property="og:image" content="https://pop3d.quest/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06070c">
+<link rel="icon" href="../favicon.ico">
+<link rel="alternate" hreflang="pt-BR" href="https://pop3d.quest/">
+<link rel="alternate" hreflang="en" href="https://pop3d.quest/en/">
+<link rel="alternate" hreflang="es" href="https://pop3d.quest/es/">
+<link rel="alternate" hreflang="fr" href="https://pop3d.quest/fr/">
+<link rel="alternate" hreflang="de" href="https://pop3d.quest/de/">
+<link rel="alternate" hreflang="it" href="https://pop3d.quest/it/">
+<link rel="alternate" hreflang="nl" href="https://pop3d.quest/nl/">
+<link rel="alternate" hreflang="sv" href="https://pop3d.quest/sv/">
+<link rel="alternate" hreflang="hu" href="https://pop3d.quest/hu/">
+<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="ru" href="https://pop3d.quest/ru/">
+<link rel="alternate" hreflang="ja" href="https://pop3d.quest/ja/">
+<link rel="alternate" hreflang="ko" href="https://pop3d.quest/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pop3d.quest/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://pop3d.quest/zh/">
+<link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=8bfa9a47">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "hu", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "nl": "../nl/", "sv": "../sv/", "hu": "../hu/", "uk": "../uk/", "ru": "../ru/", "ja": "../ja/", "ko": "../ko/", "zh-hans": "../zh-hans/", "zh": "../zh/"};
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
+                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
+        if (alvos.hasOwnProperty(l)) quer = l;
+      }
+      if (!quer || quer === "en") {
+        if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es";
+        else for (var o in outrosFuso) if (outrosFuso[o].test(fuso)) quer = o;
+      }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "Hamarosan", "forno": "Az első verzió már majdnem kész.", "versao": "Verzió", "no_pc": "Töltsd le a számítógépedre (Windows): a Pop3D a PC-n fut.", "mandar_pc": "Küldd el a linket a gépedre", "link_copiado": "Link kimásolva. Nyisd meg a számítógépeden.", "obrigado": "<b>Elindult a letöltés.</b> Nyisd meg a <b>Pop3D_Instalador.exe</b> fájlt. Ha a Windows azt írja, hogy „A Windows megvédte a számítógépet”, kattints a <b>További információ</b>, majd a <b>Futtatás mindenképpen</b> gombra."};</script>
+</head>
+<body>
+<div class="ceu" aria-hidden="true"></div>
+
+<header id="topo">
+  <div class="faixa">
+    <a class="marca" href="./"><i>3D</i>Pop3D</a>
+    <nav>
+      <a class="some" href="#magica">A varázslat</a>
+      <a class="some" href="#quest">Hol működik</a>
+      <a class="some" href="#duvidas">Kérdések</a>
+      <details class="idiomas"><summary aria-label="Nyelv: Magyar" title="Nyelv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>HU</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../nl/" data-idioma="nl" hreflang="nl" lang="nl"><span>Nederlands</span><small>NL</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../hu/" data-idioma="hu" class="ativo" aria-current="page" hreflang="hu" lang="hu"><span>Magyar</span><small>HU</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../ru/" data-idioma="ru" hreflang="ru" lang="ru"><span>Русский</span><small>RU</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../ko/" data-idioma="ko" hreflang="ko" lang="ko"><span>한국어</span><small>KO</small></a><a href="../zh-hans/" data-idioma="zh-hans" hreflang="zh-Hans" lang="zh-Hans"><span>简体中文</span><small>简中</small></a><a href="../zh/" data-idioma="zh" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>繁中</small></a></div></details>
+      <a class="cta-topo" href="#baixar">Ingyenes letöltés</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="heroi">
+    <div class="faixa heroi-grade">
+      <div class="heroi-texto">
+        <div class="selo"><b>Ingyenes</b> · Meta Quest és PC-s VR-headsetek</div>
+        <h1>Minden, amit nézel,<br><span class="grad">most 3D-ben.</span></h1>
+        <p class="lead">Filmek, sorozatok, a tavalyi utazás, a családi születésnap, a YouTube, a játékaid. A Pop3D mindent, ami a számítógépeden fut, valódi 3D-vé alakít, egyenesen a VR-headsetedben. Azonnal, semmit sem kell átalakítani.</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Ingyenes letöltés Windowsra</span>
+          </a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>Alkalmazás Meta Questre</span></a>
+        </div>
+        <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Ingyenes</div>
+      </div>
+      <div class="cinema">
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="Jelenet a Big Buck Bunnyból mélységgel: a nyíl kirepül a képernyőből">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela"><div class="pilha" data-z="0.102,0.363,0.762" aria-hidden="true"><img class="cam" src="../cenas/heroi/c0_p.webp" srcset="../cenas/heroi/c0_p.webp 960w, ../cenas/heroi/c0.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async" fetchpriority="high"><img class="cam" src="../cenas/heroi/c1_p.webp" srcset="../cenas/heroi/c1_p.webp 960w, ../cenas/heroi/c1.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"><img class="cam" src="../cenas/heroi/c2_p.webp" srcset="../cenas/heroi/c2_p.webp 960w, ../cenas/heroi/c2.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"></div></div>
+        </div>
+        <div class="cinema-rodape"><span class="rotulo">Big Buck Bunny · Blender Foundation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" id="magica">
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="Jelenet a Big Buck Bunnyból mélységi rétegekre bontva">
+        <div class="janela"><div class="pilha" data-z="0.172,0.535,0.863" aria-hidden="true"><img class="cam" src="../cenas/turma/c0_p.webp" srcset="../cenas/turma/c0_p.webp 960w, ../cenas/turma/c0.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c1_p.webp" srcset="../cenas/turma/c1_p.webp 960w, ../cenas/turma/c1.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c2_p.webp" srcset="../cenas/turma/c2_p.webp 960w, ../cenas/turma/c2.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="mapa" src="../cenas/turma/d.webp" alt="" decoding="async" loading="lazy"><i class="varredura"></i></div></div>
+      </div>
+      <div class="historia-texto">
+        <span class="olho-secao grad">A varázslat belülről</span>
+        <h2>Minden képből rétegekből álló világ lesz.</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span><b>Egy hétköznapi kép.</b> Lapos, mint bármelyik videó a képernyődön.</span></li>
+          <li data-passo><span class="n">2</span><span><b>A Pop3D látja minden pont távolságát</b>, a szereplő orrától a legtávolabbi fáig.</span></li>
+          <li data-passo><span class="n">3</span><span><b>Rétegekre bontja a jelenetet</b>, és kitalálja, mi rejtőzött mindegyik mögött.</span></li>
+          <li data-passo><span class="n">4</span><span><b>Mindent újraépít 3D-ben</b>, mindkét szemnek külön képet ad. A többit elvégzi az agyad.</span></li>
+        </ol>
+      </div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">Azzal működik, ami már megvan</span>
+        <h2>A te módodon, a te headseteden.</h2>
+        <p class="intro">Használd a Quest-alkalmazásunkat, ez a legegyszerűbb, vagy a PC-s VR-alkalmazást, amit már ismersz.</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.180,0.527,0.848" aria-hidden="true"><img class="cam" src="../cenas/praia/c0_p.webp" srcset="../cenas/praia/c0_p.webp 960w, ../cenas/praia/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c1_p.webp" srcset="../cenas/praia/c1_p.webp 960w, ../cenas/praia/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c2_p.webp" srcset="../cenas/praia/c2_p.webp 960w, ../cenas/praia/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="quest-txt">
+            <span class="selo-quest">Ajánlott</span>
+            <h3>Pop3D-alkalmazás Meta Questre</h3>
+            <p>Nyisd meg az alkalmazást a headsetben, és magától megtalálja a számítógépedet az otthoni wifin. Se kábel, se beállítás.</p>
+            <ul><li>Vezeték nélkül, wifin</li><li>Magától megtalálja a gépedet</li><li>VR-re tervezett menük</li><li>Ingyenes</li></ul>
+            <div class="quest-status">
+              <a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Letöltés a Meta Horizon Store-ból</span></a>
+              <a href="#baixar-quest">Vagy telepítsd USB-n&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>Ezekkel is működik</h3>
+          <p>Inkább azt használnád, amit már ismersz? A Pop3D működik a headset és a PC összekötésének legnépszerűbb módjaival.</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index, HTC Vive, Pico és mások</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tudo">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Nem csak filmek</span>
+        <h2>Fut a gépeden? Akkor 3D lesz.</h2>
+        <p class="intro">A filmek csak a kezdet. Az utazások, a családi pillanatok, a fotók, a YouTube-videók, sőt a kedvenc játékod is mélységet kap.</p>
+      </div>
+      <div class="bento">
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.391,0.801" aria-hidden="true"><img class="cam" src="../cenas/spring/c0_p.webp" srcset="../cenas/spring/c0_p.webp 960w, ../cenas/spring/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c1_p.webp" srcset="../cenas/spring/c1_p.webp 960w, ../cenas/spring/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c2_p.webp" srcset="../cenas/spring/c2_p.webp 960w, ../cenas/spring/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Filmek és sorozatok</h3><p>A teljes gyűjteményed 3D-ben, egy csak a tiéd mozivásznon.</p></div></article>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.141,0.465,0.824" aria-hidden="true"><img class="cam" src="../cenas/jogo/c0_p.webp" srcset="../cenas/jogo/c0_p.webp 960w, ../cenas/jogo/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c1_p.webp" srcset="../cenas/jogo/c1_p.webp 960w, ../cenas/jogo/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c2_p.webp" srcset="../cenas/jogo/c2_p.webp 960w, ../cenas/jogo/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Játékok</h3><p>A PC-s játékaid 3D-ben a headsetben, modok nélkül.</p></div></article>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.355,0.766" aria-hidden="true"><img class="cam" src="../cenas/coqueiros/c0_p.webp" srcset="../cenas/coqueiros/c0_p.webp 960w, ../cenas/coqueiros/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c1_p.webp" srcset="../cenas/coqueiros/c1_p.webp 960w, ../cenas/coqueiros/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c2_p.webp" srcset="../cenas/coqueiros/c2_p.webp 960w, ../cenas/coqueiros/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Utazás</h3><p>Térj vissza arra a strandra. Ezúttal mélységgel.</p></div></article>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.191,0.559,0.867" aria-hidden="true"><img class="cam" src="../cenas/festa/c0_p.webp" srcset="../cenas/festa/c0_p.webp 960w, ../cenas/festa/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c1_p.webp" srcset="../cenas/festa/c1_p.webp 960w, ../cenas/festa/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c2_p.webp" srcset="../cenas/festa/c2_p.webp 960w, ../cenas/festa/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Család</h3><p>Születésnapok, ballagások, a baba első lépései.</p></div></article>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.168,0.504,0.836" aria-hidden="true"><img class="cam" src="../cenas/filhote/c0_p.webp" srcset="../cenas/filhote/c0_p.webp 960w, ../cenas/filhote/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c1_p.webp" srcset="../cenas/filhote/c1_p.webp 960w, ../cenas/filhote/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c2_p.webp" srcset="../cenas/filhote/c2_p.webp 960w, ../cenas/filhote/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Fotók</h3><p>Nyiss meg egy fotót a gépeden, és lépj bele.</p></div></article>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.133,0.422,0.789" aria-hidden="true"><img class="cam" src="../cenas/lago/c0_p.webp" srcset="../cenas/lago/c0_p.webp 960w, ../cenas/lago/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c1_p.webp" srcset="../cenas/lago/c1_p.webp 960w, ../cenas/lago/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c2_p.webp" srcset="../cenas/lago/c2_p.webp 960w, ../cenas/lago/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>YouTube és böngésző</h3><p>Vlogok, dokumentumfilmek, videoklipek: bármi, ami a számítógéped képernyőjén van.</p></div></article>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.145,0.465,0.820" aria-hidden="true"><img class="cam" src="../cenas/cascata/c0_p.webp" srcset="../cenas/cascata/c0_p.webp 960w, ../cenas/cascata/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c1_p.webp" srcset="../cenas/cascata/c1_p.webp 960w, ../cenas/cascata/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c2_p.webp" srcset="../cenas/cascata/c2_p.webp 960w, ../cenas/cascata/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>Természet</h3><p>Tájak azzal a mélységgel, amilyenek valójában.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Nézd meg a különbséget</span>
+        <h2>Ugyanaz a kép. Egy egészen új dimenzió.</h2>
+        <p class="intro">Húzd el a vonalat. Az egyik oldalon a megszokott lapos képernyő. A másikon ugyanaz a jelenet a Pop3D-vel. A headsetben még lenyűgözőbb: mindkét szem a saját képét kapja.</p>
+      </div>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="A lapos kép és a mélységgel rendelkező kép összehasonlítása">
+        <div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div>
+        <div class="lado-plano"><div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div></div>
+        <div class="comparar-linha"><i></i></div>
+        <span class="lado esq">Hagyományos képernyő</span><span class="lado dir"><span class="grad">Pop3D-vel</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="faixa numeros">
+      <div class="numero aparece"><b class="grad">Ingyenes</b><span>Nincs reklám, nincs előfizetés, nincs csapda.</span></div>
+      <div class="numero aparece"><b class="grad">Azonnal</b><span>Elindítod, és már 3D. Nem kell videót átalakítani.</span></div>
+      <div class="numero aparece"><b class="grad">Csak a tiéd</b><span>A videóid soha nem hagyják el a számítógépedet.</span></div>
+    </div>
+  </section>
+
+  <section id="baixar">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">Letöltés</span>
+        <h2>Pár perc, és már működik.</h2>
+        <p class="intro">A Pop3D a számítógépeden varázsol, és a headsetedben mutatja meg. Először a gépedre telepítsd; nézni a Quest-alkalmazással a legegyszerűbb.</p>
+      </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>A számítógépeden</span>
+          <h3>Pop3D Windowsra</h3>
+          <p>Töltsd le, kattints a Tovább gombra, és kész. Magától felkészül a videokártyádra, és utána magát frissíti.</p>
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Ingyenes letöltés Windowsra</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Ingyenes</div>
+        </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>A Meta Questen</span>
+          <h3>Pop3D-alkalmazás Meta Questre</h3>
+          <div class="loja"><a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Letöltés a Meta Horizon Store-ból</span></a></div>
+          <p>Ha szeretnéd, USB-kábellel is telepítheted:</p>
+          <ol class="dev">
+            <li>Nyisd meg a telefonodon a <b>Meta Horizon</b> alkalmazást, és kapcsold be a <b>Developer Mode</b> (fejlesztői mód) beállítást a Devices › Headset settings menüben. A Meta fejlesztői fiókot kér, ami ingyenes.</li>
+            <li>Csatlakoztasd a Questet USB-kábellel a számítógépedhez.</li>
+            <li>A gépeden a Pop3D-ben nyisd meg a <b>Beállítások › Headset</b> menüt, kattints a <b>Telepítés a Questre</b> gombra, majd a headsetben koppints az <b>Allow</b> (Engedélyezés) gombra. Kész!</li>
+          </ol>
+          <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">Már SideQuestet használsz? Töltsd le az APK-t</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <div class="faixa">
+      <div class="aparece"><h2>Amire szükséged van</h2><p class="intro">Egy számítógép NVIDIA RTX videokártyával és egy VR-headset. Ennyi.</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>Rendszer</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>Videokártya</small>NVIDIA GeForce RTX</div>
+        <div class="req"><small>Szabad hely</small>15 GB<span class="req-nota">Az alkalmazás kb. 9 GB-ot foglal; a többi a telepítéshez kell.</span></div>
+        <div class="req"><small>Headset</small>Meta Quest 2, 3, 3S vagy Pro, illetve PC-s VR-headset (SteamVR)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="faixa">
+      <h2 class="aparece">Gyakori kérdések</h2>
+      <details class="aparece"><summary>Tényleg ingyenes?</summary><p>Igen. Nincs reklám, nincs előfizetés, nincs csapda.</p></details>
+<details class="aparece"><summary>Először át kell alakítanom a videóimat?</summary><p>Nem. Csak indítsd el: a 3D nézés közben születik.</p></details>
+<details class="aparece"><summary>Kell valamit telepítenem a headsetre?</summary><p>Nem kötelező. A Questre készült Pop3D-alkalmazás a legegyszerűbb: ingyenes a <a href="#baixar-quest">Meta áruházában</a>. Ha szeretnéd, a Pop3D a Steam Linkkel, az Air Linkkel, a Virtual Desktoppal és a SteamVR-rel is működik.</p></details>
+<details class="aparece"><summary>Csak a Quest-alkalmazást telepítettem. Most mi lesz?</summary><p>A Quest-alkalmazás azt mutatja meg, amit a számítógépeden futó Pop3D előkészít. Telepítsd a <a href="#baixar">Pop3D-t a windowsos gépedre</a> is: ha mindkettő nyitva van, a headset magától megtalálja a számítógépet.</p></details>
+<details class="aparece"><summary>Gyors a telepítés?</summary><p>Első alkalommal a Pop3D kb. 4 GB-ot tölt le: ez a mesterséges intelligencia, ami a varázslatot végzi, és a videokártyádhoz hangolódik. Hogy mennyi ideig tart, az az internetedtől függ. Utána az alkalmazás másodpercek alatt megnyílik, és magát frissíti.</p></details>
+<details class="aparece"><summary>Működik streamingszolgáltatásokkal?</summary><p>Mindennel működik, ami a számítógéped képernyőjén megjelenik, például a YouTube-bal és a legtöbb weboldallal. Egyes fizetős szolgáltatások másolás ellen védik a videóikat, és egyetlen programnak sem engedik rögzíteni a képet. A gépeden lévő videók azonnal működnek.</p></details>
+<details class="aparece"><summary>Működik NVIDIA-kártya nélkül?</summary><p>Egyelőre a varázslathoz NVIDIA RTX videokártya kell. Ha a gépedben nincs ilyen, a telepítő rögtön az elején szól, mielőtt bármit letöltene.</p></details>
+<details class="aparece"><summary>Elhagyják valaha a videóim a számítógépemet?</summary><p>Soha. Minden a számítógépeden történik, a videó pedig az otthoni hálózaton át egyenesen a headsetedbe megy. A Pop3D csak névtelen használati statisztikákat küld, hogy egyre jobb legyen, és ezt a Beállításokban kikapcsolhatod. Olvasd el az <a href="adatvedelem.html">adatvédelmi irányelveket</a>.</p></details>
+<details class="aparece"><summary>Magyarul is elérhető az alkalmazás?</summary><p>Igen! A Pop3D beszél magyarul: a számítógépes alkalmazásban, a headsetben és a telepítőben is. A Windows nyelvét követi, és a Beállítások › A Pop3D nyelve menüben módosíthatod.</p></details>
+<details class="aparece"><summary>A Windows azt írta: „A Windows megvédte a számítógépet”. Most mi legyen?</summary><p>Ez a Windows szokásos figyelmeztetése az új programoknál, amelyeket a Microsoft még nem ismer. Kattints a <b>További információ</b>, majd a <b>Futtatás mindenképpen</b> gombra.</p></details>
+<details class="aparece"><summary>Van egy ötletem a Pop3D-hez!</summary><p>Nagyszerű! Az alkalmazásban az <b>Ötletek és visszajelzés</b> részben egyenesen nekünk küldheted. A Pop3D vadonatúj, és azokkal együtt nő, akik használják.</p></details>
+    </div>
+  </section>
+
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela"><div class="pilha" data-z="0.113,0.410,0.797" aria-hidden="true"><img class="cam" src="../cenas/baloes/c0_p.webp" srcset="../cenas/baloes/c0_p.webp 960w, ../cenas/baloes/c0.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c1_p.webp" srcset="../cenas/baloes/c1_p.webp 960w, ../cenas/baloes/c1.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c2_p.webp" srcset="../cenas/baloes/c2_p.webp 960w, ../cenas/baloes/c2.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"></div></div>
+    <div class="faixa final-txt aparece">
+      <h2>Készen állsz, hogy mindent <span class="grad">3D-ben</span> láss?</h2>
+      <p class="lead">Ingyenes. Magától települ. Működik a headsetedben.</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>Ingyenes letöltés Windowsra</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · Ingyenes</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="faixa">
+    <span>© <span id="ano">2026</span> Pop3D</span>
+    <a href="adatvedelem.html">Adatvédelmi irányelvek</a>
+    <a href="https://github.com/Sindelitcis/pop3d/releases">Összes verzió</a>
+    <a href="https://github.com/Sindelitcis/pop3d-quest">A Quest-alkalmazás forráskódja (GPLv3)</a>
+    <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">Hibát találtál? Szólj nekünk</a>
+    <details class="creditos"><summary>Képek forrása</summary><p>Fotók a Wikimedia Commonsból. A 3D-effektusok mesterséges intelligenciával készültek (mélység: az Apple Depth Pro modellje; helyreállított hátterek: LaMa).</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tim_Tams_and_Nuts_on_a_Birthday_Cake_With_Candles.jpg">Tim Tams and Nuts on a Birthday Cake With Candles</a> · Brassluff · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Reclining_tropical_palm_trees,_Philippines.jpg">Malapascua (island), Reclining tropical palm trees, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Blender_Open_Movie_-_Spring_(2019).png">Blender Open Movie - Spring (2019)</a> · Alexandru.rosu · CC0</p></details>
+    <a href="https://github.com/Sindelitcis">A Pop3D Rafael Probst független projektje</a>
+  </div>
+</footer>
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
+</script>
+<script src="../js/pop3d.js?v=8bfa9a47" defer></script>
+</body>
+</html>

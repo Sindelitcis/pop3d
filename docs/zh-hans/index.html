@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-Hans" data-raiz="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pop3D：你看的一切，现在都能在 VR 头显里变成 3D</title>
+<meta name="description" content="电影、剧集、旅行视频、家庭照片、YouTube 和游戏：Pop3D 把电脑上播放的一切，在 VR 头显里变成真正的 3D。免费。">
+<meta property="og:title" content="Pop3D：你看的一切，现在都能在 VR 头显里变成 3D">
+<meta property="og:description" content="电影、剧集、旅行视频、家庭照片、YouTube 和游戏：Pop3D 把电脑上播放的一切，在 VR 头显里变成真正的 3D。免费。">
+<meta property="og:image" content="https://pop3d.quest/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06070c">
+<link rel="icon" href="../favicon.ico">
+<link rel="alternate" hreflang="pt-BR" href="https://pop3d.quest/">
+<link rel="alternate" hreflang="en" href="https://pop3d.quest/en/">
+<link rel="alternate" hreflang="es" href="https://pop3d.quest/es/">
+<link rel="alternate" hreflang="fr" href="https://pop3d.quest/fr/">
+<link rel="alternate" hreflang="de" href="https://pop3d.quest/de/">
+<link rel="alternate" hreflang="it" href="https://pop3d.quest/it/">
+<link rel="alternate" hreflang="nl" href="https://pop3d.quest/nl/">
+<link rel="alternate" hreflang="sv" href="https://pop3d.quest/sv/">
+<link rel="alternate" hreflang="hu" href="https://pop3d.quest/hu/">
+<link rel="alternate" hreflang="uk" href="https://pop3d.quest/uk/">
+<link rel="alternate" hreflang="ru" href="https://pop3d.quest/ru/">
+<link rel="alternate" hreflang="ja" href="https://pop3d.quest/ja/">
+<link rel="alternate" hreflang="ko" href="https://pop3d.quest/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pop3d.quest/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://pop3d.quest/zh/">
+<link rel="alternate" hreflang="x-default" href="https://pop3d.quest/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=8bfa9a47">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("pop3d_idioma")) return;
+      var aqui = "zh-hans", alvos = {"pt": "../", "en": "../en/", "es": "../es/", "fr": "../fr/", "de": "../de/", "it": "../it/", "nl": "../nl/", "sv": "../sv/", "hu": "../hu/", "uk": "../uk/", "ru": "../ru/", "ja": "../ja/", "ko": "../ko/", "zh-hans": "../zh-hans/", "zh": "../zh/"};
+      var fuso = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var ptFuso = /^(America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Belem|Maceio|Manaus|Cuiaba|Campo_Grande|Porto_Velho|Boa_Vista|Rio_Branco|Araguaina|Santarem|Noronha|Eirunepe)|Europe\/Lisbon|Atlantic\/(Azores|Madeira)|Africa\/(Luanda|Maputo))$/;
+      var esFuso = /^(Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Hermosillo|Mazatlan|Tijuana|Bahia_Banderas|Bogota|Lima|Santiago|Punta_Arenas|Buenos_Aires|Argentina\/.+|Caracas|Montevideo|Asuncion|La_Paz|Guayaquil|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico)|Pacific\/Galapagos)$/;
+      var outrosFuso = {fr: /^Europe\/(Paris|Monaco)$/, de: /^Europe\/(Berlin|Busingen|Vienna|Vaduz)$/,
+                        it: /^Europe\/(Rome|San_Marino|Vatican)$/, uk: /^Europe\/(Kyiv|Kiev|Uzhgorod|Zaporozhye|Simferopol)$/,
+                        sv: /^Europe\/Stockholm$/, ja: /^Asia\/Tokyo$/, zh: /^Asia\/(Taipei|Hong_Kong|Macau)$/,
+                        nl: /^Europe\/Amsterdam$/, hu: /^Europe\/Budapest$/, ko: /^Asia\/Seoul$/,
+                        "zh-hans": /^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/,
+                        ru: /^(Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Ulyanovsk|Astrakhan|Kirov|Minsk)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr))$/};
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      var quer = null;
+      for (var i = 0; i < langs.length && !quer; i++) {
+        var tag = String(langs[i]).toLowerCase(), l = tag.slice(0, 2);
+        if (l === "zh") l = /^zh-(hant|tw|hk|mo)/.test(tag) ? "zh" : "zh-hans";   // zh-CN, zh-SG, zh-Hans, zh
+        if (alvos.hasOwnProperty(l)) quer = l;
+      }
+      if (!quer || quer === "en") {
+        if (ptFuso.test(fuso)) quer = "pt"; else if (esFuso.test(fuso)) quer = "es";
+        else for (var o in outrosFuso) if (outrosFuso[o].test(fuso)) quer = o;
+      }
+      quer = quer || "en";
+      if (quer !== aqui) location.replace(alvos[quer] + location.hash);
+    } catch (e) {}
+  })();
+</script>
+<script>window.POP3D_TEXTOS = {"em_breve": "即将推出", "forno": "第一个版本马上就要出炉了。", "versao": "版本", "no_pc": "请在电脑（Windows）上下载：Pop3D 在电脑上运行。", "mandar_pc": "把链接发到电脑", "link_copiado": "链接已复制。请在电脑上打开。", "obrigado": "<b>下载已开始。</b>打开 <b>Pop3D_Instalador.exe</b>。如果 Windows 显示“Windows 已保护你的电脑”，请点<b>更多信息</b>，再点<b>仍要运行</b>。"};</script>
+</head>
+<body>
+<div class="ceu" aria-hidden="true"></div>
+
+<header id="topo">
+  <div class="faixa">
+    <a class="marca" href="./"><i>3D</i>Pop3D</a>
+    <nav>
+      <a class="some" href="#magica">原理</a>
+      <a class="some" href="#quest">支持设备</a>
+      <a class="some" href="#duvidas">常见问题</a>
+      <details class="idiomas"><summary aria-label="语言: 简体中文" title="语言"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><span>简中</span><svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="idiomas-menu"><a href="../" data-idioma="pt" hreflang="pt-BR" lang="pt-BR"><span>Português</span><small>PT</small></a><a href="../en/" data-idioma="en" hreflang="en" lang="en"><span>English</span><small>EN</small></a><a href="../es/" data-idioma="es" hreflang="es" lang="es"><span>Español</span><small>ES</small></a><a href="../fr/" data-idioma="fr" hreflang="fr" lang="fr"><span>Français</span><small>FR</small></a><a href="../de/" data-idioma="de" hreflang="de" lang="de"><span>Deutsch</span><small>DE</small></a><a href="../it/" data-idioma="it" hreflang="it" lang="it"><span>Italiano</span><small>IT</small></a><a href="../nl/" data-idioma="nl" hreflang="nl" lang="nl"><span>Nederlands</span><small>NL</small></a><a href="../sv/" data-idioma="sv" hreflang="sv" lang="sv"><span>Svenska</span><small>SV</small></a><a href="../hu/" data-idioma="hu" hreflang="hu" lang="hu"><span>Magyar</span><small>HU</small></a><a href="../uk/" data-idioma="uk" hreflang="uk" lang="uk"><span>Українська</span><small>UK</small></a><a href="../ru/" data-idioma="ru" hreflang="ru" lang="ru"><span>Русский</span><small>RU</small></a><a href="../ja/" data-idioma="ja" hreflang="ja" lang="ja"><span>日本語</span><small>JA</small></a><a href="../ko/" data-idioma="ko" hreflang="ko" lang="ko"><span>한국어</span><small>KO</small></a><a href="../zh-hans/" data-idioma="zh-hans" class="ativo" aria-current="page" hreflang="zh-Hans" lang="zh-Hans"><span>简体中文</span><small>简中</small></a><a href="../zh/" data-idioma="zh" hreflang="zh-Hant" lang="zh-Hant"><span>繁體中文</span><small>繁中</small></a></div></details>
+      <a class="cta-topo" href="#baixar">免费下载</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="heroi">
+    <div class="faixa heroi-grade">
+      <div class="heroi-texto">
+        <div class="selo"><b>免费</b> · Meta Quest 与 PC VR 头显</div>
+        <h1>你看的一切，<br><span class="grad">现在都是 3D。</span></h1>
+        <p class="lead">电影、剧集、去年的旅行、家人的生日、YouTube、你的游戏。Pop3D 把电脑上播放的一切变成真正的 3D，直接呈现在你的 VR 头显里。即时呈现，无需转换。</p>
+        <div class="botoes">
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>免费下载 Windows 版</span>
+          </a>
+          <a class="botao" href="#quest"><svg viewBox="0 0 24 24"><path d="M3.5 9.5c0-1.7 1.3-3 3-3h11c1.7 0 3 1.3 3 3v4c0 1.7-1.3 3-3 3h-2.6c-.8 0-1.4-.5-1.8-1.1l-.3-.6c-.4-.8-1.2-.8-1.6 0l-.3.6c-.4.6-1 1.1-1.8 1.1H6.5c-1.7 0-3-1.3-3-3z"/></svg><span>Meta Quest 版应用</span></a>
+        </div>
+        <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 免费</div>
+      </div>
+      <div class="cinema">
+        <div class="palco-heroi" data-cena="heroi" data-amp=".085" data-foco=".5" data-saltar role="img" aria-label="《Big Buck Bunny》中带有景深的画面：箭从屏幕中飞出">
+          <img class="ambi" src="../cenas/heroi/c0_p.webp" alt="" aria-hidden="true" fetchpriority="low">
+          <div class="janela"><div class="pilha" data-z="0.102,0.363,0.762" aria-hidden="true"><img class="cam" src="../cenas/heroi/c0_p.webp" srcset="../cenas/heroi/c0_p.webp 960w, ../cenas/heroi/c0.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async" fetchpriority="high"><img class="cam" src="../cenas/heroi/c1_p.webp" srcset="../cenas/heroi/c1_p.webp 960w, ../cenas/heroi/c1.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"><img class="cam" src="../cenas/heroi/c2_p.webp" srcset="../cenas/heroi/c2_p.webp 960w, ../cenas/heroi/c2.webp 1920w" sizes="(max-width: 1000px) 94vw, 58vw" width="1920" height="1000" alt="" decoding="async"></div></div>
+        </div>
+        <div class="cinema-rodape"><span class="rotulo">Big Buck Bunny · Blender Foundation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="historia" id="magica">
+    <div class="historia-fixa">
+      <div class="historia-palco" data-cena="turma" data-modo="historia" data-amp=".05" data-foco=".72" role="img" aria-label="分成多个景深层的《Big Buck Bunny》画面">
+        <div class="janela"><div class="pilha" data-z="0.172,0.535,0.863" aria-hidden="true"><img class="cam" src="../cenas/turma/c0_p.webp" srcset="../cenas/turma/c0_p.webp 960w, ../cenas/turma/c0.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c1_p.webp" srcset="../cenas/turma/c1_p.webp 960w, ../cenas/turma/c1.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/turma/c2_p.webp" srcset="../cenas/turma/c2_p.webp 960w, ../cenas/turma/c2.webp 1600w" sizes="(max-width: 900px) 92vw, 62vw" width="1600" height="833" alt="" decoding="async" loading="lazy"><img class="mapa" src="../cenas/turma/d.webp" alt="" decoding="async" loading="lazy"><i class="varredura"></i></div></div>
+      </div>
+      <div class="historia-texto">
+        <span class="olho-secao grad">魔法的秘密</span>
+        <h2>每一帧画面，都变成层层叠叠的世界。</h2>
+        <ol class="passos-hist">
+          <li data-passo><span class="n">1</span><span><b>一帧普通的画面。</b>平平的，和屏幕上的任何视频一样。</span></li>
+          <li data-passo><span class="n">2</span><span><b>Pop3D 能看出每个点的距离</b>，从角色的鼻尖到最远的那棵树。</span></li>
+          <li data-passo><span class="n">3</span><span><b>把场景分成好几层</b>，并想象出每一层后面被挡住的部分。</span></li>
+          <li data-passo><span class="n">4</span><span><b>再用 3D 重新组合</b>，左右眼各一幅画面。剩下的交给你的大脑。</span></li>
+        </ol>
+      </div>
+      <div class="historia-barra" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <section id="quest">
+    <div class="faixa">
+      <div class="aparece">
+        <span class="olho-secao grad">用你现有的设备就行</span>
+        <h2>用你的方式，在你的头显里。</h2>
+        <p class="intro">使用我们的 Quest 应用（最简单），或你已经在用的 PC VR 应用。</p>
+      </div>
+      <div class="conexoes">
+        <div class="destaque-quest aparece" data-cena="praia" data-amp=".05" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.180,0.527,0.848" aria-hidden="true"><img class="cam" src="../cenas/praia/c0_p.webp" srcset="../cenas/praia/c0_p.webp 960w, ../cenas/praia/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c1_p.webp" srcset="../cenas/praia/c1_p.webp 960w, ../cenas/praia/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/praia/c2_p.webp" srcset="../cenas/praia/c2_p.webp 960w, ../cenas/praia/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 60vw" width="1600" height="1067" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="quest-txt">
+            <span class="selo-quest">推荐</span>
+            <h3>Meta Quest 版 Pop3D 应用</h3>
+            <p>在头显里打开应用，它会通过家里的 Wi-Fi 自动找到你的电脑。不用线，也不用设置。</p>
+            <ul><li>通过 Wi-Fi 无线连接</li><li>自动找到你的电脑</li><li>专为 VR 设计的菜单</li><li>免费</li></ul>
+            <div class="quest-status">
+              <a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>在 Meta Horizon Store 获取</span></a>
+              <a href="#baixar-quest">或通过 USB 安装&nbsp;→</a>
+            </div>
+          </div>
+        </div>
+        <div class="outros aparece">
+          <h3>也支持</h3>
+          <p>更喜欢你现在用的方式？Pop3D 支持最常用的头显连接电脑的方式。</p>
+          <div class="chips">
+            <div class="chip">Steam Link<small>Meta Quest</small></div>
+            <div class="chip">Quest Link / Air Link<small>Meta Quest</small></div>
+            <div class="chip">Virtual Desktop<small>Meta Quest · Pico</small></div>
+            <div class="chip">SteamVR<small>Valve Index、HTC Vive、Pico 等</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tudo">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">不只是电影</span>
+        <h2>电脑上能放的，都能变 3D。</h2>
+        <p class="intro">电影只是开始。旅行、家庭时光、照片、YouTube 视频，甚至你最爱的游戏，都会有景深。</p>
+      </div>
+      <div class="bento">
+        <article class="cartao c-filme aparece" data-cena="spring" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.391,0.801" aria-hidden="true"><img class="cam" src="../cenas/spring/c0_p.webp" srcset="../cenas/spring/c0_p.webp 960w, ../cenas/spring/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c1_p.webp" srcset="../cenas/spring/c1_p.webp 960w, ../cenas/spring/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/spring/c2_p.webp" srcset="../cenas/spring/c2_p.webp 960w, ../cenas/spring/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="1600" height="562" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>电影和剧集</h3><p>你的全部收藏变成 3D，在专属于你的影院大屏上。</p></div></article>
+        <article class="cartao c-jogo aparece" data-cena="jogo" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.141,0.465,0.824" aria-hidden="true"><img class="cam" src="../cenas/jogo/c0_p.webp" srcset="../cenas/jogo/c0_p.webp 960w, ../cenas/jogo/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c1_p.webp" srcset="../cenas/jogo/c1_p.webp 960w, ../cenas/jogo/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/jogo/c2_p.webp" srcset="../cenas/jogo/c2_p.webp 960w, ../cenas/jogo/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="859" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>游戏</h3><p>电脑游戏在头显里变成 3D，不用装任何模组。</p></div></article>
+        <article class="cartao c-viagem aparece" data-cena="coqueiros" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.090,0.355,0.766" aria-hidden="true"><img class="cam" src="../cenas/coqueiros/c0_p.webp" srcset="../cenas/coqueiros/c0_p.webp 960w, ../cenas/coqueiros/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c1_p.webp" srcset="../cenas/coqueiros/c1_p.webp 960w, ../cenas/coqueiros/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/coqueiros/c2_p.webp" srcset="../cenas/coqueiros/c2_p.webp 960w, ../cenas/coqueiros/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>旅行</h3><p>回到那片海滩。这一次，带着景深。</p></div></article>
+        <article class="cartao c-familia aparece" data-cena="festa" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.191,0.559,0.867" aria-hidden="true"><img class="cam" src="../cenas/festa/c0_p.webp" srcset="../cenas/festa/c0_p.webp 960w, ../cenas/festa/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c1_p.webp" srcset="../cenas/festa/c1_p.webp 960w, ../cenas/festa/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/festa/c2_p.webp" srcset="../cenas/festa/c2_p.webp 960w, ../cenas/festa/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>家庭</h3><p>生日、毕业典礼、宝宝的第一步。</p></div></article>
+        <article class="cartao c-fotos aparece" data-cena="filhote" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.168,0.504,0.836" aria-hidden="true"><img class="cam" src="../cenas/filhote/c0_p.webp" srcset="../cenas/filhote/c0_p.webp 960w, ../cenas/filhote/c0.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c1_p.webp" srcset="../cenas/filhote/c1_p.webp 960w, ../cenas/filhote/c1.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/filhote/c2_p.webp" srcset="../cenas/filhote/c2_p.webp 960w, ../cenas/filhote/c2.webp 1600w" sizes="(max-width: 900px) 50vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>照片</h3><p>在电脑上打开一张照片，走进去看看。</p></div></article>
+        <article class="cartao c-youtube aparece" data-cena="lago" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.133,0.422,0.789" aria-hidden="true"><img class="cam" src="../cenas/lago/c0_p.webp" srcset="../cenas/lago/c0_p.webp 960w, ../cenas/lago/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c1_p.webp" srcset="../cenas/lago/c1_p.webp 960w, ../cenas/lago/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/lago/c2_p.webp" srcset="../cenas/lago/c2_p.webp 960w, ../cenas/lago/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="1200" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>YouTube 和浏览器</h3><p>Vlog、纪录片、MV：电脑屏幕上的任何内容。</p></div></article>
+        <article class="cartao c-natureza aparece" data-cena="cascata" data-amp=".06" data-foco="1">
+          <div class="janela"><div class="pilha" data-z="0.145,0.465,0.820" aria-hidden="true"><img class="cam" src="../cenas/cascata/c0_p.webp" srcset="../cenas/cascata/c0_p.webp 960w, ../cenas/cascata/c0.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c1_p.webp" srcset="../cenas/cascata/c1_p.webp 960w, ../cenas/cascata/c1.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cascata/c2_p.webp" srcset="../cenas/cascata/c2_p.webp 960w, ../cenas/cascata/c2.webp 1600w" sizes="(max-width: 900px) 100vw, 34vw" width="1600" height="900" alt="" decoding="async" loading="lazy"></div></div>
+          <div class="txt"><h3>自然</h3><p>风景，带着它真实的景深。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">看看差别</span>
+        <h2>同一个画面，全新的维度。</h2>
+        <p class="intro">拖动这条线。一边是熟悉的平面屏幕，另一边是加了 Pop3D 的同一个场景。在头显里效果更惊人：每只眼睛都看到属于自己的画面。</p>
+      </div>
+      <div class="comparar aparece" data-cena="cachorro" data-modo="comparar" data-amp=".07" data-foco="1" role="img" aria-label="平面画面与有景深画面的对比">
+        <div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div>
+        <div class="lado-plano"><div class="janela"><div class="pilha" data-z="0.148,0.496,0.848" aria-hidden="true"><img class="cam" src="../cenas/cachorro/c0_p.webp" srcset="../cenas/cachorro/c0_p.webp 960w, ../cenas/cachorro/c0.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c1_p.webp" srcset="../cenas/cachorro/c1_p.webp 960w, ../cenas/cachorro/c1.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/cachorro/c2_p.webp" srcset="../cenas/cachorro/c2_p.webp 960w, ../cenas/cachorro/c2.webp 1600w" sizes="(max-width: 1240px) 100vw, 1200px" width="1600" height="1055" alt="" decoding="async" loading="lazy"></div></div></div>
+        <div class="comparar-linha"><i></i></div>
+        <span class="lado esq">普通屏幕</span><span class="lado dir"><span class="grad">使用 Pop3D</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeros">
+    <div class="faixa numeros">
+      <div class="numero aparece"><b class="grad">免费</b><span>没有广告，没有订阅，没有套路。</span></div>
+      <div class="numero aparece"><b class="grad">即时</b><span>按下播放就是 3D。不用转换视频。</span></div>
+      <div class="numero aparece"><b class="grad">只属于你</b><span>你的视频永远不会离开你的电脑。</span></div>
+    </div>
+  </section>
+
+  <section id="baixar">
+    <div class="faixa">
+      <div class="centro aparece">
+        <span class="olho-secao grad">下载</span>
+        <h2>几分钟就能用上。</h2>
+        <p class="intro">Pop3D 在你的电脑上施展魔法，再呈现在头显里。请先在电脑上安装；观看时用 Quest 应用最简单。</p>
+      </div>
+      <div class="baixar-grade">
+        <div class="baixar-cartao aparece">
+          <span class="etapa"><b>1</b>在电脑上</span>
+          <h3>Windows 版 Pop3D</h3>
+          <p>下载后点“下一步”就完成了。它会自动为你的显卡做好准备，之后也会自动保持最新。</p>
+          <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>免费下载 Windows 版</span>
+          </a>
+          <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 免费</div>
+        </div>
+        <div class="baixar-cartao aparece" id="baixar-quest">
+          <span class="etapa"><b>2</b>在 Meta Quest 上</span>
+          <h3>Meta Quest 版 Pop3D 应用</h3>
+          <div class="loja"><a class="botao principal" href="https://www.meta.com/experiences/1331076283427448/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>在 Meta Horizon Store 获取</span></a></div>
+          <p>你也可以通过 USB 线安装：</p>
+          <ol class="dev">
+            <li>在手机上打开 <b>Meta Horizon</b> 应用，在“设备 › 头显设置”中打开<b>开发者模式</b>。Meta 需要一个免费的开发者账号。</li>
+            <li>用 USB 线把 Quest 连接到电脑。</li>
+            <li>在电脑上的 Pop3D 中打开 <b>设置 › 头显</b>，点 <b>安装到 Quest</b>，再在头显里点<b>允许</b>（Allow）。完成！</li>
+          </ol>
+          <a class="link-apk" href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D-Quest.apk">已经在用 SideQuest？下载 APK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="requisitos">
+    <div class="faixa">
+      <div class="aparece"><h2>你需要什么</h2><p class="intro">一台装有 NVIDIA RTX 显卡的电脑和一台 VR 头显。就这些。</p></div>
+      <div class="requisitos aparece">
+        <div class="req"><small>系统</small>Windows 10 / 11 (64 bits)</div>
+        <div class="req"><small>显卡</small>NVIDIA GeForce RTX</div>
+        <div class="req"><small>可用空间</small>15 GB<span class="req-nota">应用约占 9 GB，其余是安装时需要的空间。</span></div>
+        <div class="req"><small>头显</small>Meta Quest 2、3、3S 或 Pro，或 PC VR 头显（SteamVR）</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="faixa">
+      <h2 class="aparece">常见问题</h2>
+      <details class="aparece"><summary>真的免费吗？</summary><p>是的。没有广告，没有订阅，没有套路。</p></details>
+<details class="aparece"><summary>需要先转换视频吗？</summary><p>不需要。直接播放：3D 在观看时实时生成。</p></details>
+<details class="aparece"><summary>需要在头显上安装什么吗？</summary><p>不是必需的。最简单的是 Quest 版 Pop3D 应用，在 <a href="#baixar-quest">Meta 商店</a>免费提供。如果你愿意，Pop3D 也支持 Steam Link、Air Link、Virtual Desktop 和 SteamVR。</p></details>
+<details class="aparece"><summary>我只装了 Quest 应用，接下来呢？</summary><p>Quest 应用显示的是电脑上的 Pop3D 准备好的画面。请也在 <a href="#baixar">Windows 电脑上安装 Pop3D</a>：两边都打开后，头显会自动找到电脑。</p></details>
+<details class="aparece"><summary>安装快吗？</summary><p>第一次安装时，Pop3D 会下载约 4 GB：这是施展魔法的人工智能，会针对你的显卡进行调整。所需时间取决于你的网速。之后应用几秒就能打开，并会自动更新。</p></details>
+<details class="aparece"><summary>能用在流媒体服务上吗？</summary><p>电脑屏幕上显示的内容都可以，比如 YouTube 和大多数网站。部分付费服务会为视频加上防复制保护，不允许任何程序捕获画面。电脑里的视频可以直接使用。</p></details>
+<details class="aparece"><summary>没有 NVIDIA 显卡能用吗？</summary><p>目前，魔法需要 NVIDIA RTX 显卡。如果你的电脑没有，安装程序会在一开始、下载任何东西之前就告诉你。</p></details>
+<details class="aparece"><summary>我的视频会离开我的电脑吗？</summary><p>永远不会。一切都在你的电脑上完成，视频通过家庭网络直接传到头显。Pop3D 只会发送匿名使用统计，用来不断改进，你也可以在设置中关闭。请参阅<a href="privacy.html">隐私政策</a>。</p></details>
+<details class="aparece"><summary>应用有简体中文吗？</summary><p>有！Pop3D 支持简体中文：电脑应用、头显和安装程序都是中文。它会跟随 Windows 的语言，你也可以在 设置 › Pop3D 的语言 中更改。</p></details>
+<details class="aparece"><summary>Windows 显示“Windows 已保护你的电脑”，怎么办？</summary><p>这是 Windows 对 Microsoft 还不认识的新程序显示的标准警告。请点<b>更多信息</b>，再点<b>仍要运行</b>。</p></details>
+<details class="aparece"><summary>我对 Pop3D 有个想法！</summary><p>太好了！在应用的 <b>想法与反馈</b> 中就能直接发给我们。Pop3D 刚刚诞生，会和使用它的人一起成长。</p></details>
+    </div>
+  </section>
+
+  <div class="final" data-cena="baloes" data-amp=".05" data-foco="1" data-empurrar>
+    <div class="janela"><div class="pilha" data-z="0.113,0.410,0.797" aria-hidden="true"><img class="cam" src="../cenas/baloes/c0_p.webp" srcset="../cenas/baloes/c0_p.webp 960w, ../cenas/baloes/c0.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c1_p.webp" srcset="../cenas/baloes/c1_p.webp 960w, ../cenas/baloes/c1.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"><img class="cam" src="../cenas/baloes/c2_p.webp" srcset="../cenas/baloes/c2_p.webp 960w, ../cenas/baloes/c2.webp 1920w" sizes="100vw" width="1920" height="1440" alt="" decoding="async" loading="lazy"></div></div>
+    <div class="faixa final-txt aparece">
+      <h2>准备好用 <span class="grad">3D</span> 看一切了吗？</h2>
+      <p class="lead">免费。自动安装。在你的头显里就能用。</p>
+      <div class="botoes">
+        <a class="botao principal" data-baixar href="https://github.com/Sindelitcis/pop3d/releases/latest/download/Pop3D_Instalador.exe">
+          <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span>免费下载 Windows 版</span>
+        </a>
+      </div>
+      <div class="detalhe" data-baixar-detalhe>Windows 10 / 11 · NVIDIA RTX · 免费</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="faixa">
+    <span>© <span id="ano">2026</span> Pop3D</span>
+    <a href="privacy.html">隐私政策</a>
+    <a href="https://github.com/Sindelitcis/pop3d/releases">所有版本</a>
+    <a href="https://github.com/Sindelitcis/pop3d-quest">Quest 应用源代码（GPLv3）</a>
+    <a class="dir" href="https://github.com/Sindelitcis/pop3d/issues">发现问题？告诉我们</a>
+    <details class="creditos"><summary>图片来源</summary><p>照片来自 Wikimedia Commons。3D 效果由人工智能制作（景深：Apple 的 Depth Pro；背景重建：LaMa）。</p><p>Big Buck Bunny © 2008 Blender Foundation · www.bigbuckbunny.org · CC BY 3.0</p><p>Spring © 2019 Blender Animation Studio · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cappadocia_from_hot_air_balloon_64.jpg">Aerial view of Cappadocia from hot air balloon 64</a> · Netha Hussain · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Tim_Tams_and_Nuts_on_a_Birthday_Cake_With_Candles.jpg">Tim Tams and Nuts on a Birthday Cake With Candles</a> · Brassluff · CC0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Frank.Rinky.Gimera.png">Big.Buck.Bunny.-.Frank.Rinky.Gimera</a> · (c) Blender Foundation I www.bigbuckbunny.org see copyright information on http://www.bigbuckbunny.org/index.php/about/S · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Big.Buck.Bunny.-.Bunny.with.Bow.png">Big.Buck.Bunny.-.Bunny.with.Bow</a> · Film: Blender Foundation; www.bigbuckbunny.orgScreenshot: User:Church of emacs · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_golden_retriever_on_the_grass.jpg">Portrait of a golden retriever on the grass</a> · Shixart1985 · CC BY 2.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG">Golden Retriever 12weeks</a> · Beatrice Milek · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Rocky_Glen_Waterfall_at_Waterfall_Glen_Forest_Preserve_(03).jpg">Rocky Glen Waterfall at Waterfall Glen Forest Preserve (03)</a> · Annie Gavin · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Supertuxkart-0.9-screenshot-2.jpg">Supertuxkart-0.9-screenshot-2</a> · STK dev team · CC BY 3.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg">Moraine Lake 17092005</a> · Gorgo · Public domain</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Palm_trees_on_the_sandy_beach,_Philippines.jpg">Malapascua (island), Palm trees on the sandy beach, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Malapascua_(island),_Reclining_tropical_palm_trees,_Philippines.jpg">Malapascua (island), Reclining tropical palm trees, Philippines</a> · Vyacheslav Argenberg · CC BY 4.0</p><p><a href="https://commons.wikimedia.org/wiki/File:Blender_Open_Movie_-_Spring_(2019).png">Blender Open Movie - Spring (2019)</a> · Alexandru.rosu · CC0</p></details>
+    <a href="https://github.com/Sindelitcis">Pop3D 是 Rafael Probst 的独立项目</a>
+  </div>
+</footer>
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const topo = document.getElementById("topo");
+  addEventListener("scroll", () => topo.classList.toggle("rolou", scrollY > 30), { passive: true });
+</script>
+<script src="../js/pop3d.js?v=8bfa9a47" defer></script>
+</body>
+</html>
